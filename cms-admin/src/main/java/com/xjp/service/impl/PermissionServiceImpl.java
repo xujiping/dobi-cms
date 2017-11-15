@@ -2,12 +2,8 @@ package com.xjp.service.impl;
 
 import com.xjp.annotation.BaseService;
 import com.xjp.common.service.BaseServiceImpl;
-import com.xjp.dao.BookMapper;
 import com.xjp.dao.PermissionMapper;
-import com.xjp.model.Book;
-import com.xjp.model.BookExample;
 import com.xjp.model.Permission;
-import com.xjp.service.BookService;
 import com.xjp.service.PermissionService;
 
 import org.slf4j.Logger;

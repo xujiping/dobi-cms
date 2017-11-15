@@ -4,86 +4,16 @@ Navicat MySQL Data Transfer
 Source Server         : localhost
 Source Server Version : 50712
 Source Host           : localhost:3306
-Source Database       : ancient
+Source Database       : dobi-cms
 
 Target Server Type    : MYSQL
 Target Server Version : 50712
 File Encoding         : 65001
 
-Date: 2017-10-16 15:18:35
+Date: 2017-11-15 14:31:51
 */
 
 SET FOREIGN_KEY_CHECKS=0;
-
--- ----------------------------
--- Table structure for book
--- ----------------------------
-DROP TABLE IF EXISTS `book`;
-CREATE TABLE `book` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) DEFAULT NULL COMMENT '书名',
-  `author` varchar(50) DEFAULT NULL COMMENT '作者',
-  `pubdate` datetime DEFAULT NULL COMMENT '出版日期',
-  `size` bigint(20) DEFAULT NULL COMMENT '大小(kb)',
-  `url` varchar(1024) DEFAULT NULL COMMENT 'url路径',
-  `cover` varchar(100) DEFAULT NULL COMMENT '封面图片名称',
-  `intro` varchar(1000) DEFAULT NULL COMMENT '书籍简介',
-  `amazon` varchar(1024) DEFAULT NULL COMMENT '亚马逊书城推荐地址',
-  `type` int(2) DEFAULT '1' COMMENT '类别',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COMMENT='书籍信息表';
-
--- ----------------------------
--- Records of book
--- ----------------------------
-INSERT INTO `book` VALUES ('1', 'test', 'test', '2017-07-27 16:29:59', '1232142', 'www.baidu.com', '', '', '', '1');
-INSERT INTO `book` VALUES ('2', 'test', 'test', '2017-07-27 16:29:59', '1232142', 'www.baidu.com', '', '', '', '2');
-INSERT INTO `book` VALUES ('3', 'test', 'test', '2017-07-27 16:29:59', '1232142', 'www.baidu.com', null, null, null, '3');
-INSERT INTO `book` VALUES ('4', 'test', 'test', '2017-07-27 16:29:59', '1232142', 'www.baidu.com', null, null, null, '4');
-INSERT INTO `book` VALUES ('5', 'test', 'test', '2017-07-27 16:29:59', '1232142', 'www.baidu.com', null, null, null, '1');
-INSERT INTO `book` VALUES ('6', 'test', 'test', '2017-07-27 16:29:59', '1232142', 'www.baidu.com', null, null, null, '3');
-INSERT INTO `book` VALUES ('7', 'test', 'test', '2017-07-27 16:29:59', '1232142', 'www.baidu.com', null, null, null, '1');
-INSERT INTO `book` VALUES ('8', 'test', 'test', '2017-07-27 16:29:59', '1232142', 'www.baidu.com', null, null, null, '2');
-INSERT INTO `book` VALUES ('9', 'test', 'test', '2017-07-27 16:29:59', '1232142', 'www.baidu.com', null, null, null, '1');
-INSERT INTO `book` VALUES ('10', 'test', 'test', '2017-07-27 16:29:59', '1232142', 'www.baidu.com', null, null, null, '3');
-INSERT INTO `book` VALUES ('11', 'test', 'test', '2017-07-27 16:29:59', '1232142', 'www.baidu.com', '', '', '', '1');
-INSERT INTO `book` VALUES ('17', null, null, null, '0', null, null, null, null, '1');
-INSERT INTO `book` VALUES ('18', null, null, null, '0', null, null, null, null, '1');
-
--- ----------------------------
--- Table structure for book_format
--- ----------------------------
-DROP TABLE IF EXISTS `book_format`;
-CREATE TABLE `book_format` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `book` bigint(20) DEFAULT NULL COMMENT '书籍id',
-  `format` int(11) DEFAULT NULL COMMENT '格式ID',
-  `size` bigint(20) DEFAULT '0' COMMENT '文件大小',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='书籍格式表';
-
--- ----------------------------
--- Records of book_format
--- ----------------------------
-
--- ----------------------------
--- Table structure for download
--- ----------------------------
-DROP TABLE IF EXISTS `download`;
-CREATE TABLE `download` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `ip` varchar(15) DEFAULT NULL COMMENT '客户端IP',
-  `user` bigint(20) DEFAULT NULL COMMENT '用户ID',
-  `book` bigint(20) DEFAULT NULL COMMENT '书籍ID',
-  `format` int(1) DEFAULT NULL COMMENT '格式',
-  `time` datetime DEFAULT NULL COMMENT '下载时间',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='下载信息表';
-
--- ----------------------------
--- Records of download
--- ----------------------------
-INSERT INTO `download` VALUES ('1', null, '1', '1', '1', '2017-08-03 13:45:21');
 
 -- ----------------------------
 -- Table structure for log

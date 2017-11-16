@@ -52,7 +52,7 @@ public class ImageController {
     public Object oneUpload(@RequestParam("file") MultipartFile file, HttpServletRequest request) {
         String fileName = "";
         File newFile;
-//        String rootPath = request.getSession().getServletContext().getRealPath("/upload/");
+        // String rootPath = request.getSession().getServletContext().getRealPath("/upload/");
         if (!file.isEmpty()) {
             try {
                 fileName = file.getOriginalFilename();

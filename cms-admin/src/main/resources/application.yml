@@ -7,7 +7,7 @@ spring:
     name: cms-admin
   #数据库配置
   datasource:
-    url: jdbc:mysql://localhost:3306/ancient?useSSL=false
+    url: jdbc:mysql://localhost:3306/dobi-cms?useSSL=false
     username: root
     password: xjpdyx32.
     type: com.alibaba.druid.pool.DruidDataSource

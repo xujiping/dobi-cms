@@ -25,8 +25,4 @@ mybatis:
   mapper-locations: classpath:mapper/*.xml
 
 dobi:
-  upload:
-    #精确到目录，如c:\upload\
-    image: C:\xjp\Workspaces\project\GitHub\uploadImage\
-
-
+  upload: D:\项目\upload\

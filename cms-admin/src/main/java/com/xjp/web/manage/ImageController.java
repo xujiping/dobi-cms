@@ -20,6 +20,8 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * 图片
  *
@@ -32,13 +34,13 @@ public class ImageController {
 
     private Logger _LOGGER = LoggerFactory.getLogger(ImageController.class);
 
-    @Value("${dobi.upload.image}")
-    private String imageUploadPath;
-
     @GetMapping("index")
     public String index() {
         return "manage/image/index";
     }
+
+    @Value("${dobi.upload}")
+    private String uploadPath;
 
     /**
      * 单文件上传
@@ -47,20 +49,21 @@ public class ImageController {
      */
     @PostMapping("upload")
     @ResponseBody
-    public Object oneUpload(@RequestParam("file") MultipartFile file) {
+    public Object oneUpload(@RequestParam("file") MultipartFile file, HttpServletRequest request) {
         String fileName = "";
         File newFile;
+//        String rootPath = request.getSession().getServletContext().getRealPath("/upload/");
         if (!file.isEmpty()) {
             try {
                 fileName = file.getOriginalFilename();
-                newFile = new File(imageUploadPath + fileName);
+                newFile = new File(uploadPath + fileName);
                 BufferedOutputStream out = new BufferedOutputStream(
                     new FileOutputStream(newFile));
                 out.write(file.getBytes());
                 out.flush();
                 out.close();
             } catch (FileNotFoundException e) {
-                _LOGGER.error("上传图片-文件未找到：" + imageUploadPath + fileName, e);
+                _LOGGER.error("上传图片-文件未找到：" + uploadPath + fileName, e);
                 return new Result(ResultConstants.FAILED, e.getMessage());
             } catch (IOException e) {
                 _LOGGER.error("上传图片-上传失败。", e);

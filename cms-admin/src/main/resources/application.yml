@@ -25,4 +25,5 @@ mybatis:
   mapper-locations: classpath:mapper/*.xml
 
 dobi:
+  #文件上传路劲
   upload: D:\项目\upload\

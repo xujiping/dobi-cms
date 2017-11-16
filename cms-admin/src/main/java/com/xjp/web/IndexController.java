@@ -42,9 +42,9 @@ public class IndexController {
     }
 
     /**
-     * 读取文件
+     * 读取上传的文件
      */
-    @GetMapping("/{filename:.+}")
+    @GetMapping("/upload/{filename:.+}")
     @ResponseBody
     public void getFile(@PathVariable String filename, HttpServletResponse response) {
         FileInputStream fis = null;

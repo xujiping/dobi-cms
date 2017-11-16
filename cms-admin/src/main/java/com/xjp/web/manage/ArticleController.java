@@ -44,6 +44,11 @@ public class ArticleController {
     @Autowired
     private ArticleMapper articleMapper;
 
+    @RequestMapping(value = "index")
+    public String index() {
+        return "manage/article/index";
+    }
+
     /**
      * 查询文章列表.
      *

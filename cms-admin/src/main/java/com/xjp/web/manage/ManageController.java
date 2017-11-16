@@ -1,5 +1,6 @@
 package com.xjp.web.manage;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -8,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  *
  * @author xujiping 2017-11-16 14:57
  */
+@Controller
 @RequestMapping("/manage")
 public class ManageController {
 

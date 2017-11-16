@@ -62,7 +62,7 @@ public class LoginController {
       SecurityUtils.setSecurityManager(securityManager);
       SecurityUtils.getSubject().login(token);
       map.put("code", Constants.SUCCESS);
-      map.put("data", "/index");
+      map.put("data", "/manage/index");
     } catch (Exception e) {
       e.printStackTrace();
       map.put("code", Constants.ERROR);

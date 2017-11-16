@@ -11,7 +11,7 @@
 <body>
 <div id="main">
     <div id="toolbar">
-        <a class="waves-effect waves-button" href="javascript:;" onclick="createAction()"><i
+        <a class="waves-effect waves-button" href="/manage/article/add"><i
                 class="zmdi zmdi-plus"></i> 新增文章</a>
         <a class="waves-effect waves-button" href="javascript:;" onclick="updateAction()"><i
                 class="zmdi zmdi-edit"></i> 编辑文章</a>
@@ -73,20 +73,20 @@
     });
 
     // 新增
-    var createDialog;
-    function createAction() {
-        createDialog = $.dialog
-        ({
-             animationSpeed: 300,
-             title: '新增文章',
-             columnClass: 'xlarge',
-             content: 'url:/manage/article/add',
-             onContentReady: function () {
-                 initMaterialInput();
-                 $('select').select2();
-             }
-         });
-    }
+//    var createDialog;
+//    function createAction() {
+//        createDialog = $.dialog
+//        ({
+//             animationSpeed: 300,
+//             title: '新增文章',
+//             columnClass: 'xlarge',
+//             content: 'url:/manage/article/add',
+//             onContentReady: function () {
+//                 initMaterialInput();
+//                 $('select').select2();
+//             }
+//         });
+//    }
 
     // 编辑
     var updateDialog;

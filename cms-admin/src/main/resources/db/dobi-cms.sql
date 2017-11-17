@@ -10,10 +10,46 @@ Target Server Type    : MYSQL
 Target Server Version : 50712
 File Encoding         : 65001
 
-Date: 2017-11-15 14:31:51
+Date: 2017-11-17 11:10:12
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for article
+-- ----------------------------
+DROP TABLE IF EXISTS `article`;
+CREATE TABLE `article` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL COMMENT '标题',
+  `content` longtext COMMENT '内容',
+  `date` datetime DEFAULT NULL COMMENT '日期',
+  `status` int(2) NOT NULL DEFAULT '1' COMMENT '状态：1可用 0不可用',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='文章表';
+
+-- ----------------------------
+-- Records of article
+-- ----------------------------
+INSERT INTO `article` VALUES ('1', 'essdf', '<p>dfbrtb<br/></p>', '2017-11-17 09:43:26', '1');
+
+-- ----------------------------
+-- Table structure for customer_message
+-- ----------------------------
+DROP TABLE IF EXISTS `customer_message`;
+CREATE TABLE `customer_message` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL COMMENT '您的姓名',
+  `weixin` varchar(20) DEFAULT NULL COMMENT '微信号',
+  `mail` varchar(50) DEFAULT NULL COMMENT '电子邮箱',
+  `phone` varchar(20) DEFAULT NULL COMMENT '手机号',
+  `content` varchar(1000) DEFAULT NULL COMMENT '内容',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='客户留言';
+
+-- ----------------------------
+-- Records of customer_message
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for log
@@ -40,6 +76,24 @@ CREATE TABLE `log` (
 
 -- ----------------------------
 -- Records of log
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for menu
+-- ----------------------------
+DROP TABLE IF EXISTS `menu`;
+CREATE TABLE `menu` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL COMMENT '菜单名称',
+  `level` int(2) NOT NULL DEFAULT '1' COMMENT '菜单级别',
+  `parent` int(11) DEFAULT NULL COMMENT '父菜单ID',
+  `status` int(2) NOT NULL DEFAULT '1' COMMENT '状态：1可用 0不可用',
+  `use` int(2) NOT NULL COMMENT '用途：1前台 2后台管理菜单',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='菜单表';
+
+-- ----------------------------
+-- Records of menu
 -- ----------------------------
 
 -- ----------------------------
@@ -223,6 +277,40 @@ INSERT INTO `role_permission` VALUES ('44', '1', '48');
 INSERT INTO `role_permission` VALUES ('45', '1', '50');
 INSERT INTO `role_permission` VALUES ('47', '1', '53');
 INSERT INTO `role_permission` VALUES ('48', '1', '18');
+
+-- ----------------------------
+-- Table structure for upload
+-- ----------------------------
+DROP TABLE IF EXISTS `upload`;
+CREATE TABLE `upload` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL COMMENT '名称',
+  `suffix` varchar(255) DEFAULT NULL COMMENT '后缀',
+  `type` int(2) NOT NULL COMMENT '类型：1图片',
+  `status` int(2) NOT NULL DEFAULT '1' COMMENT '状态：1可用，0不可用',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='上传文件信息表';
+
+-- ----------------------------
+-- Records of upload
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for upload_file
+-- ----------------------------
+DROP TABLE IF EXISTS `upload_file`;
+CREATE TABLE `upload_file` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL COMMENT '名称',
+  `type` varchar(255) DEFAULT NULL COMMENT '文件类型',
+  `createdate` datetime DEFAULT NULL COMMENT '创建时间',
+  `status` int(2) NOT NULL DEFAULT '1' COMMENT '状态：1可用 0不可用',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='上传文件表';
+
+-- ----------------------------
+-- Records of upload_file
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for user

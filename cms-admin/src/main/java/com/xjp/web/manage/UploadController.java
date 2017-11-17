@@ -2,12 +2,11 @@ package com.xjp.web.manage;
 
 import com.xjp.common.constants.ResultConstants;
 import com.xjp.common.result.Result;
-import com.xjp.dao.ArticleMapper;
-import com.xjp.model.Article;
-import com.xjp.service.ArticleService;
+import com.xjp.dao.UploadMapper;
+import com.xjp.model.Upload;
+import com.xjp.service.UploadService;
 
 import org.apache.ibatis.session.RowBounds;
-import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,37 +19,36 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.sql.SQLException;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 /**
- * 文章控制器
+ * 上传文件信息控制器
  *
  * @author xujiping 2017-11-16 16:18
  */
 @Controller
-@RequestMapping("/manage/article")
-public class ArticleController {
+@RequestMapping("/manage/upload")
+public class UploadController {
 
-    private static Logger _log = LoggerFactory.getLogger(ArticleController.class);
-
-    @SuppressWarnings("SpringJavaAutowiringInspection")
-    @Autowired
-    private ArticleService articleService;
+    private static Logger _log = LoggerFactory.getLogger(UploadController.class);
 
     @SuppressWarnings("SpringJavaAutowiringInspection")
     @Autowired
-    private ArticleMapper articleMapper;
+    private UploadService uploadService;
+
+    @SuppressWarnings("SpringJavaAutowiringInspection")
+    @Autowired
+    private UploadMapper uploadMapper;
 
     @RequestMapping(value = "index")
     public String index() {
-        return "manage/article/index";
+        return "manage/upload/index";
     }
 
     /**
-     * 查询文章列表.
+     * 查询上传文件信息列表.
      *
      * @param offset 第几页
      * @param limit  每页多少行
@@ -58,7 +56,7 @@ public class ArticleController {
      * @param order  排序列
      * @return Map
      */
-//    @RequiresPermissions("cms:article:view")
+//    @RequiresPermissions("cms:upload:view")
     @RequestMapping(value = "list")
     @ResponseBody
     public Object list(
@@ -67,10 +65,10 @@ public class ArticleController {
         @RequestParam(required = false, value = "sort") String sort,
         @RequestParam(required = false, value = "order") String order) {
         // TODO 排序未实现
-        Article article = new Article();
+        Upload upload = new Upload();
         RowBounds rowBounds = new RowBounds(offset, limit);
-        List<Article> rows = articleMapper.selectByRowBounds(article, rowBounds);
-        long total = articleMapper.selectCount(article);
+        List<Upload> rows = uploadMapper.selectByRowBounds(upload, rowBounds);
+        long total = uploadMapper.selectCount(upload);
         Map<String, Object> result = new HashMap<>();
         result.put("rows", rows);
         result.put("total", total);
@@ -83,21 +81,20 @@ public class ArticleController {
      */
     @RequestMapping(value = "add")
     public String add() {
-        return "manage/article/add";
+        return "manage/upload/add";
     }
 
     /**
      * 增加
      *
-     * @param article article
+     * @param upload upload
      * @return json
      */
-//    @RequiresPermissions(value = "cms:article:create")
+//    @RequiresPermissions(value = "cms:upload:create")
     @RequestMapping(value = "add", method = RequestMethod.POST)
     @ResponseBody
-    public Object doAdd(Article article) {
-        article.setDate(new Date());
-        int count = articleMapper.insertSelective(article);
+    public Object doAdd(Upload upload) {
+        int count = uploadMapper.insertSelective(upload);
         return new Result(ResultConstants.SUCCESS, count);
     }
 
@@ -112,7 +109,7 @@ public class ArticleController {
     public Object delete(@PathVariable("ids") String ids) {
         int count = 0;
         try {
-            count = articleService.deleteByPrimaryKeys(ids.split("-"));
+            count = uploadService.deleteByPrimaryKeys(ids.split("-"));
             if (count != 1){
                 return new Result(ResultConstants.FAILED, count);
             }
@@ -131,21 +128,21 @@ public class ArticleController {
      */
     @RequestMapping(value = "update/{id}")
     public String update(@PathVariable("id") String id, Model model) {
-        Article article = articleMapper.selectByPrimaryKey(Integer.parseInt(id));
-        model.addAttribute("article", article);
-        return "manage/article/update";
+        Upload upload = uploadMapper.selectByPrimaryKey(Integer.parseInt(id));
+        model.addAttribute("upload", upload);
+        return "manage/upload/update";
     }
 
     /**
      * 修改
      *
-     * @param article article
+     * @param upload upload
      * @return json
      */
     @RequestMapping(value = "update", method = RequestMethod.POST)
     @ResponseBody
-    public Object doUpdate(Article article) {
-        int count = articleMapper.updateByPrimaryKeySelective(article);
+    public Object doUpdate(Upload upload) {
+        int count = uploadMapper.updateByPrimaryKeySelective(upload);
         if (count != 1) {
             return new Result(ResultConstants.FAILED, count);
         }

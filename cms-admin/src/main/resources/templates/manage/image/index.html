@@ -16,7 +16,10 @@
         <input type="file" name="file" onchange="imgPreview(this)"/>
         <input type="submit" value="upload" />
     </form>
-    <img th:src="@{'/350902-106.jpg'}" width="200px" height="150px" />
+    <ul th:each="image, iterStat : ${rows}">
+        <img th:src="@{'/350902-106.jpg'}" width="200px" height="150px" />
+        <p th:value="${image.name}"></p>
+    </ul>
 </div>
 </body>
 <div th:include="/inc/common :: footer"></div>

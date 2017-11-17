@@ -45,7 +45,7 @@ public class ArticleController {
     private ArticleMapper articleMapper;
 
     @RequestMapping(value = "index")
-    public String index() {
+    public String index(Model model) {
         return "manage/article/index";
     }
 

@@ -16,11 +16,16 @@
 		.menu a{
 			color: black;
 		}
+		#menu {
+			-moz-box-shadow: 2px 2px 2px #aaa;
+			/* 老的 Firefox */
+			box-shadow: 1px 0px 5px #aaa;
+		}
 	</style>
 
 	<body>
 		<!--菜单-->
-		<div class="container-fluid" style="padding: 0px;">
+		<div id="menu" class="container-fluid" style="padding: 0px;">
 			<div class="container" style="height: 100px;">
 				<img style="float: left;" src="img/公司标志.jpg" height="100px" />
 				<div class="menu" style="height: 100%; width: 100px; float: left; padding: 40px 10px; text-align: center;">

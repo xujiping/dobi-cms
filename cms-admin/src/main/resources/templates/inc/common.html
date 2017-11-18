@@ -32,4 +32,44 @@
     <script th:src="@{/js/common.js}"></script>
 </div>
 
+<!--前台菜单-->
+<div th:fragment="menu">
+    <div id="ivf-menu" class="container-fluid" style="padding: 0px;">
+        <div class="container" style="height: 100px;">
+            <img style="float: left;" th:src="@{images/ivf.jpg}" height="100px" />
+            <div class="ivf-menu" style="height: 100%; width: 100px; float: left; padding: 40px 10px; text-align: center;">
+                <a href="#">首页</a>
+            </div>
+            <div class="ivf-menu" style="height: 100%; width: 120px; float: left; padding: 40px 10px; text-align: center;">
+                <a>关于我们</a>
+            </div>
+            <div class="ivf-menu" style="height: 100%; width: 120px; float: left; padding: 40px 10px; text-align: center;">
+                <a>服务项目</a>
+            </div>
+            <div class="ivf-menu" style="height: 100%; width: 120px; float: left; padding: 40px 10px; text-align: center;">
+                <a>成功案例</a>
+            </div>
+            <div class="ivf-menu" style="height: 100%; width: 120px; float: left; padding: 40px 10px; text-align: center;">
+                <a>试管咨询</a>
+            </div>
+            <div class="ivf-menu" style="height: 100%; width: 120px; float: left; padding: 40px 10px; text-align: center;">
+                <a>在线留言</a>
+            </div>
+            <div class="ivf-menu" style="height: 100%; width: 120px; float: left; padding: 40px 10px; text-align: center;">
+                <a>联系我们</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--前台底部footer-->
+<div th:fragment="foot">
+    <footer class="ivf-footer" style="height: 80px; background-color: darkgray;">
+        <div class="container" style="text-align: center; color: white; padding: 10px;">
+            <p>Copyright © 2017,www.ivf1.cn,All rights reserved版权所有 © 宝贝计划试管婴儿</p>
+            <p>未经许可 严禁复制 </p>
+        </div>
+    </footer>
+</div>
+
 </html>

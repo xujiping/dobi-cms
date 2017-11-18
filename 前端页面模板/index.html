@@ -8,80 +8,183 @@
 		<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
 		<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	</head>
+	<style type="text/css">
+		.menu:hover {
+			background-color: green;
+			color: white;
+		}
+		.menu a{
+			color: black;
+		}
+	</style>
 
 	<body>
 		<!--菜单-->
-		<div class="container-fluid">
-			<nav class="navbar navbar-default" role="navigation">
-				<div class="container-fluid">
-					<div class="navbar-header">
-						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#example-navbar-collapse">
-							<span class="sr-only">切换导航</span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</button>
-						<img src="img/公司标志.jpg" width="120px" height="40px" />
-					</div>
-					<div class="collapse navbar-collapse" id="example-navbar-collapse">
-						<ul class="nav navbar-nav">
-							<li class="active">
-								<a href="#">首页</a>
-							</li>
-							<li>
-								<a href="about-us.html">关于我们</a>
-							</li>
-							<li>
-								<a href="service.html">服务项目</a>
-							</li>
-							<li>
-								<a href="success-case.html">成功案例</a>
-							</li>
-							<li>
-								<a href="tube-advisory.html">试管咨询</a>
-							</li>
-							<li>
-								<a href="online-message.html">在线留言</a>
-							</li>
-							<li>
-								<a href="contact-me.html">联系我们</a>
-							</li>
-						</ul>
-					</div>
+		<div class="container-fluid" style="padding: 0px;">
+			<div class="container" style="height: 100px;">
+				<img style="float: left;" src="img/公司标志.jpg" height="100px" />
+				<div class="menu" style="height: 100%; width: 100px; float: left; padding: 40px 10px; text-align: center;">
+					<a href="#">首页</a>
 				</div>
-			</nav>
+				<div class="menu" style="height: 100%; width: 120px; float: left; padding: 40px 10px; text-align: center;">
+					<a>关于我们</a>
+				</div>
+				<div class="menu" style="height: 100%; width: 120px; float: left; padding: 40px 10px; text-align: center;">
+					<a>服务项目</a>
+				</div>
+				<div class="menu" style="height: 100%; width: 120px; float: left; padding: 40px 10px; text-align: center;">
+					<a>成功案例</a>
+				</div>
+				<div class="menu" style="height: 100%; width: 120px; float: left; padding: 40px 10px; text-align: center;">
+					<a>试管咨询</a>
+				</div>
+				<div class="menu" style="height: 100%; width: 120px; float: left; padding: 40px 10px; text-align: center;">
+					<a>在线留言</a>
+				</div>
+				<div class="menu" style="height: 100%; width: 120px; float: left; padding: 40px 10px; text-align: center;">
+					<a>联系我们</a>
+				</div>
+			</div>
 		</div>
+
 		<!--大图-->
 		<img src="img/sy_datu.jpg" width="100%" />
 
-		<!--试管婴儿篇-->
-		<div style="background: #0B5A9F; width: 100%; height: 400px;">
-			<div style="width: 50%; float: left; background: blue;"></div>
-			<img src="img/sy_sg.jpg" height="400px" style="float: right;" />
+		<div class="container">
+			<div style="background-color: #0B5A9F; color: white; width: 120px; height: 50px;padding-top: 15px; float: left;">
+				<p style="text-align: center;">服务项目</p>
+			</div>
+			<div style="float: left; height: 50px; padding-top: 15px; padding-left: 20px;">
+				<a href="#" style="margin-left: 10px;">
+					<span class="glyphicon glyphicon-play"></span>
+					<span>失独家庭再生养</span>
+				</a>
+				<a href="#" style="margin-left: 10px;">
+					<span class="glyphicon glyphicon-play"></span>
+					<span>失独家庭再生养</span>
+				</a>
+				<a href="#" style="margin-left: 10px;">
+					<span class="glyphicon glyphicon-play"></span>
+					<span>失独家庭再生养</span>
+				</a>
+				<a href="#" style="margin-left: 10px;">
+					<span class="glyphicon glyphicon-play"></span>
+					<span>失独家庭再生养</span>
+				</a>
+				<a href="#" style="margin-left: 10px;">
+					<span class="glyphicon glyphicon-play"></span>
+					<span>失独家庭再生养</span>
+				</a>
+			</div>
 		</div>
-		
+
+		<!--关于我们-->
+		<div class="container" style="margin: 40px auto; text-align: center;">
+			<h4>关于我们</h4>
+			<p style="margin:0 auto; width:580px">为了能实现“提供百分之百满意的客户服务”的诺言，我们配备了专业的管理人员，在全国更有 队伍庞大的医疗技术人员和服务人员，为用户提供完善的服务
+			</p>
+			<div style="margin:0 auto; width: 200px;">
+				<hr style="width:40px; height:1px;border:none;border-top:1px solid #555555; float: left;" />
+				<ul style="float: left; margin: 8px 0 0 30px; color: green; font-size: 20sp;">
+					<li></li>
+				</ul>
+				<hr style="width:40px; height:1px;border:none;border-top:1px solid #555555; float: right;" />
+			</div>
+			<div style="float: left; height: 300px; text-align: left;">
+				<img src="" width="460px" height="300px" style="float: left; background-color: darkgray;" />
+				<div style="width: 660px; height: 300px; float: left; padding: 10px 20px;">
+					<h4>宝贝计划简介</h4>
+					<p>HOSPITAL INTROUDUCTION</p>
+					<p style="text-indent: 2em;">宝贝计划IVF国际试管婴儿成立于2008年，在全球拥有多家公司是中国首家试管婴儿国际化服务机构，在国内外拥都有资深的试管医学专家，机构工作人员均由高素质专业人士组成，是中国最权威、最专业的试管第三方辅助生殖服务机构；我们将以全球最专业的医学，最有效的方案，最严谨科学来服务不孕不育、失独、二胎高龄产妇等家庭提供全面、权威、可靠的一站式医疗服务​。</p>
+					<button type="button" class="btn btn-success" style="margin-top: 80px;">了解更多</button>
+				</div>
+			</div>
+		</div>
+
+		<!--试管婴儿篇-->
+		<div class="container-fluid" style="padding: 0;">
+			<div style="width: 100%; height: 500px; margin-top: 20px; float: left;">
+				<div style="width: 55%; height: 500px; float: left; background: #0B5A9F; padding: 0 100px;">
+					<h4 style="color: white;">试管婴儿篇</h4>
+					<p style="text-indent: 2em; color: white;">国际辅助生育技术监控委员会的研究显示，在1990年时，全球还只有大约9.5万名试管婴儿，但是到2000年已增加到近100万，到2007年则增加到250万。从2007年到现在，试管婴儿技术又为全世界增添了约250万人，其加速增长的趋势十分明显。这说明，以试管婴儿为代表的体外授精技术已成为治疗不育的主要手段。</p>
+					<p style="color: white;">我们公司目前可以操作各类试管手术项目包括：</p>
+					<p style="color: yellow;">服务项目：第三方辅助生殖（捐卵、代孕）</p>
+					<p style="color: yellow;">服务项目：多胞胎（性别）选择</p>
+					<p style="color: yellow;">服务项目：冷冻卵子（精子）</p>
+					<p style="color: yellow;">服务项目：失独家庭再生养</p>
+					<p style="color: yellow;">服务项目：同性恋（单身）辅助生殖</p>
+					<p style="color: yellow;">服务项目：移植前胚胎染色体筛查（诊断）</p>
+				</div>
+				<img src="" height="500px" width="45%" style="float: right; background-color: darkgray;" />
+			</div>
+		</div>
+
 		<!--干细胞篇-->
-		<div style="background: #0B5A9F; width: 100%; height: 400px; margin-top: 60px;">
-			<div style="width: 50%; float: left; background: blue;"></div>
-			<img src="img/sy_sg.jpg" height="400px" style="float: right;" />
+		<div class="container-fluid" style="padding: 0;">
+			<div style="width: 100%; height: 500px; margin-top: 20px; float: left;">
+				<div style="width: 55%; height: 500px; float: left; background: #0B5A9F; padding: 0 100px;">
+					<h4 style="color: white;">试管婴儿篇</h4>
+					<p style="text-indent: 2em; color: white;">国际辅助生育技术监控委员会的研究显示，在1990年时，全球还只有大约9.5万名试管婴儿，但是到2000年已增加到近100万，到2007年则增加到250万。从2007年到现在，试管婴儿技术又为全世界增添了约250万人，其加速增长的趋势十分明显。这说明，以试管婴儿为代表的体外授精技术已成为治疗不育的主要手段。</p>
+					<p style="color: white;">我们公司目前可以操作各类试管手术项目包括：</p>
+					<p style="color: yellow;">服务项目：第三方辅助生殖（捐卵、代孕）</p>
+					<p style="color: yellow;">服务项目：多胞胎（性别）选择</p>
+					<p style="color: yellow;">服务项目：冷冻卵子（精子）</p>
+					<p style="color: yellow;">服务项目：失独家庭再生养</p>
+					<p style="color: yellow;">服务项目：同性恋（单身）辅助生殖</p>
+					<p style="color: yellow;">服务项目：移植前胚胎染色体筛查（诊断）</p>
+				</div>
+				<img src="" height="500px" width="45%" style="float: right; background-color: darkgray;" />
+			</div>
 		</div>
 
 		<!--最新动态-->
-		<div>
+		<div class="container" style="margin: 40px auto; text-align: center;">
 			<h4>最新动态</h4>
-			<p></p>
+			<p style="margin:0 auto; width:580px">为了能实现“提供百分之百满意的客户服务”的诺言，我们配备了专业的管理人员，在全国更有 队伍庞大的医疗技术人员和服务人员，为用户提供完善的服务
+			</p>
+			<div style="margin:0 auto; width: 200px;">
+				<hr style="width:40px; height:1px;border:none;border-top:1px solid #555555; float: left;" />
+				<ul style="float: left; margin: 8px 0 0 30px; color: green; font-size: 20sp;">
+					<li></li>
+				</ul>
+				<hr style="width:40px; height:1px;border:none;border-top:1px solid #555555; float: right;" />
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3">
+					<img src="img/sy_sg.jpg" width="100%" />
+					<p>文章标题</p>
+					<p>2017-12-01</p>
+				</div>
+				<div class="col-md-3">
+					<img src="img/sy_sg.jpg" width="100%" />
+					<p>文章标题</p>
+					<p>2017-12-01</p>
+				</div>
+				<div class="col-md-3">
+					<img src="img/sy_sg.jpg" width="100%" />
+					<p>文章标题</p>
+					<p>2017-12-01</p>
+				</div>
+				<div class="col-md-3">
+					<img src="img/sy_sg.jpg" width="100%" />
+					<p>文章标题</p>
+					<p>2017-12-01</p>
+				</div>
+			</div>
 		</div>
 
 		<!---->
-		<div class="row">
+		<div class="container" style="margin-top: 40px;">
 			<div class="col-md-6" style="height: 400px;">
-				<img src="img/sy_sg.jpg" />
+				<img src="img/sy_sg.jpg" width="500px" />
 			</div>
 			<div class="col-md-6" style="height: 400px;">
 				<p style="color: green; size: 20sp;"><strong>宝贝计划IVF国际</strong></p>
 				<p>联系人：宝贝计划IVF国际试管婴儿</p>
-				<p>手机（微信）：15116232111 18073126111<br />
-					13288815558 13142064777
+				<p>手机（微信）：15116232111 18073126111<br /> 13288815558 13142064777
 				</p>
 				<p>地址：长沙市开福区华创国际广场</p>
 				<p>考察热线：</p>
@@ -89,7 +192,7 @@
 				<p>（二十四小时在线，你的建议或意见使我们前进的动力）</p>
 				<div class="col-md-12">
 					<div class="col-md-4">
-						<img src="" />
+						<img src="" width="120px" style="background-color: darkgray;" />
 					</div>
 					<div class="col-md-8">
 						<p>宝贝计划试管代孕集团</p>
@@ -98,9 +201,10 @@
 				</div>
 			</div>
 		</div>
-		<footer class="footer navbar-fixed-bottom" style="height: 80px; background-color: black;">
-			<div class="container">
-				<p style="text-align: center; color: white;">底部文字</p>
+		<footer class="footer" style="height: 80px; background-color: darkgray;">
+			<div class="container" style="text-align: center; color: white; padding: 10px;">
+				<p>Copyright © 2017,www.ivf1.cn,All rights reserved版权所有 © 宝贝计划试管婴儿</p>
+				<p>未经许可 严禁复制 </p>
 			</div>
 		</footer>
 	</body>

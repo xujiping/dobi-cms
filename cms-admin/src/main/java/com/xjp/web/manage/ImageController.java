@@ -109,7 +109,7 @@ public class ImageController {
                 out.close();
                 //写入文件信息到数据库中
                 Upload upload = new Upload();
-                upload.setName(fileName.substring(0, fileName.lastIndexOf("0") + 2));
+                upload.setName(fileName);
                 upload.setSuffix(suffix);
                 upload.setType(1);  //图片
                 int count = uploadMapper.insertSelective(upload);

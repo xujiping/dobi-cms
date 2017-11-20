@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -24,6 +25,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -91,7 +93,6 @@ public class ImageController {
      * @return
      */
     @PostMapping("upload")
-    @ResponseBody
     public Object oneUpload(@RequestParam("file") MultipartFile file, HttpServletRequest request) {
         String fileName = "";
         File newFile;
@@ -124,9 +125,32 @@ public class ImageController {
                 _LOGGER.error("上传图片-上传失败。", e);
                 return new Result(ResultConstants.FAILED, e.getMessage());
             }
-            return new Result(ResultConstants.SUCCESS, null);
+            return "manage/image/index";
         }
-        return new Result(ResultConstants.FAILED, null);
+        return "manage/image/add";
+    }
+
+    @RequestMapping(value = "add")
+    public String add() {
+        return "manage/image/add";
+    }
+
+    /**
+     * 删除图片
+     *
+     * @param ids 多个id以-分隔
+     * @return json
+     */
+    @GetMapping(value = "/delete/{ids}")
+    @ResponseBody
+    public Object delete(@PathVariable("ids") String ids) {
+        int count = 0;
+        try {
+            count = uploadService.deleteByPrimaryKeys(ids.split("-"));
+        } catch (SQLException e) {
+            return new Result(ResultConstants.FAILED, count);
+        }
+        return new Result(ResultConstants.SUCCESS, count);
     }
 
 }

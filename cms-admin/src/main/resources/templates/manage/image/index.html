@@ -10,50 +10,193 @@
 </head>
 <body>
 <div id="main">
-    <form method="post" action="upload" enctype="multipart/form-data">
-        <img id="preview" th:width="120px"/>
-        <br/>
-        <input type="file" name="file" onchange="imgPreview(this)"/>
-        <input type="submit" value="upload" />
-    </form>
-    <ul th:each="image, iterStat : ${rows}">
-        <img th:src="@{'/350902-106.jpg'}" width="200px" height="150px" />
-        <p th:value="${image.name}"></p>
-    </ul>
+    <div id="toolbar">
+        <a class="waves-effect waves-button" href="/manage/image/add"><i
+                class="zmdi zmdi-plus"></i> 新增图片</a>
+        <a class="btn btn-danger" href="javascript:;" onclick="deleteAction()"><i
+                class="zmdi zmdi-close"></i> 删除图片</a>
+    </div>
+    <table id="table"></table>
 </div>
 </body>
 <div th:include="/inc/common :: footer"></div>
 <script>
 
-    <!-- 图片预览 -->
-    function imgPreview(fileDom){
-        //判断是否支持FileReader
-        if (window.FileReader) {
-            var reader = new FileReader();
+    var $table = $('#table');
+    $(function () {
+        // bootstrap table初始化
+        $table.bootstrapTable
+        ({
+             url: '/manage/image/list',
+             height: getHeight(),
+             striped: true,
+             search: true,
+             showRefresh: true,
+             showColumns: true,
+             minimumCountColumns: 2,
+             clickToSelect: true,
+             detailView: true,
+             detailFormatter: 'detailFormatter',
+             pagination: true,
+             paginationLoop: false,
+             sidePagination: 'server',
+             silentSort: false,
+             smartDisplay: false,
+             escape: true,
+             searchOnEnterKey: true,
+             idField: 'id',
+             maintainSelected: true,
+             toolbar: '#toolbar',
+             columns: [
+                 {field: 'ck', checkbox: true},
+                 {
+                     field: 'id',
+                     title: '编号',
+                     sortable: true,
+                     align: 'center'
+                 },
+                 {
+                     field: 'name',
+                     title: '预览',
+                     align: 'center',
+                     formatter: function(value, row, index){
+                         return '<img src="http://localhost:8000/upload/' + value +'" width="80px" class="img-rounded" />';
+                     }
+                 },
+                 {field: 'name', title: '图片名称'},
+                 {
+                     field: 'url',
+                     title: '访问路径',
+                     formatter: function(value, row, index){
+                         return 'http://localhost:8000/upload/' + row.name;
+                     }
+                 },
+                 {
+                     field: 'status',
+                     title: '状态',
+                     formatter: function(value, row, index){
+                         if(value == '1'){
+                             return "有效"
+                         }else{
+                             return "无效"
+                         }
+                     }
+                 }
+             ]
+         });
+    });
+
+    // 删除
+    var deleteDialog;
+    function deleteAction() {
+        var rows = $table.bootstrapTable('getSelections');
+        if (rows.length == 0) {
+            $.confirm({
+                          title: false,
+                          content: '请至少选择一条记录！',
+                          autoClose: 'cancel|3000',
+                          backgroundDismiss: true,
+                          buttons: {
+                              cancel: {
+                                  text: '取消',
+                                  btnClass: 'waves-effect waves-button'
+                              }
+                          }
+                      });
         } else {
-            alert("您的设备不支持图片预览功能，如需该功能请升级您的设备！");
+            deleteDialog = $.confirm
+            ({
+                 type: 'red',
+                 animationSpeed: 300,
+                 title: false,
+                 content: '确认删除该图片吗？',
+                 buttons: {
+                     confirm: {
+                         text: '确认',
+                         btnClass: 'waves-effect waves-button',
+                         action: function () {
+                             var ids = new Array();
+                             for (var i in rows) {
+                                 ids.push(rows[i].id);
+                             }
+                             $.ajax({
+                                        type: 'get',
+                                        url: '/manage/image/delete/'
+                                             + ids.join("-"),
+                                        success: function (result) {
+                                            if (result.code != 1) {
+                                                if (result.data
+                                                    instanceof Array) {
+                                                    $.each(result.data,
+                                                           function (index,
+                                                                     value) {
+                                                               $.confirm({
+                                                                             theme: 'dark',
+                                                                             animation: 'rotateX',
+                                                                             closeAnimation: 'rotateX',
+                                                                             title: false,
+                                                                             content: value.errorMsg,
+                                                                             buttons: {
+                                                                                 confirm: {
+                                                                                     text: '确认',
+                                                                                     btnClass: 'waves-effect waves-button waves-light'
+                                                                                 }
+                                                                             }
+                                                                         });
+                                                           });
+                                                } else {
+                                                    $.confirm({
+                                                                  theme: 'dark',
+                                                                  animation: 'rotateX',
+                                                                  closeAnimation: 'rotateX',
+                                                                  title: false,
+                                                                  content: result.data.errorMsg,
+                                                                  buttons: {
+                                                                      confirm: {
+                                                                          text: '确认',
+                                                                          btnClass: 'waves-effect waves-button waves-light'
+                                                                      }
+                                                                  }
+                                                              });
+                                                }
+                                            } else {
+                                                deleteDialog.close();
+                                                $table.bootstrapTable(
+                                                    'refresh');
+                                            }
+                                        },
+                                        error: function (XMLHttpRequest,
+                                                         textStatus,
+                                                         errorThrown) {
+                                            $.confirm({
+                                                          theme: 'dark',
+                                                          animation: 'rotateX',
+                                                          closeAnimation: 'rotateX',
+                                                          title: false,
+                                                          content: textStatus,
+                                                          buttons: {
+                                                              confirm: {
+                                                                  text: '确认',
+                                                                  btnClass: 'waves-effect waves-button waves-light'
+                                                              }
+                                                          }
+                                                      });
+                                        }
+                                    });
+                         }
+                     },
+                     cancel: {
+                         text: '取消',
+                         btnClass: 'waves-effect waves-button'
+                     }
+                 }
+             });
         }
-        //获取文件
-        var file = fileDom.files[0];
-        var imageType = /^image\//;
-        //是否是图片
-        if (!imageType.test(file.type)) {
-            alert("请选择图片！");
-            return;
-        }
-        //读取完成
-        reader.onload = function(e) {
-            //获取图片dom
-            var img = document.getElementById("preview");
-            //图片路径设置为读取的图片
-            img.src = e.target.result;
-        };
-        reader.readAsDataURL(file);
     }
 
     // init
     $(function () {
-
+        //获取图片列表
     });
 </script>
 </html>

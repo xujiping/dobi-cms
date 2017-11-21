@@ -122,7 +122,7 @@ body .jconfirm {
     border-color: #337ab7;
 }
 
-.ivf-menu a {
+.ivf-menu > a {
     color: black;
 }
 

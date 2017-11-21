@@ -37,27 +37,30 @@
     <div id="ivf-menu" class="container-fluid" style="padding: 0px;">
         <div class="container" style="height: 100px;">
             <img style="float: left;" th:src="@{images/ivf.jpg}" height="100px" />
-            <div class="ivf-menu" style="height: 100%; width: 100px; float: left; padding: 40px 10px; text-align: center;">
-                <a href="index">首页</a>
+            <div th:each="menu, iterStat : ${menus}" class="ivf-menu" style="height: 100%; width: 100px; float: left; padding: 40px 10px; text-align: center;">
+                <a th:href="${menu.url}" th:value="${menu.name}" />
             </div>
-            <div class="ivf-menu" style="height: 100%; width: 120px; float: left; padding: 40px 10px; text-align: center;">
-                <a th:href="about">关于我们</a>
-            </div>
-            <div class="ivf-menu" style="height: 100%; width: 120px; float: left; padding: 40px 10px; text-align: center;">
-                <a th:href="service">服务项目</a>
-            </div>
-            <div class="ivf-menu" style="height: 100%; width: 120px; float: left; padding: 40px 10px; text-align: center;">
-                <a th:href="success">成功案例</a>
-            </div>
-            <div class="ivf-menu" style="height: 100%; width: 120px; float: left; padding: 40px 10px; text-align: center;">
-                <a th:href="tube">试管咨询</a>
-            </div>
-            <div class="ivf-menu" style="height: 100%; width: 120px; float: left; padding: 40px 10px; text-align: center;">
-                <a th:href="message">在线留言</a>
-            </div>
-            <div class="ivf-menu" style="height: 100%; width: 120px; float: left; padding: 40px 10px; text-align: center;">
-                <a th:href="contact">联系我们</a>
-            </div>
+            <!--<div class="ivf-menu" style="height: 100%; width: 100px; float: left; padding: 40px 10px; text-align: center;">-->
+                <!--<a href="#">首页</a>-->
+            <!--</div>-->
+            <!--<div class="ivf-menu" style="height: 100%; width: 120px; float: left; padding: 40px 10px; text-align: center;">-->
+                <!--<a th:href="about">关于我们</a>-->
+            <!--</div>-->
+            <!--<div class="ivf-menu" style="height: 100%; width: 120px; float: left; padding: 40px 10px; text-align: center;">-->
+                <!--<a th:href="service">服务项目</a>-->
+            <!--</div>-->
+            <!--<div class="ivf-menu" style="height: 100%; width: 120px; float: left; padding: 40px 10px; text-align: center;">-->
+                <!--<a th:href="success">成功案例</a>-->
+            <!--</div>-->
+            <!--<div class="ivf-menu" style="height: 100%; width: 120px; float: left; padding: 40px 10px; text-align: center;">-->
+                <!--<a th:href="tube">试管咨询</a>-->
+            <!--</div>-->
+            <!--<div class="ivf-menu" style="height: 100%; width: 120px; float: left; padding: 40px 10px; text-align: center;">-->
+                <!--<a th:href="message">在线留言</a>-->
+            <!--</div>-->
+            <!--<div class="ivf-menu" style="height: 100%; width: 120px; float: left; padding: 40px 10px; text-align: center;">-->
+                <!--<a th:href="contact">联系我们</a>-->
+            <!--</div>-->
         </div>
     </div>
 </div>

@@ -54,7 +54,13 @@
                      sortable: true,
                      align: 'center'
                  },
-                 {field: 'name', title: '名称'},
+                 {
+                     field: 'name',
+                     title: '名称',
+                     formatter: function(value, row, index){
+                         return '<a href="/manage/custom/' + row.url + '">' + row.name + '</a>';
+                     }
+                 },
                  {field: 'level', title: '级别'},
                  {field: 'parent', title: '父菜单ID'},
                  {field: 'url', title: '路径'},

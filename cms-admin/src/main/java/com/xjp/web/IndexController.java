@@ -52,7 +52,7 @@ public class IndexController {
     public String index(Model model) {
         List<Menu> menus = menuMapper.selectAll();
         model.addAttribute("menus", menus);
-        return "index";
+        return "front/index";
     }
 
     /**

@@ -28,7 +28,7 @@ public class ShiroConfiguration {
         //必须设置SecurityManager
         shiroFilterFactoryBean.setSecurityManager(securityManager);
         //如果不设置默认会自动寻找根目录/login.jsp页面
-        shiroFilterFactoryBean.setLoginUrl("/login");
+        shiroFilterFactoryBean.setLoginUrl("/manage/login");
         //登录成功后跳转
         shiroFilterFactoryBean.setSuccessUrl("/manage/index");
         //未授权界面

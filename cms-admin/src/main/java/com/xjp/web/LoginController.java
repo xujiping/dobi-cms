@@ -28,7 +28,6 @@ import io.swagger.annotations.ApiOperation;
 @RequestMapping("/login")
 public class LoginController {
 
-
   @Autowired
   private SecurityManager securityManager;
 

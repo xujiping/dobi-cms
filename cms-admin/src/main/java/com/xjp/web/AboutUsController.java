@@ -9,6 +9,6 @@ public class AboutUsController {
 	@RequestMapping("/aboutUs")
 	public String aboutUs(){
 		
-		return "about-us";
+		return "front/about-us";
 	}
 }

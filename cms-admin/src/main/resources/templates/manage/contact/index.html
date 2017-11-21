@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml" lang="zh-cn">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>文章列表</title>
+    <head th:include="/inc/common :: head"></head>
+</head>
+<body>
+<div id="main">
+    <div style="padding: 100px 100px 10px;">
+        <form class="bs-example bs-example-form" role="form">
+            <div class="input-group">
+                <span class="input-group-addon">@</span>
+                <input type="text" class="form-control" placeholder="twitterhandle">
+            </div>
+            <br>
+            <div class="input-group">
+                <input type="text" class="form-control">
+                <span class="input-group-addon">.00</span>
+            </div>
+            <br>
+            <div class="input-group">
+                <span class="input-group-addon">$</span>
+                <input type="text" class="form-control">
+                <span class="input-group-addon">.00</span>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+<div th:include="/inc/common :: footer"></div>
+<script>
+
+</script>
+</html>

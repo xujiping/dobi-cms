@@ -35,7 +35,7 @@ public class LoginController {
   @ApiOperation(value = "登录页面", notes = "")
   @RequestMapping(value = "", method = RequestMethod.GET)
   public String login() {
-    return "login";
+    return "manage/login";
   }
 
   /**

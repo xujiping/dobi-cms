@@ -38,3 +38,7 @@ function initMaterialInput() {
 		}
 	});
 }
+//时间戳转日期
+function getLocalTime(nS) {
+return new Date(parseInt(nS) * 1000).toLocaleString().replace(/:\d{1,2}$/,' ');
+}

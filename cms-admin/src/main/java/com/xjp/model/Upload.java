@@ -24,9 +24,23 @@ public class Upload {
     private Integer type;
 
     /**
+     * 所属菜单ID
+     */
+    @Column(name = "menu_id")
+    private Integer menuId;
+
+    /**
      * 状态：1可用，0不可用
      */
     private Integer status;
+
+    public Integer getMenuId() {
+        return menuId;
+    }
+
+    public void setMenuId(Integer menuId) {
+        this.menuId = menuId;
+    }
 
     /**
      * @return id

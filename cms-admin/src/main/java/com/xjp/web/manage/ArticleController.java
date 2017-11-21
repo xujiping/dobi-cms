@@ -94,11 +94,10 @@ public class ArticleController {
      */
 //    @RequiresPermissions(value = "cms:article:create")
     @RequestMapping(value = "add", method = RequestMethod.POST)
-    @ResponseBody
     public Object doAdd(Article article) {
         article.setDate(new Date());
         int count = articleMapper.insertSelective(article);
-        return new Result(ResultConstants.SUCCESS, count);
+        return "manage/article/index";
     }
 
     /**
@@ -143,13 +142,12 @@ public class ArticleController {
      * @return json
      */
     @RequestMapping(value = "update", method = RequestMethod.POST)
-    @ResponseBody
     public Object doUpdate(Article article) {
         int count = articleMapper.updateByPrimaryKeySelective(article);
         if (count != 1) {
-            return new Result(ResultConstants.FAILED, count);
+            return "manage/article/update";
         }
-        return new Result(ResultConstants.SUCCESS, count);
+        return "manage/article/index";
     }
 
 }

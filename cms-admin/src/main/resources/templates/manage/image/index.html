@@ -13,7 +13,7 @@
     <div id="toolbar">
         <a class="waves-effect waves-button" href="/manage/image/add"><i
                 class="zmdi zmdi-plus"></i> 新增图片</a>
-        <a class="btn btn-danger" href="javascript:;" onclick="deleteAction()"><i
+        <a class="waves-effect waves-button" href="javascript:;" onclick="deleteAction()"><i
                 class="zmdi zmdi-close"></i> 删除图片</a>
     </div>
     <table id="table"></table>
@@ -69,17 +69,6 @@
                      title: '访问路径',
                      formatter: function(value, row, index){
                          return 'http://localhost:8000/upload/' + row.name;
-                     }
-                 },
-                 {
-                     field: 'status',
-                     title: '状态',
-                     formatter: function(value, row, index){
-                         if(value == '1'){
-                             return "有效"
-                         }else{
-                             return "无效"
-                         }
                      }
                  }
              ]

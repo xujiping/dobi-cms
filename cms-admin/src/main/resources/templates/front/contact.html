@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<meta charset="UTF-8" />
+		<!--让页面以正常比例进行显示并且禁止用户缩放页面-->
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+		<title>联系我们</title>
+        <link th:href="@{/plugins/fullPage/jquery.fullPage.css}" rel="stylesheet"/>
+        <link th:href="@{/plugins/bootstrap-3.3.0/css/bootstrap.min.css}" rel="stylesheet"/>
+        <link th:href="@{/plugins/material-design-iconic-font-2.2.0/css/material-design-iconic-font.min.css}"
+              rel="stylesheet"/>
+        <link th:href="@{/plugins/waves-0.7.5/waves.min.css}" rel="stylesheet"/>
+        <link th:href="@{/plugins/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css}"
+              rel="stylesheet"/>
+        <link th:href="@{/css/common.css}" rel="stylesheet"/>
+	</head>
+	<style type="text/css">
+	</style>
+
+	<body>
+		<!--菜单-->
+		<div th:include="/inc/common :: menu"></div>
+
+		<div class="container">
+			<!--地图-->
+			<div id="allmap"></div>
+			<div class="row">
+				<div class="col-md-6">
+					<p>地址：长沙市开福区华创国际广场  </p>
+					<p>考察热线：13422217727    18588892200</p>
+					<p>微信手机同号15116232111   18073126111<br />
+             			13288815558   13142064777
+             		</p>
+             		<p>官方微博：宝贝计划试管婴儿集团http://weibo.com/bbjhbaby</p>
+				</div>
+				<div class="col-md-6">
+					<img src="img/weixin.png" />
+				</div>
+			</div>
+		</div>
+
+		<div th:include="/inc/common :: foot"></div>
+	</body>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&amp;ak=h0PbUsYFXYDXY532XlSWas1lP9zj5x14"></script>
+	<script th:src="@{/plugins/jquery.1.12.4.min.js}"></script>
+	<script th:src="@{/plugins/bootstrap-3.3.0/js/bootstrap.min.js}"></script>
+	<script th:src="@{/plugins/waves-0.7.5/waves.min.js}"></script>
+	<script th:src="@{/plugins/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js}"></script>
+	<script th:src="@{/plugins/BootstrapMenu.min.js}"></script>
+	<script th:src="@{/plugins/device.min.js}"></script>
+	<script th:src="@{/plugins/fullPage/jquery.fullPage.min.js}"></script>
+	<script th:src="@{/plugins/fullPage/jquery.jdirk.min.js}"></script>
+	<script th:src="@{/plugins/jquery.cookie.js}"></script>
+	<script type="text/javascript">
+		//初始化百度地图
+		var map = new BMap.Map("allmap");
+		var point = new BMap.Point(116.404, 39.915);
+		map.centerAndZoom(point, 15);
+		window.setTimeout(function() {
+			map.panTo(new BMap.Point(116.409, 39.918));
+		}, 2000);
+	</script>
+
+</html>

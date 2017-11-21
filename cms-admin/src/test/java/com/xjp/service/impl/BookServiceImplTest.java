@@ -1,11 +1,7 @@
 package com.xjp.service.impl;
 
-import com.xjp.dao.BookMapper;
-import com.xjp.model.Book;
 import com.xjp.model.User;
-import com.xjp.service.BookService;
 import com.xjp.service.Userservice;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

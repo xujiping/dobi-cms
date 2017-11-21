@@ -127,10 +127,13 @@ body .jconfirm {
 }
 
 .ivf-menu:hover {
-    background-color: green;
+    background-color: #2ecc71;
     color: white;
 }
 
+.ivf-menu:hover > a {
+    color: white;
+}
 #ivf-menu {
     -moz-box-shadow: 2px 2px 2px #aaa;
     /* 老的 Firefox */

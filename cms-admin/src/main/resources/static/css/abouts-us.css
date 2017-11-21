@@ -23,7 +23,7 @@ h1, h2, h3, h4, h5, p, ul, li, ol {
 }
 h1 {
   font-size:30px;
-  margin:0 0 10px 0;
+  margin:50px 0 10px 0;
 }
 h2 {
   font-size:18px;
@@ -80,3 +80,12 @@ code {
   margin:0 0 20px 0;
   width: 722px;
 }
+
+#filiale > li{
+	float:left; /* 往左浮动 */
+	
+    padding-left: 20px;
+    padding-right: 20px;
+	
+}
+

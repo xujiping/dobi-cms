@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50712
 File Encoding         : 65001
 
-Date: 2017-11-17 11:10:12
+Date: 2017-11-21 14:43:37
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -26,12 +26,12 @@ CREATE TABLE `article` (
   `date` datetime DEFAULT NULL COMMENT '日期',
   `status` int(2) NOT NULL DEFAULT '1' COMMENT '状态：1可用 0不可用',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='文章表';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='文章表';
 
 -- ----------------------------
 -- Records of article
 -- ----------------------------
-INSERT INTO `article` VALUES ('1', 'essdf', '<p>dfbrtb<br/></p>', '2017-11-17 09:43:26', '1');
+INSERT INTO `article` VALUES ('2', 'test', '<p>测试文章管理<br/></p>', '2017-11-20 16:36:34', '1');
 
 -- ----------------------------
 -- Table structure for customer_message
@@ -90,11 +90,18 @@ CREATE TABLE `menu` (
   `status` int(2) NOT NULL DEFAULT '1' COMMENT '状态：1可用 0不可用',
   `use` int(2) NOT NULL COMMENT '用途：1前台 2后台管理菜单',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='菜单表';
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COMMENT='菜单表';
 
 -- ----------------------------
 -- Records of menu
 -- ----------------------------
+INSERT INTO `menu` VALUES ('1', '首页', '1', null, '1', '1');
+INSERT INTO `menu` VALUES ('2', '关于我们', '1', null, '1', '1');
+INSERT INTO `menu` VALUES ('3', '服务项目', '1', null, '1', '1');
+INSERT INTO `menu` VALUES ('4', '成功案例', '1', null, '1', '1');
+INSERT INTO `menu` VALUES ('5', '试管资讯', '1', null, '1', '1');
+INSERT INTO `menu` VALUES ('6', '在线留言', '1', null, '1', '1');
+INSERT INTO `menu` VALUES ('7', '联系我们', '1', null, '1', '1');
 
 -- ----------------------------
 -- Table structure for notification
@@ -287,13 +294,28 @@ CREATE TABLE `upload` (
   `name` varchar(255) NOT NULL COMMENT '名称',
   `suffix` varchar(255) DEFAULT NULL COMMENT '后缀',
   `type` int(2) NOT NULL COMMENT '类型：1图片',
+  `menu_id` int(11) DEFAULT NULL COMMENT '所属菜单ID',
   `status` int(2) NOT NULL DEFAULT '1' COMMENT '状态：1可用，0不可用',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='上传文件信息表';
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COMMENT='上传文件信息表';
 
 -- ----------------------------
 -- Records of upload
 -- ----------------------------
+INSERT INTO `upload` VALUES ('2', '351825-106.jpg', 'jpg', '1', '1', '1');
+INSERT INTO `upload` VALUES ('3', '350902-106.jpg', 'jpg', '1', null, '1');
+INSERT INTO `upload` VALUES ('4', '351825-106.jpg', 'jpg', '1', null, '1');
+INSERT INTO `upload` VALUES ('5', '287612-0.jpg', 'jpg', '1', null, '1');
+INSERT INTO `upload` VALUES ('6', '89441-106.jpg', 'jpg', '1', null, '1');
+INSERT INTO `upload` VALUES ('7', '89441-106 (2).jpg', 'jpg', '1', null, '1');
+INSERT INTO `upload` VALUES ('8', '89441-106.jpg', 'jpg', '1', null, '1');
+INSERT INTO `upload` VALUES ('9', '89441-106.jpg', 'jpg', '1', null, '1');
+INSERT INTO `upload` VALUES ('10', '89441-106 (2).jpg', 'jpg', '1', null, '1');
+INSERT INTO `upload` VALUES ('11', '287612-0.jpg', 'jpg', '1', null, '1');
+INSERT INTO `upload` VALUES ('12', '287612-0.jpg', 'jpg', '1', null, '1');
+INSERT INTO `upload` VALUES ('13', '287612-0.jpg', 'jpg', '1', null, '1');
+INSERT INTO `upload` VALUES ('14', '287612-0.jpg', 'jpg', '1', null, '1');
+INSERT INTO `upload` VALUES ('15', '287612-0.jpg', 'jpg', '1', null, '1');
 
 -- ----------------------------
 -- Table structure for upload_file

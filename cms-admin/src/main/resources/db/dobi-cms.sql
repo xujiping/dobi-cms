@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50712
 File Encoding         : 65001
 
-Date: 2017-11-21 21:24:38
+Date: 2017-11-22 10:06:06
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -50,6 +50,24 @@ CREATE TABLE `customer_message` (
 -- ----------------------------
 -- Records of customer_message
 -- ----------------------------
+
+-- ----------------------------
+-- Table structure for element
+-- ----------------------------
+DROP TABLE IF EXISTS `element`;
+CREATE TABLE `element` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL COMMENT '菜单元素名称',
+  `menu_id` int(11) DEFAULT NULL COMMENT '所属菜单ID',
+  `status` int(2) NOT NULL DEFAULT '1' COMMENT '状态：1可用 0不可用',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of element
+-- ----------------------------
+INSERT INTO `element` VALUES ('1', '轮播大图', '1', '1');
+INSERT INTO `element` VALUES ('2', '', null, '1');
 
 -- ----------------------------
 -- Table structure for log
@@ -317,6 +335,21 @@ INSERT INTO `upload` VALUES ('12', '287612-0.jpg', 'jpg', '1', null, '1');
 INSERT INTO `upload` VALUES ('13', '287612-0.jpg', 'jpg', '1', null, '1');
 INSERT INTO `upload` VALUES ('14', '287612-0.jpg', 'jpg', '1', null, '1');
 INSERT INTO `upload` VALUES ('15', '287612-0.jpg', 'jpg', '1', null, '1');
+
+-- ----------------------------
+-- Table structure for upload_element
+-- ----------------------------
+DROP TABLE IF EXISTS `upload_element`;
+CREATE TABLE `upload_element` (
+  `id` int(11) NOT NULL,
+  `upload_id` int(11) NOT NULL,
+  `element_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of upload_element
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for upload_file

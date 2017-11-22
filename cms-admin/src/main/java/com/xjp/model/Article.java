@@ -30,6 +30,30 @@ public class Article {
     private String content;
 
     /**
+     * 类型
+     */
+    private Integer type;
+
+    @Column(name = "type_name")
+    private String typeName;
+
+    public Integer getType() {
+        return type;
+    }
+
+    public void setType(Integer type) {
+        this.type = type;
+    }
+
+    public String getTypeName() {
+        return typeName;
+    }
+
+    public void setTypeName(String typeName) {
+        this.typeName = typeName;
+    }
+
+    /**
      * @return id
      */
     public Integer getId() {

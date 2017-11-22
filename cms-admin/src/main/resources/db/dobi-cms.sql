@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50712
 File Encoding         : 65001
 
-Date: 2017-11-22 10:06:06
+Date: 2017-11-22 10:51:08
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -24,6 +24,8 @@ CREATE TABLE `article` (
   `title` varchar(255) NOT NULL COMMENT '标题',
   `content` longtext COMMENT '内容',
   `date` datetime DEFAULT NULL COMMENT '日期',
+  `type` int(2) DEFAULT NULL COMMENT '类型',
+  `type_name` varchar(255) DEFAULT NULL COMMENT '类型名称',
   `status` int(2) NOT NULL DEFAULT '1' COMMENT '状态：1可用 0不可用',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='文章表';
@@ -31,7 +33,7 @@ CREATE TABLE `article` (
 -- ----------------------------
 -- Records of article
 -- ----------------------------
-INSERT INTO `article` VALUES ('2', 'test', '<p>测试文章管理<br/></p>', '2017-11-20 16:36:34', '1');
+INSERT INTO `article` VALUES ('2', 'test', '<p>测试文章管理<br/></p>', '2017-11-20 16:36:34', '1', '试管资讯', '1');
 
 -- ----------------------------
 -- Table structure for customer_message
@@ -341,15 +343,16 @@ INSERT INTO `upload` VALUES ('15', '287612-0.jpg', 'jpg', '1', null, '1');
 -- ----------------------------
 DROP TABLE IF EXISTS `upload_element`;
 CREATE TABLE `upload_element` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `upload_id` int(11) NOT NULL,
   `element_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of upload_element
 -- ----------------------------
+INSERT INTO `upload_element` VALUES ('1', '2', '1');
 
 -- ----------------------------
 -- Table structure for upload_file

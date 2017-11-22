@@ -13,7 +13,7 @@ import com.xjp.model.Menu;
 @Controller
 public class AboutUsController {
 
-	@Autowired 
+	@Autowired  
 	private MenuMapper menuMapper;
 
 	@RequestMapping("/aboutUs")

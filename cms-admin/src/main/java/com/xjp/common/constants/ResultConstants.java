@@ -7,13 +7,14 @@ package com.xjp.common.constants;
  */
 public enum ResultConstants {
 
-  FAILED(0, "failed"),
-  SUCCESS(1, "success"),
+  FAILED(0, "失败"),
+  SUCCESS(1, "成功"),
 
-  FILE_TYPE_ERROR(20001, "File type not supported!"),
-  INVALID_LENGTH(20002, "Invalid length"),
-  INVALID_PARAMETER(20003, "Invalid parameter"),
-  no_permission(20004, "No permission");
+  FILE_TYPE_ERROR(20001, "文件格式不支持"),
+  INVALID_LENGTH(20002, "长度不符合"),
+  INVALID_PARAMETER(20003, "类型不符合"),
+  no_permission(20004, "无该权限"),
+  FILE_EXSIT(20005, "文件已存在");
 
   public int code;
 

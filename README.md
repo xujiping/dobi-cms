@@ -11,3 +11,7 @@ spring boot + mybatis + shiro + bootstrap
 5.API接口文档：http://localhost:8000/swagger-ui.html
 6.manage代表是属于后台管理模块
 
+
+修改项目中localhost:8000 
+表element、menu数据固定，不能更改。
+

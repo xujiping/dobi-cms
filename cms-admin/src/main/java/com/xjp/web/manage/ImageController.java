@@ -97,10 +97,17 @@ public class ImageController {
         String fileName = "";
         File newFile;
         String suffix = "";  //文件后缀名
+        Upload upload = new Upload();
         // String rootPath = request.getSession().getServletContext().getRealPath("/upload/");
         if (!file.isEmpty()) {
             try {
                 fileName = file.getOriginalFilename();
+                //查询图片名称是否已存在
+                upload.setName(fileName);
+                List<Upload> uploads = uploadMapper.select(upload);
+                if (uploads != null & uploads.size() >= 1){
+                    return new Result(ResultConstants.FILE_EXSIT, null);
+                }
                 suffix = fileName.substring(fileName.lastIndexOf(".") + 1);
                 newFile = new File(uploadPath + fileName);
                 BufferedOutputStream out = new BufferedOutputStream(
@@ -109,8 +116,7 @@ public class ImageController {
                 out.flush();
                 out.close();
                 //写入文件信息到数据库中
-                Upload upload = new Upload();
-                upload.setName(fileName);
+
                 upload.setSuffix(suffix);
                 upload.setType(1);  //图片
                 int count = uploadMapper.insertSelective(upload);

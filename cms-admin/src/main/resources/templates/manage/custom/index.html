@@ -11,9 +11,45 @@
 <body>
 <div id="main">
     <h3>首页元素定制</h3>
+    <div class="col-sm-12 well">
+        <div class="col-sm-6">
+            <h4>首页轮播大图设置</h4>
+            <div class="input-group">
+                <input id="addBigImage" type="text" class="form-control" name="name" placeholder="请输入图片名（包含后缀）" />
+                <span class="input-group-btn">
+                <button class="btn btn-default" type="button" onclick="addBigImage()">添加</button>
+            </span>
+            </div>
+        </div>
+        <div class="col-sm-12" style="padding:10px 20px;">
+            <div class="col-sm-3" th:each="bigImage,Iterable:${bigImages}" style="text-align: center">
+                <img th:src="'http://localhost:8000/upload/' + ${bigImage.name}" width="120px" height="120px" />
+                <p th:text="${bigImage.name}" style="margin-top: 10px; font-size: 14px"></p>
+                <input type="button" class="btn btn-danger" th:value="删除" th:onclick="'deleteBigImage(' + ${bigImage.id} + ')'" />
+            </div>
+        </div>
+    </div>
 </div>
 </body>
 <div th:include="/inc/common :: footer"></div>
 <script>
+
+    <!--添加轮播大图-->
+    function addBigImage(){
+        var name = $("#addBigImage").val();
+        $.post("index/add", {name:name}, function (result) {
+            alert(result.message);
+            window.location.href = "index";
+        });
+    }
+
+    <!--删除轮播大图-->
+    function deleteBigImage(id){
+        var url = "index/delete/" + id;
+        $.get(url, function(result){
+            alert(result.message);
+            window.location.href = "index";
+        });
+    }
 </script>
 </html>

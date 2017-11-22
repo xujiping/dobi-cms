@@ -122,15 +122,20 @@ body .jconfirm {
     border-color: #337ab7;
 }
 
+/*首页*/
+.ivf-menus{
+    margin-bottom: -12px;
+}
 .ivf-menu > a {
     color: black;
 }
-
+.ivf-menus > li{
+    list-style: none;
+}
 .ivf-menu:hover {
     background-color: #2ecc71;
     color: white;
 }
-
 .ivf-menu:hover > a {
     color: white;
 }
@@ -138,4 +143,6 @@ body .jconfirm {
     -moz-box-shadow: 2px 2px 2px #aaa;
     /* 老的 Firefox */
     box-shadow: 1px 0px 5px #aaa;
+}
+.index-more:hover{
 }

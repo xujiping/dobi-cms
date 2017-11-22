@@ -35,12 +35,16 @@
 <!--前台菜单-->
 <div th:fragment="menu">
     <div id="ivf-menu" class="container-fluid" style="padding: 0px;">
-        <div class="container" style="height: 100px;">
-            <img style="float: left;" th:src="@{images/ivf.jpg}" height="100px" />
-            <div th:each="menu, iterStat : ${menus}" class="ivf-menu" style="height: 100%; width: 100px; float: left; padding: 40px 10px; text-align: center;">
-                <a th:href="${menu.url}" th:text="${menu.name}" />
-            </div>
-        </div>
+        <ul class="container ivf-menus" style="height: 100px;">
+            <img style="float: left;" th:src="@{images/ivf.jpg}" height="100px"/>
+            <li>
+                <a th:each="menu, iterStat : ${menus}" th:href="${menu.url}" class="ivf-menu"
+                   style="display: block; height: 100px; width: 100px; float: left; padding: 40px 10px; text-align: center;">
+                    <span th:text="${menu.name}"></span>
+                </a>
+            </li>
+
+        </ul>
     </div>
 </div>
 

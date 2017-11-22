@@ -33,10 +33,7 @@
                          targetProject="C:\xjp\Workspaces\project\GitHub\dobi-cms\cms-admin\src\main\java"
                          type="XMLMAPPER"/>
 
-    <table tableName="element">
-      <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
-    </table>
-    <table tableName="upload_element">
+    <table tableName="article_type">
       <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
     </table>
   </context>

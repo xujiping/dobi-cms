@@ -25,7 +25,15 @@
                     <label for="myEditor">内容</label>
                     <script id="myEditor" name="content"></script>
                 </div>
-                <button type="submit" class="btn btn-success btn-lg" style="margin-left: 450px;">提交</button>
+                <div class="form-group">
+                    <label for="type">类型</label>
+                    <select id="type" class="selectpicker" name="type">
+                        <option  th:each="articleType, Iterable: ${articleTypes}" th:value="${articleType.id}" th:text="${articleType.name}"></option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-success btn-lg" style="margin-left: 450px;">
+                    提交
+                </button>
             </form>
         </div>
     </div>
@@ -44,6 +52,12 @@
         um.setWidth(1000);
 
         $().ready(function () {
+
+            //初始化selectpicker
+            $(".selectpicker").selectpicker({
+                noneSelectedText: '请选择类型'
+                                            });
+
             $('#createForm').bootstrapValidator({
                                                     //
                                                     excluded: [':disabled', ':hidden',

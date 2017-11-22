@@ -3,16 +3,18 @@ package com.xjp.web.manage;
 import com.xjp.common.constants.ResultConstants;
 import com.xjp.common.result.Result;
 import com.xjp.dao.ArticleMapper;
+import com.xjp.dao.ArticleTypeMapper;
 import com.xjp.model.Article;
+import com.xjp.model.ArticleType;
 import com.xjp.service.ArticleService;
 
 import org.apache.ibatis.session.RowBounds;
-import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -43,6 +45,10 @@ public class ArticleController {
     @SuppressWarnings("SpringJavaAutowiringInspection")
     @Autowired
     private ArticleMapper articleMapper;
+
+    @SuppressWarnings("SpringJavaAutowiringInspection")
+    @Autowired
+    private ArticleTypeMapper articleTypeMapper;
 
     @RequestMapping(value = "index")
     public String index(Model model) {
@@ -82,7 +88,9 @@ public class ArticleController {
      * @return
      */
     @RequestMapping(value = "add")
-    public String add() {
+    public String add(Model model) {
+        List<ArticleType> articleTypes = articleTypeMapper.selectAll();
+        model.addAttribute("articleTypes", articleTypes);
         return "manage/article/add";
     }
 
@@ -96,6 +104,8 @@ public class ArticleController {
     @RequestMapping(value = "add", method = RequestMethod.POST)
     public Object doAdd(Article article) {
         article.setDate(new Date());
+        ArticleType articleType = articleTypeMapper.selectByPrimaryKey(article.getType());
+        article.setTypeName(articleType.getName());
         int count = articleMapper.insertSelective(article);
         return "manage/article/index";
     }
@@ -132,6 +142,8 @@ public class ArticleController {
     public String update(@PathVariable("id") String id, Model model) {
         Article article = articleMapper.selectByPrimaryKey(Integer.parseInt(id));
         model.addAttribute("article", article);
+        List<ArticleType> articleTypes = articleTypeMapper.selectAll();
+        model.addAttribute("articleTypes", articleTypes);
         return "manage/article/update";
     }
 
@@ -143,6 +155,8 @@ public class ArticleController {
      */
     @RequestMapping(value = "update", method = RequestMethod.POST)
     public Object doUpdate(Article article) {
+        ArticleType articleType = articleTypeMapper.selectByPrimaryKey(article.getType());
+        article.setTypeName(articleType.getName());
         int count = articleMapper.updateByPrimaryKeySelective(article);
         if (count != 1) {
             return "manage/article/update";

@@ -1,36 +1,37 @@
 package com.xjp.model;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import java.util.Date;
+import javax.persistence.*;
 
-@Table(name = "article")
+@Table(name = "contact")
 public class Contact {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     /**
-     * 标题
+     * 地址
      */
-    private String title;
+    private String address;
 
     /**
-     * 日期
+     * 热线
      */
-    private Date date;
+    private String number;
 
     /**
-     * 状态：1可用 0不可用
+     * 微信
      */
-    private Integer status;
+    private String wechat;
 
     /**
-     * 内容
+     * 微博
      */
-    private String content;
+    private String weibo;
+
+    /**
+     * 二维码地址
+     */
+    private String ewm;
 
     /**
      * @return id
@@ -47,74 +48,92 @@ public class Contact {
     }
 
     /**
-     * 获取标题
+     * 获取地址
      *
-     * @return title - 标题
+     * @return address - 地址
      */
-    public String getTitle() {
-        return title;
+    public String getAddress() {
+        return address;
     }
 
     /**
-     * 设置标题
+     * 设置地址
      *
-     * @param title 标题
+     * @param address 地址
      */
-    public void setTitle(String title) {
-        this.title = title;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     /**
-     * 获取日期
+     * 获取热线
      *
-     * @return date - 日期
+     * @return number - 热线
      */
-    public Date getDate() {
-        return date;
+    public String getNumber() {
+        return number;
     }
 
     /**
-     * 设置日期
+     * 设置热线
      *
-     * @param date 日期
+     * @param number 热线
      */
-    public void setDate(Date date) {
-        this.date = date;
+    public void setNumber(String number) {
+        this.number = number;
     }
 
     /**
-     * 获取状态：1可用 0不可用
+     * 获取微信
      *
-     * @return status - 状态：1可用 0不可用
+     * @return wechat - 微信
      */
-    public Integer getStatus() {
-        return status;
+    public String getWechat() {
+        return wechat;
     }
 
     /**
-     * 设置状态：1可用 0不可用
+     * 设置微信
      *
-     * @param status 状态：1可用 0不可用
+     * @param wechat 微信
      */
-    public void setStatus(Integer status) {
-        this.status = status;
+    public void setWechat(String wechat) {
+        this.wechat = wechat;
     }
 
     /**
-     * 获取内容
+     * 获取微博
      *
-     * @return content - 内容
+     * @return weibo - 微博
      */
-    public String getContent() {
-        return content;
+    public String getWeibo() {
+        return weibo;
     }
 
     /**
-     * 设置内容
+     * 设置微博
      *
-     * @param content 内容
+     * @param weibo 微博
      */
-    public void setContent(String content) {
-        this.content = content;
+    public void setWeibo(String weibo) {
+        this.weibo = weibo;
+    }
+
+    /**
+     * 获取二维码地址
+     *
+     * @return ewm - 二维码地址
+     */
+    public String getEwm() {
+        return ewm;
+    }
+
+    /**
+     * 设置二维码地址
+     *
+     * @param ewm 二维码地址
+     */
+    public void setEwm(String ewm) {
+        this.ewm = ewm;
     }
 }

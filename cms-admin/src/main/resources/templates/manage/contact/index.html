@@ -11,21 +11,34 @@
 <body>
 <div id="main">
     <div style="padding: 100px 100px 10px;">
-        <form class="bs-example bs-example-form" role="form">
-            <div class="input-group">
-                <span class="input-group-addon">@</span>
-                <input type="text" class="form-control" placeholder="twitterhandle">
+        <form class="bs-example bs-example-form" role="form" th:object="${contact}">
+            <div class="form-group">
+                <label for="address">地址：</label>
+                <input type="text" class="form-control" id="address" name="address" placeholder="请输入地址"
+                       th:value="*{address}"  />
             </div>
-            <br>
-            <div class="input-group">
-                <input type="text" class="form-control">
-                <span class="input-group-addon">.00</span>
+            <br/>
+            <div class="form-group">
+                <label for="number">联系热线</label>
+                <input type="text" class="form-control" id="number" name="number" placeholder="请输入联系热线"
+                       th:value="*{number}" />
             </div>
-            <br>
-            <div class="input-group">
-                <span class="input-group-addon">$</span>
-                <input type="text" class="form-control">
-                <span class="input-group-addon">.00</span>
+            <div class="form-group">
+                <label for="wechat">微信账号</label>
+                <input type="text" class="form-control" id="wechat" name="wechat" placeholder="请输入微信账号"
+                       th:value="*{wechat}"/>
+            </div>
+            <div class="form-group">
+                <label for="weibo">微博地址</label>
+                <input type="text" class="form-control" id="weibo" name="weibo" placeholder="请输入微博地址"
+                       th:value="*{weibo}"/>
+            </div>
+            <div class = "form-group">
+                <label for = "ewm">请上传二维码</label>
+                <input type = "file" id = "ewm" name="ewm" />
+            </div>
+            <div class="form-group">
+                <button type = "submit" class="btn-info btn-lg">提交</button>
             </div>
         </form>
     </div>

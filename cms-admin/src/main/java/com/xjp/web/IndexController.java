@@ -65,6 +65,90 @@ public class IndexController {
     }
 
     /**
+     * about.
+     *
+     * @return about.html
+     */
+    @RequestMapping(value = "/about")
+    public String about(Model model) {
+        List<Menu> menus = menuMapper.selectAll();
+        model.addAttribute("menus", menus);
+        List<Upload> bigImages = uploadMapper.selectUploadByElementId(1);
+        model.addAttribute("bigImages", bigImages);
+        return "front/about";
+    }
+
+    /**
+     * service.
+     *
+     * @return service.html
+     */
+    @RequestMapping(value = "/service")
+    public String service(Model model) {
+        List<Menu> menus = menuMapper.selectAll();
+        model.addAttribute("menus", menus);
+        List<Upload> bigImages = uploadMapper.selectUploadByElementId(1);
+        model.addAttribute("bigImages", bigImages);
+        return "front/service";
+    }
+
+    /**
+     * success.
+     *
+     * @return success.html
+     */
+    @RequestMapping(value = "/success")
+    public String success(Model model) {
+        List<Menu> menus = menuMapper.selectAll();
+        model.addAttribute("menus", menus);
+        List<Upload> bigImages = uploadMapper.selectUploadByElementId(1);
+        model.addAttribute("bigImages", bigImages);
+        return "front/success";
+    }
+
+    /**
+     * tube.
+     *
+     * @return tube.html
+     */
+    @RequestMapping(value = "/tube")
+    public String tube(Model model) {
+        List<Menu> menus = menuMapper.selectAll();
+        model.addAttribute("menus", menus);
+        List<Upload> bigImages = uploadMapper.selectUploadByElementId(1);
+        model.addAttribute("bigImages", bigImages);
+        return "front/tube";
+    }
+
+    /**
+     * message.
+     *
+     * @return message.html
+     */
+    @RequestMapping(value = "/message")
+    public String message(Model model) {
+        List<Menu> menus = menuMapper.selectAll();
+        model.addAttribute("menus", menus);
+        List<Upload> bigImages = uploadMapper.selectUploadByElementId(1);
+        model.addAttribute("bigImages", bigImages);
+        return "front/message";
+    }
+
+    /**
+     * contact.
+     *
+     * @return contact.html
+     */
+    @RequestMapping(value = "/contact")
+    public String contact(Model model) {
+        List<Menu> menus = menuMapper.selectAll();
+        model.addAttribute("menus", menus);
+        List<Upload> bigImages = uploadMapper.selectUploadByElementId(1);
+        model.addAttribute("bigImages", bigImages);
+        return "front/contact";
+    }
+
+    /**
      * 读取上传的文件
      */
     @GetMapping("/upload/{filename:.+}")

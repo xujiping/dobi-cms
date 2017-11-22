@@ -3,7 +3,9 @@ package com.xjp.web;
 import com.xjp.common.constants.ResultConstants;
 import com.xjp.common.result.Result;
 import com.xjp.dao.MenuMapper;
+import com.xjp.dao.UploadMapper;
 import com.xjp.model.Menu;
+import com.xjp.model.Upload;
 import com.xjp.service.MenuService;
 
 import org.slf4j.Logger;
@@ -40,8 +42,13 @@ public class IndexController {
     @Autowired
     private MenuService menuService;
 
+    @SuppressWarnings("SpringJavaAutowiringInspection")
     @Autowired
     private MenuMapper menuMapper;
+
+    @SuppressWarnings("SpringJavaAutowiringInspection")
+    @Autowired
+    private UploadMapper uploadMapper;
 
     /**
      * index.
@@ -52,6 +59,8 @@ public class IndexController {
     public String index(Model model) {
         List<Menu> menus = menuMapper.selectAll();
         model.addAttribute("menus", menus);
+        List<Upload> bigImages = uploadMapper.selectUploadByElementId(1);
+        model.addAttribute("bigImages", bigImages);
         return "front/index";
     }
 

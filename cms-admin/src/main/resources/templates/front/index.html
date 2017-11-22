@@ -22,7 +22,25 @@
 <div th:include="/inc/common :: menu"></div>
 
 <!--大图-->
-<img th:src="@{images/index_1.jpg}" width="100%"/>
+<div id="myCarousel" class="carousel slide" style="height: 500px">
+    <!-- 轮播（Carousel）指标 -->
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+    <!-- 轮播（Carousel）项目 -->
+    <div class="carousel-inner">
+        <div th:id="'bigImage' + ${Iterable.count}" class="item" th:each="bigImage,Iterable: ${bigImages}">
+            <img th:src="'http://localhost:8000/upload/' + ${bigImage.name}" style="max-height: 500px;" />
+        </div>
+    </div>
+    <!-- 轮播（Carousel）导航 -->
+    <a class="carousel-control left" href="#myCarousel"
+       data-slide="prev">&lsaquo;</a>
+    <a class="carousel-control right" href="#myCarousel"
+       data-slide="next">&rsaquo;</a>
+</div>
 
 <div class="container">
     <div style="background-color: #0B5A9F; color: white; width: 120px; height: 50px;padding-top: 15px; float: left;">
@@ -115,12 +133,12 @@
 <!--最新动态-->
 <div class="container" style="margin: 40px auto; text-align: center;">
     <h4>最新动态</h4>
-    <p style="margin:0 auto; width:580px; color: #aaa;">为了能实现“提供百分之百满意的客户服务”的诺言，我们配备了专业的管理人员，在全国更有
+    <p style="margin:0 auto; width:580px; color: #;">为了能实现“提供百分之百满意的客户服务”的诺言，我们配备了专业的管理人员，在全国更有
         队伍庞大的医疗技术人员和服务人员，为用户提供完善的服务
     </p>
     <div style="margin:0 auto; width: 200px;">
         <hr style="width:40px; height:1px;border:none;border-top:1px solid #555555; float: left;"/>
-        <ul style="float: left; margin: 8px 0 0 30px; color: limegreen; font-size: 15px;">
+        <ul style="float: left; margin: 8px 0 0 30px; color: green; font-size: 20sp;">
             <li></li>
         </ul>
         <hr style="width:40px; height:1px;border:none;border-top:1px solid #555555; float: right;"/>
@@ -193,6 +211,9 @@
 <script th:src="@{/js/common.js}"></script>
 <script type="text/javascript">
     setCurrentMenu();
+
+    $(function(){
+    });
 </script>
 </body>
 </html>

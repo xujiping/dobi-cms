@@ -16,7 +16,9 @@ $(function() {
 		}
 	});
 	// select2初始化
-	$('select').select2();
+	// $('select').select2();
+	//轮播大图添加active
+    $("#bigImage1").addClass("active");
 });
 // 动态高度
 function getHeight() {

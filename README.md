@@ -14,4 +14,5 @@ spring boot + mybatis + shiro + bootstrap
 
 修改项目中localhost:8000 
 表element、menu数据固定，不能更改。
+修改上传路径
 

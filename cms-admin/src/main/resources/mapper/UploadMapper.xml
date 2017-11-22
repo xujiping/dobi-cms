@@ -11,4 +11,17 @@
     <result column="type" jdbcType="INTEGER" property="type" />
     <result column="status" jdbcType="INTEGER" property="status" />
   </resultMap>
+
+  <select id="selectUploadByElementId" resultMap="BaseResultMap">
+    SELECT
+      *
+    FROM
+      upload a,
+      upload_element c,
+      element b
+    WHERE
+      a.id = c.upload_id
+      AND b.id = c.element_id
+      AND b.id = #{id};
+  </select>
 </mapper>

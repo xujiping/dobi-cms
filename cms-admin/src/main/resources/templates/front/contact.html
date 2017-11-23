@@ -37,12 +37,10 @@
 <div id="content" class="container">
     <div class="row" th:object="${contact}">
         <div class="col-md-6">
-            <p th:text="*{address}">地址：</p>
-            <p th:text="考察热线：">考察热线：13422217727 18588892200</p>
-            <p>微信手机同号15116232111 18073126111<br/>
-                13288815558 13142064777
-            </p>
-            <p>官方微博：宝贝计划试管婴儿集团http://weibo.com/bbjhbaby</p>
+            <p id="address" th:text="'地址：'+ *{address}"></p>
+            <p th:text="|考察热线：*{number}|"></p>
+            <p th:text="|手机微信：*{wechat}|"></p>
+            <p th:text="|官方微博：*{weibo}|"></p>
         </div>
         <div class="col-md-6">
             <img th:src="@{/images/weixin.png}"/>
@@ -75,12 +73,12 @@
                                                    BMAP_HYBRID_MAP
                                                ]
                                            }));
-    map.setCurrentCity("北京");          // 设置地图显示的城市 此项是必须设置的
+    map.setCurrentCity("长沙");          // 设置地图显示的城市 此项是必须设置的
     map.enableScrollWheelZoom(true);     //
     var local = new BMap.LocalSearch(map, {
         renderOptions: {map: map}
     });
-    local.search("长沙市开福区华创国际广场");
+    local.search($('#address').val());
     setCurrentMenu();
 </script>
 

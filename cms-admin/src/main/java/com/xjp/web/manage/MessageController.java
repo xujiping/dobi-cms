@@ -32,6 +32,7 @@ public class MessageController {
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String add(CustomerMessage customerMessage){
         customerMessageMapper.insertSelective(customerMessage);
+
         return "/front/message";
     }
 }

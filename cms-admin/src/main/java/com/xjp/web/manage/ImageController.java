@@ -49,9 +49,6 @@ public class ImageController {
         return "manage/image/index";
     }
 
-    @Value("${dobi.upload}")
-    private String uploadPath;
-
     @Autowired
     private UploadService uploadService;
 
@@ -87,54 +84,7 @@ public class ImageController {
         return result;
     }
 
-    /**
-     * 单文件上传
-     * @param file
-     * @return
-     */
-    @PostMapping("upload")
-    public Object oneUpload(@RequestParam("file") MultipartFile file, HttpServletRequest request) {
-        String fileName = "";
-        File newFile;
-        String suffix = "";  //文件后缀名
-        Upload upload = new Upload();
-        // String rootPath = request.getSession().getServletContext().getRealPath("/upload/");
-        if (!file.isEmpty()) {
-            try {
-                fileName = file.getOriginalFilename();
-                //查询图片名称是否已存在
-                upload.setName(fileName);
-                List<Upload> uploads = uploadMapper.select(upload);
-                if (uploads != null & uploads.size() >= 1){
-                    return new Result(ResultConstants.FILE_EXSIT, null);
-                }
-                suffix = fileName.substring(fileName.lastIndexOf(".") + 1);
-                newFile = new File(uploadPath + fileName);
-                BufferedOutputStream out = new BufferedOutputStream(
-                    new FileOutputStream(newFile));
-                out.write(file.getBytes());
-                out.flush();
-                out.close();
-                //写入文件信息到数据库中
 
-                upload.setSuffix(suffix);
-                upload.setType(1);  //图片
-                int count = uploadMapper.insertSelective(upload);
-                if (count != 1){
-                    _LOGGER.error("上传图片-信息写入数据库失败。");
-                    return new Result(ResultConstants.FAILED, count);
-                }
-            } catch (FileNotFoundException e) {
-                _LOGGER.error("上传图片-文件未找到：" + uploadPath + fileName, e);
-                return new Result(ResultConstants.FAILED, e.getMessage());
-            } catch (IOException e) {
-                _LOGGER.error("上传图片-上传失败。", e);
-                return new Result(ResultConstants.FAILED, e.getMessage());
-            }
-            return "manage/image/index";
-        }
-        return "manage/image/add";
-    }
 
     @RequestMapping(value = "add")
     public String add() {

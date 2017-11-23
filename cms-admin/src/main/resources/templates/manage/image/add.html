@@ -11,16 +11,17 @@
 <body>
 <div id="main">
     <div id="createDialog" class="crudDialog">
-        <form class="well" method="post" action="upload" enctype="multipart/form-data"
+        <form class="well" method="post" action="/manage/upload/upload" enctype="multipart/form-data"
               style="text-align: center;">
-            <img src="" id="preview" width="120px" height="120px"
-                 style="border: 1px solid #aaa;"/>
+            <img src="" id="preview" style="border: 1px solid #aaa; max-height: 120px; max-width: 120px;"/>
             <br/>
             <div style="margin: 20px auto; width: 500px; height: 80px; text-align: center">
                 <input type="file" name="file" class="btn btn-default"
                        onchange="imgPreview(this)" style="float: left;"/>
-                <input type="submit" class="btn btn-success" value="上传" style="float: left; margin-left: 10px;"/>
-                <a href="/manage/image/index" class="btn btn-default" style="float: left; margin-left: 10px;" >返回</a>
+                <input type="submit" class="btn btn-success" value="上传"
+                       style="float: left; margin-left: 10px;"/>
+                <a href="/manage/image/index" class="btn btn-default"
+                   style="float: left; margin-left: 10px;">返回</a>
             </div>
         </form>
     </div>
@@ -37,12 +38,12 @@
             }
             //获取文件
             var file = fileDom.files[0];
-            var imageType = /^image\//;
+//            var imageType = /^image\//;
             //是否是图片
-            if (!imageType.test(file.type)) {
-                alert("请选择图片！");
-                return;
-            }
+//            if (!imageType.test(file.type)) {
+//                alert("请选择图片！");
+//                return;
+//            }
             //读取完成
             reader.onload = function (e) {
                 //获取图片dom

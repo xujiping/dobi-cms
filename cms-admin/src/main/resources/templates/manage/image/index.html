@@ -12,9 +12,9 @@
 <div id="main">
     <div id="toolbar">
         <a class="waves-effect waves-button" href="/manage/image/add"><i
-                class="zmdi zmdi-plus"></i> 新增图片</a>
+                class="zmdi zmdi-plus"></i> 上传文件</a>
         <a class="waves-effect waves-button" href="javascript:;" onclick="deleteAction()"><i
-                class="zmdi zmdi-close"></i> 删除图片</a>
+                class="zmdi zmdi-close"></i> 删除文件</a>
     </div>
     <table id="table"></table>
 </div>
@@ -50,10 +50,12 @@
              columns: [
                  {field: 'ck', checkbox: true},
                  {
-                     field: 'id',
                      title: '编号',
-                     sortable: true,
-                     align: 'center'
+                     formatter: function(value, row, index){
+                         var pageNumber = $('#table').bootstrapTable('getOptions').pageNumber;
+                         var pageSize = $('#table').bootstrapTable('getOptions').pageSize;
+                         return (pageNumber-1) * pageSize+index+1;
+                     }
                  },
                  {
                      field: 'name',

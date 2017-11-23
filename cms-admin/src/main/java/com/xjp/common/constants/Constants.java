@@ -7,8 +7,12 @@ package com.xjp.common.constants;
  */
 public class Constants {
 
-  public static final String SUCCESS = "1";
+    public static final String SUCCESS = "1";
 
-  public static final String ERROR = "0";
+    public static final String ERROR = "0";
+
+    public static final int FILE_TYPE_IMAGE = 1;  //图片文件类型
+    public static final int FILE_TYPE_PDF = 2;  //pdf文件类型
+
 
 }

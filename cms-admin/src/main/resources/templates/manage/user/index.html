@@ -17,8 +17,6 @@
                 class="zmdi zmdi-edit"></i> 编辑用户</a>
         <a class="waves-effect waves-button" href="javascript:;" onclick="deleteAction()"><i
                 class="zmdi zmdi-close"></i> 删除用户</a>
-        <a class="waves-effect waves-button" href="javascript:;" onclick="permissionAction()"><i
-                class="zmdi zmdi-key"></i> 用户权限</a>
     </div>
     <table id="table"></table>
 </div>
@@ -62,19 +60,25 @@
                  {field: 'password', title: '密码'},
                  {field: 'salt', title: '盐'},
                  {field: 'realname', title: '姓名'},
-                 {field: 'avatar', title: '头像'},
                  {field: 'phone', title: '电话'},
                  {field: 'email', title: '邮箱'},
-                 {field: 'sex', title: '性别'},
-                 {field: 'locked', title: '状态'},
-                 {field: 'ctime', title: '创建时间'},
                  {
-                     field: 'action',
-                     title: '操作',
-                     align: 'center',
-                     formatter: 'actionFormatter',
-                     events: 'actionEvents',
-                     clickToSelect: false
+                     field: 'sex',
+                     title: '性别',
+                     formatter: function(value, row, index){
+                         if(value == "1"){
+                             return "男";
+                         }
+                         return "女";
+                     }
+                 },
+                 {field: 'locked', title: '状态'},
+                 {
+                     field: 'ctime',
+                     title: '创建时间',
+                     formatter: function (value, row, index) {
+                         return new Date(parseInt(value)).toLocaleString().replace(/:\d{1,2}$/,' ');
+                     }
                  }
              ]
          });

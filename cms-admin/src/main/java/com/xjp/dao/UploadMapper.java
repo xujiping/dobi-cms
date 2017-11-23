@@ -10,4 +10,6 @@ public interface UploadMapper extends Mapper<Upload> {
 
     public List<Upload> selectUploadByElementId(int id);
 
+    public long selectCountUploadByElementId(int id);
+
 }

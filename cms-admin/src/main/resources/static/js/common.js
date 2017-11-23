@@ -19,11 +19,13 @@ $(function() {
 	// $('select').select2();
 
 	//轮播大图添加active
-    $("#bigImage1").addClass("active");
-    for(var i = 0; i < bigImages.length; i++){
-        $("#myCarousel ol").append('<li data-target="#myCarousel" data-slide-to="' + i + '"></li>');
+    if(!typeof(bigImages)=="undefined"){
+        $("#bigImage1").addClass("active");
+        for(var i = 0; i < bigImages.length; i++){
+            $("#myCarousel ol").append('<li data-target="#myCarousel" data-slide-to="' + i + '"></li>');
+        }
+        $("#myCarousel ol li").eq(0).addClass("active");
     }
-    $("#myCarousel ol li").eq(0).addClass("active");
 
 });
 // 动态高度

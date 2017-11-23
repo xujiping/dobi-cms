@@ -24,4 +24,18 @@
       AND b.id = c.element_id
       AND b.id = #{id};
   </select>
+
+  <select id="selectCountUploadByElementId" resultType="Long">
+    SELECT
+    count(1)
+    FROM
+    upload a,
+    upload_element c,
+    element b
+    WHERE
+    a.id = c.upload_id
+    AND b.id = c.element_id
+    AND b.id = #{id};
+  </select>
+
 </mapper>

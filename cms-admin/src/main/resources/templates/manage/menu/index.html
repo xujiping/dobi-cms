@@ -95,7 +95,17 @@
                           }
                       });
         } else {
-            window.location = "/manage/menu/update/" + rows[0].id;
+            updateDialog = $.dialog({
+                                        animationSpeed: 300,
+                                        title: '编辑菜单',
+                                        columnClass: 'xlarge',
+                                        content: 'url:/manage/menu/update/'
+                                                 + rows[0].id,
+                                        onContentReady: function () {
+                                            initMaterialInput();
+                                            $('select').select2();
+                                        }
+                                    });
         }
     }
 

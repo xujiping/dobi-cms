@@ -30,9 +30,9 @@
              url: '/manage/image/list',
              height: getHeight(),
              striped: true,
-             search: true,
+             search: false,
              showRefresh: true,
-             showColumns: true,
+             showColumns: false,
              minimumCountColumns: 2,
              clickToSelect: true,
              detailView: true,
@@ -65,7 +65,7 @@
                          return '<img src="http://localhost:8000/upload/' + value +'" width="80px" class="img-rounded" />';
                      }
                  },
-                 {field: 'name', title: '图片名称'},
+                 {field: 'name', title: '文件名称'},
                  {
                      field: 'url',
                      title: '访问路径',

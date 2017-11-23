@@ -1,4 +1,3 @@
-/*
 package com.xjp.web.manage;
 
 import com.xjp.dao.ContactMapper;
@@ -10,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 
 @Controller
@@ -18,6 +18,7 @@ public class ContactController {
 
     private Logger _LOGGER = LoggerFactory.getLogger(IndexController.class);
 
+    @SuppressWarnings("SpringJavaAutowiringInspection")
     @Autowired
     private ContactMapper contactMapper;
 
@@ -27,5 +28,10 @@ public class ContactController {
         model.addAttribute("contact", contact);
         return "manage/contact/index";
     }
+
+    @RequestMapping(value = "edit", method = RequestMethod.POST)
+    public String edit(Contact contact){
+        contactMapper.updateByPrimaryKey(contact);
+        return "manage/contact/index";
+    }
 }
-*/

@@ -1,13 +1,12 @@
 package com.xjp.web;
 
-import com.xjp.common.constants.ResultConstants;
-import com.xjp.common.result.Result;
+import com.xjp.dao.ContactMapper;
 import com.xjp.dao.MenuMapper;
 import com.xjp.dao.UploadMapper;
+import com.xjp.model.Contact;
 import com.xjp.model.Menu;
 import com.xjp.model.Upload;
 import com.xjp.service.MenuService;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,11 +18,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletResponse;
 import java.io.FileInputStream;
 import java.io.OutputStream;
 import java.util.List;
-
-import javax.servlet.http.HttpServletResponse;
 
 /**
  * index.
@@ -49,6 +47,10 @@ public class IndexController {
     @SuppressWarnings("SpringJavaAutowiringInspection")
     @Autowired
     private UploadMapper uploadMapper;
+
+    @SuppressWarnings("SpringJavaAutowiringInspection")
+    @Autowired
+    private ContactMapper contactMapper;
 
     /**
      * index.
@@ -143,8 +145,8 @@ public class IndexController {
     public String contact(Model model) {
         List<Menu> menus = menuMapper.selectAll();
         model.addAttribute("menus", menus);
-        List<Upload> bigImages = uploadMapper.selectUploadByElementId(1);
-        model.addAttribute("bigImages", bigImages);
+        Contact contact = contactMapper.selectByPrimaryKey(1);
+        model.addAttribute("contact", contact);
         return "front/contact";
     }
 

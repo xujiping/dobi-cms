@@ -1,4 +1,3 @@
-/*
 package com.xjp.service.impl;
 
 import com.xjp.annotation.BaseService;
@@ -12,13 +11,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.SQLException;
 
-*/
 /**
  * 联系我们
  *
  * @author dt 2017-11-22 21:56
- *//*
-
+ */
 @Service
 @Transactional
 @BaseService
@@ -40,4 +37,3 @@ public class ContactServiceImpl extends BaseServiceImpl<ContactMapper, Contact, 
         return 1;
     }
 }
-*/

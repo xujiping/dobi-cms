@@ -11,7 +11,8 @@
 <body>
 <div id="main">
     <div style="padding: 100px 100px 10px;">
-        <form class="bs-example bs-example-form" role="form" th:object="${contact}">
+        <form id="contact" class="bs-example bs-example-form" role="form" th:object="${contact}" >
+            <input name="id" th:value="*{id}" hidden="true"/>
             <div class="form-group">
                 <label for="address">地址：</label>
                 <input type="text" class="form-control" id="address" name="address" placeholder="请输入地址"
@@ -46,6 +47,19 @@
 </body>
 <div th:include="/inc/common :: footer"></div>
 <script>
-
+    $("#contact").submit(function () {
+        $.ajax({
+            type: 'POST',
+            data: $(this).serialize(),
+            url: '/manage/contact/edit',
+            success: function () {
+                alert('提交成功');
+            },
+            error: function (xhr) {
+                alert('提交失败');
+            }
+        });
+        return false;
+    });
 </script>
 </html>

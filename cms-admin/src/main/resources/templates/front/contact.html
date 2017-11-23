@@ -35,10 +35,10 @@
 <!--地图-->
 <div id="allmap" class="container"></div>
 <div id="content" class="container">
-    <div class="row">
+    <div class="row" th:object="${contact}">
         <div class="col-md-6">
-            <p>地址：长沙市开福区华创国际广场 </p>
-            <p>考察热线：13422217727 18588892200</p>
+            <p th:text="*{address}">地址：</p>
+            <p th:text="考察热线：">考察热线：13422217727 18588892200</p>
             <p>微信手机同号15116232111 18073126111<br/>
                 13288815558 13142064777
             </p>

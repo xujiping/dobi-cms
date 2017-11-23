@@ -29,7 +29,7 @@ public class Contact {
     private String weibo;
 
     /**
-     * 二维码地址
+     * 二维码
      */
     private String ewm;
 
@@ -120,18 +120,18 @@ public class Contact {
     }
 
     /**
-     * 获取二维码地址
+     * 获取二维码
      *
-     * @return ewm - 二维码地址
+     * @return ewm - 二维码
      */
     public String getEwm() {
         return ewm;
     }
 
     /**
-     * 设置二维码地址
+     * 设置二维码
      *
-     * @param ewm 二维码地址
+     * @param ewm 二维码
      */
     public void setEwm(String ewm) {
         this.ewm = ewm;

@@ -1,3 +1,4 @@
+/*
 package com.xjp.web.manage;
 
 import com.xjp.dao.ContactMapper;
@@ -27,3 +28,4 @@ public class ContactController {
         return "manage/contact/index";
     }
 }
+*/

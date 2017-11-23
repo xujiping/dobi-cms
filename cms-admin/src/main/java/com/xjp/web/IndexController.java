@@ -1,12 +1,18 @@
 package com.xjp.web;
 
 import com.xjp.dao.ContactMapper;
+import com.xjp.common.constants.ResultConstants;
+import com.xjp.common.result.Result;
+import com.xjp.dao.ArticleMapper;
 import com.xjp.dao.MenuMapper;
 import com.xjp.dao.UploadMapper;
 import com.xjp.model.Contact;
+import com.xjp.model.Article;
 import com.xjp.model.Menu;
 import com.xjp.model.Upload;
 import com.xjp.service.MenuService;
+
+import org.apache.ibatis.session.RowBounds;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,12 +22,17 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.FileInputStream;
 import java.io.OutputStream;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * index.
@@ -51,6 +62,10 @@ public class IndexController {
     @SuppressWarnings("SpringJavaAutowiringInspection")
     @Autowired
     private ContactMapper contactMapper;
+
+    @SuppressWarnings("SpringJavaAutowiringInspection")
+    @Autowired
+    private ArticleMapper articleMapper;
 
     /**
      * index.
@@ -172,5 +187,30 @@ public class IndexController {
         } catch (Exception e) {
             _LOGGER.error("读取文件失败。", e);
         }
+    }
+
+    /**
+     * 获取某类型文章列表
+     * @param type
+     * @param offset
+     * @param limit
+     * @return
+     */
+    @GetMapping("/article/{type}")
+    @ResponseBody
+    public Object article(@PathVariable(name = "type") Integer type,
+                          @RequestParam(required = false, defaultValue = "0", value = "offset")
+                              int offset,
+                          @RequestParam(required = false, defaultValue = "10", value = "limit")
+                              int limit) {
+        Article article = new Article();
+        article.setType(type);
+        RowBounds rowBounds = new RowBounds(offset, limit);
+        List<Article> rows = articleMapper.selectByRowBounds(article, rowBounds);
+        long total = articleMapper.selectCount(article);
+        Map<String, Object> result = new HashMap<>();
+        result.put("rows", rows);
+        result.put("total", total);
+        return result;
     }
 }

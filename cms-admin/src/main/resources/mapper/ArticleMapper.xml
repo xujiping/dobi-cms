@@ -12,5 +12,6 @@
     <result column="content" jdbcType="LONGVARCHAR" property="content" />
     <result column="type" jdbcType="INTEGER" property="type" />
     <result column="type_name" jdbcType="VARCHAR" property="typeName" />
+    <result column="image_url" jdbcType="VARCHAR" property="imageUrl" />
   </resultMap>
 </mapper>

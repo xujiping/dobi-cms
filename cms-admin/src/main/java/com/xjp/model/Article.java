@@ -37,6 +37,20 @@ public class Article {
     @Column(name = "type_name")
     private String typeName;
 
+    /**
+     * 图片url
+     */
+    @Column(name = "image_url")
+    private String imageUrl;
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
     public Integer getType() {
         return type;
     }

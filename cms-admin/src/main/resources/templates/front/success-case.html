@@ -53,10 +53,17 @@
 	<div id="myCarousel" class="carousel slide" style="height: 500px">
 		<!-- 轮播（Carousel）指标 -->
 		<ol class="carousel-indicators">
+			<li data-target="#myCarousel" th:if="${Iterable.index==0}"  class="active"
+				th:attr="data-slide-to=${Iterable.index}" th:each="bigImage,Iterable: ${bigImages}"></li>
+			<li data-target="#myCarousel" th:if="${Iterable.index!=0}"
+				th:attr="data-slide-to=${Iterable.index}" th:each="bigImage,Iterable: ${bigImages}"></li>
 		</ol>
 		<!-- 轮播（Carousel）项目 -->
 		<div class="carousel-inner">
-			<div th:id="'bigImage' + ${Iterable.count}" class="item" th:each="bigImage,Iterable: ${bigImages}">
+			<div th:if="${Iterable.index==0}"  class="item active" th:each="bigImage,Iterable: ${bigImages}">
+				<img th:src="'http://localhost:8000/upload/' + ${bigImage.name}" style="max-height: 500px; margin: 0 auto;" />
+			</div>
+			<div th:if="${Iterable.index!=0}"  class="item" th:each="bigImage,Iterable: ${bigImages}">
 				<img th:src="'http://localhost:8000/upload/' + ${bigImage.name}" style="max-height: 500px; margin: 0 auto;" />
 			</div>
 		</div>
@@ -137,14 +144,8 @@
         setCurrentMenu();
         $(function(){
 
-            //轮播大图添加active
-            if(typeof(bigImages) != "undefined"){
-                $("#bigImage1").addClass("active");
-                for(var i = 0; i < bigImages.length; i++){
-                    $("#myCarousel ol").append('<li data-target="#myCarousel" data-slide-to="' + i + '"></li>');
-                }
-                $("#myCarousel ol li").eq(0).addClass("active");
-            }
+            // 初始化轮播
+            $("#myCarousel").carousel('cycle');
 
            //获取文章列表
             var type = 3; //文章类型

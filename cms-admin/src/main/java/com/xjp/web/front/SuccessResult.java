@@ -1,5 +1,6 @@
-package com.xjp.web;
+package com.xjp.web.front;
 
+import com.xjp.dao.ArticleMapper;
 import com.xjp.dao.MenuMapper;
 import com.xjp.dao.UploadMapper;
 import com.xjp.model.Menu;
@@ -16,15 +17,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 
 /**
- * 服务项目
+ * 成功案例
  *
  * @author xujiping 2017-11-23 10:20
  */
 @Controller
-@RequestMapping("service")
-public class ServiceController {
+@RequestMapping("success")
+public class SuccessResult {
 
-    private Logger _LOGGER = LoggerFactory.getLogger(ServiceController.class);
+    private Logger _LOGGER = LoggerFactory.getLogger(SuccessResult.class);
 
     @SuppressWarnings("SpringJavaAutowiringInspection")
     @Autowired
@@ -34,10 +35,14 @@ public class ServiceController {
     @Autowired
     private UploadMapper uploadMapper;
 
+    @SuppressWarnings("SpringJavaAutowiringInspection")
+    @Autowired
+    private ArticleMapper articleMapper;
+
     /**
      * 菜单页面
      *
-     * @return front/service.html
+     * @return front/success-case.html
      */
     @GetMapping("")
     public String index(Model model) {
@@ -45,6 +50,7 @@ public class ServiceController {
         model.addAttribute("menus", menus);
         List<Upload> bigImages = uploadMapper.selectUploadByElementId(1);
         model.addAttribute("bigImages", bigImages);
-        return "front/service";
+        return "front/success-case";
     }
+
 }

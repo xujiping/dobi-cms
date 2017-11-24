@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" lang="zh-cn">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>留言列表</title>
+    <head th:include="/inc/common :: head"></head>
+</head>
+<body>
+<div id="main">
+    <table id="table"></table>
+</div>
+</body>
+<div th:include="/inc/common :: footer"></div>
+<script>
+    var $table = $('#table');
+    $(function () {
+        // bootstrap table初始化
+        $table.bootstrapTable
+        ({
+             url: '/manage/message/list',
+             height: getHeight(),
+             striped: true,
+             search: false,
+             showRefresh: true,
+             showColumns: false,
+             minimumCountColumns: 2,
+             clickToSelect: true,
+             detailView: true,
+             detailFormatter: 'detailFormatter',
+             pagination: true,
+             paginationLoop: false,
+             sidePagination: 'server',
+             silentSort: false,
+             smartDisplay: false,
+             escape: true,
+             searchOnEnterKey: true,
+             idField: 'id',
+             maintainSelected: true,
+             toolbar: '#toolbar',
+             columns: [
+                 {field: 'ck', checkbox: true},
+                 {
+                     field: 'id',
+                     title: '编号',
+                     sortable: true,
+                     align: 'center'
+                 },
+                 {
+                     field: 'name',
+                     title: '姓名'
+                 },
+                 {field: 'weixin', title: '微信'},
+                 {field: 'mail', title: '电子邮箱'},
+                 {field: 'phone', title: '电话号码'},
+                 {field: 'content', title: '留言内容'}
+             ]
+         });
+    });
+
+    //刷新
+    function searchAction() {
+
+    }
+
+</script>
+</html>

@@ -150,9 +150,9 @@
             var type = 3; //文章类型
             var offset = 0;  //第几条数据开始
             var limit = 10;  //查询几条数据
-            $.get("/article/" + type, {offset:offset, limit:limit},function(result){
+            $.get("/articles/" + type, {offset:offset, limit:limit},function(result){
                 for(var i = 0; i < result.rows.length; i++){
-                    $("#images").append('<a href="" class="image col-md-3"><img  src="' + result.rows[i].imageUrl + '" width="100%" /><p>' + result.rows[i].title + '</p></a>');
+                    $("#images").append('<a href="http://localhost:8000/success/article/' + result.rows[i].id + '" class="image col-md-3"><img  src="' + result.rows[i].imageUrl + '" width="100%" /><p>' + result.rows[i].title + '</p></a>');
 
                 }
             });

@@ -84,19 +84,19 @@ public class IndexController {
         return "front/index";
     }
 
-    /**
-     * about.
-     *
-     * @return about.html
-     */
-    @RequestMapping(value = "/about")
-    public String about(Model model) {
-        List<Menu> menus = menuMapper.selectAll();
-        model.addAttribute("menus", menus);
-        List<Upload> bigImages = uploadMapper.selectUploadByElementId(1);
-        model.addAttribute("bigImages", bigImages);
-        return "front/about";
-    }
+//    /**
+//     * about.
+//     *
+//     * @return about.html
+//     */
+//    @RequestMapping(value = "/about")
+//    public String about(Model model) {
+//        List<Menu> menus = menuMapper.selectAll();
+//        model.addAttribute("menus", menus);
+//        List<Upload> bigImages = uploadMapper.selectUploadByElementId(1);
+//        model.addAttribute("bigImages", bigImages);
+//        return "front/about";
+//    }
 
     /**
      * service.
@@ -111,20 +111,20 @@ public class IndexController {
         model.addAttribute("bigImages", bigImages);
         return "front/service";
     }
-
-    /**
-     * success.
-     *
-     * @return success.html
-     */
-    @RequestMapping(value = "/success")
-    public String success(Model model) {
-        List<Menu> menus = menuMapper.selectAll();
-        model.addAttribute("menus", menus);
-        List<Upload> bigImages = uploadMapper.selectUploadByElementId(1);
-        model.addAttribute("bigImages", bigImages);
-        return "front/success";
-    }
+//
+//    /**
+//     * success.
+//     *
+//     * @return success.html
+//     */
+//    @RequestMapping(value = "/success")
+//    public String success(Model model) {
+//        List<Menu> menus = menuMapper.selectAll();
+//        model.addAttribute("menus", menus);
+//        List<Upload> bigImages = uploadMapper.selectUploadByElementId(1);
+//        model.addAttribute("bigImages", bigImages);
+//        return "front/success";
+//    }
 
     /**
      * tube.
@@ -140,33 +140,33 @@ public class IndexController {
         return "front/tube";
     }
 
-    /**
-     * message.
-     *
-     * @return message.html
-     */
-    @RequestMapping(value = "/message")
-    public String message(Model model) {
-        List<Menu> menus = menuMapper.selectAll();
-        model.addAttribute("menus", menus);
-        List<Upload> bigImages = uploadMapper.selectUploadByElementId(1);
-        model.addAttribute("bigImages", bigImages);
-        return "front/message";
-    }
+//    /**
+//     * message.
+//     *
+//     * @return message.html
+//     */
+//    @RequestMapping(value = "/message")
+//    public String message(Model model) {
+//        List<Menu> menus = menuMapper.selectAll();
+//        model.addAttribute("menus", menus);
+//        List<Upload> bigImages = uploadMapper.selectUploadByElementId(1);
+//        model.addAttribute("bigImages", bigImages);
+//        return "front/message";
+//    }
 
-    /**
-     * contact.
-     *
-     * @return contact.html
-     */
-    @RequestMapping(value = "/contact")
-    public String contact(Model model) {
-        List<Menu> menus = menuMapper.selectAll();
-        model.addAttribute("menus", menus);
-        Contact contact = contactMapper.selectByPrimaryKey(1);
-        model.addAttribute("contact", contact);
-        return "front/contact";
-    }
+//    /**
+//     * contact.
+//     *
+//     * @return contact.html
+//     */
+//    @RequestMapping(value = "/contact")
+//    public String contact(Model model) {
+//        List<Menu> menus = menuMapper.selectAll();
+//        model.addAttribute("menus", menus);
+//        Contact contact = contactMapper.selectByPrimaryKey(1);
+//        model.addAttribute("contact", contact);
+//        return "front/contact";
+//    }
 
     /**
      * 读取上传的文件
@@ -199,9 +199,9 @@ public class IndexController {
      * @param limit
      * @return
      */
-    @GetMapping("/article/{type}")
+    @GetMapping("/articles/{type}")
     @ResponseBody
-    public Object article(@PathVariable(name = "type") Integer type,
+    public Object articles(@PathVariable(name = "type") Integer type,
                           @RequestParam(required = false, defaultValue = "0", value = "offset")
                               int offset,
                           @RequestParam(required = false, defaultValue = "10", value = "limit")

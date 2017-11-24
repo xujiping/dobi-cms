@@ -8,6 +8,7 @@ import com.xjp.model.Article;
 import com.xjp.model.Menu;
 import com.xjp.model.Upload;
 import com.xjp.service.MenuService;
+import net.sf.json.JSONObject;
 import org.apache.ibatis.session.RowBounds;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -106,18 +107,19 @@ public class IndexController {
     @GetMapping("/article/{type}")
     @ResponseBody
     public Object article(@PathVariable(name = "type") Integer type,
-                          @RequestParam(required = false, defaultValue = "0", value = "offset")
+                          @RequestParam(required = false, defaultValue = "0", value = "page")
                                   int offset,
-                          @RequestParam(required = false, defaultValue = "10", value = "limit")
+                          @RequestParam(required = false, defaultValue = "10", value = "rows")
                                   int limit) {
         Article article = new Article();
         article.setType(type);
-        RowBounds rowBounds = new RowBounds(offset, limit);
+        RowBounds rowBounds = new RowBounds(offset-1, limit);
         List<Article> rows = articleMapper.selectByRowBounds(article, rowBounds);
         long total = articleMapper.selectCount(article);
-        Map<String, Object> result = new HashMap<>();
-        result.put("rows", rows);
-        result.put("total", total);
-        return result;
+        JSONObject json = new JSONObject();
+        json.put("page", offset);
+        json.put("records", total);
+        json.put("rows", rows);
+        return json;
     }
 }

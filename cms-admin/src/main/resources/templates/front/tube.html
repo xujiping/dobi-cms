@@ -14,30 +14,12 @@
 	<link th:href="@{/plugins/waves-0.7.5/waves.min.css}" rel="stylesheet"/>
 	<link th:href="@{/plugins/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css}"
 		  rel="stylesheet"/>
+	<link th:href="@{/plugins/imggrid/imggrid.css}" rel="stylesheet"/>
 	<link th:href="@{/css/common.css}" rel="stylesheet"/>
 	<style>
 	</style>
 </head>
 	<style type="text/css">
-		/*.menu:hover {
-			background-color: green;
-			color: white;
-		}
-		
-		.menu a {
-			color: black;
-		}
-		
-		#menu {
-			-moz-box-shadow: 2px 2px 2px #aaa;
-			!* 老的 Firefox *!
-			box-shadow: 1px 0px 5px #aaa;
-		}
-		.image{
-			border: solid 1px #aaa;
-			width: 280px;
-			margin: 5px;
-		}*/
         #images a{
             display: block;
             padding: 10px;
@@ -88,32 +70,7 @@
 			<div style="text-align: center;">
 				
 				<!--照片列表-->
-				<ul id="images" class="row" style="margin: 20px -40px;">
-				</ul>
-				<!--分页-->
-				<ul class="pagination" style="margin: 0 auto;">
-					<li>
-						<a href="#">&laquo;</a>
-					</li>
-					<li class="active">
-						<a href="#">1</a>
-					</li>
-					<li class="disabled">
-						<a href="#">2</a>
-					</li>
-					<li>
-						<a href="#">3</a>
-					</li>
-					<li>
-						<a href="#">4</a>
-					</li>
-					<li>
-						<a href="#">5</a>
-					</li>
-					<li>
-						<a href="#">&raquo;</a>
-					</li>
-				</ul>
+				<div id="imggrid"></div>
 			</div>
 		</div>
 
@@ -128,32 +85,35 @@
 	<script th:src="@{/plugins/fullPage/jquery.fullPage.min.js}"></script>
 	<script th:src="@{/plugins/fullPage/jquery.jdirk.min.js}"></script>
 	<script th:src="@{/plugins/jquery.cookie.js}"></script>
+	<script th:src="@{/plugins/imggrid/imggrid.js}"></script>
 	<script th:src="@{/js/common-front.js}"></script>
 	<script th:inline="javascript">
         var bigImages = [[${bigImages}]];
 	</script>
-	<script type="text/javascript">
+	<script th:inline="javascript">
 //        <![CDATA[
         setCurrentMenu();
         $(function(){
-
-            //轮播大图添加active
-            if(typeof(bigImages) != "undefined"){
-                $("#bigImage1").addClass("active");
-                for(var i = 0; i < bigImages.length; i++){
-                    $("#myCarousel ol").append('<li data-target="#myCarousel" data-slide-to="' + i + '"></li>');
-                }
-                $("#myCarousel ol li").eq(0).addClass("active");
-            }
-
-           //获取文章列表
-            var type = 4; //文章类型
-            var offset = 0;  //第几条数据开始
-            var limit = 10;  //查询几条数据
-            $.get("/article/" + type, {offset:offset, limit:limit},function(result){
-                for(var i = 0; i < result.rows.length; i++){
-                    $("#images").append('<a href="" class="image col-md-3"><img  src="' + result.rows[i].imageUrl + '" width="100%" /><p>' + result.rows[i].title + '</p></a>');
-
+            var type=4;//试管资讯
+            $('#imggrid').imgGrid({
+                title: false,
+                type: 'GET',//GET|POST
+                data:'',//本地数据
+                url: '/article/' + type,//ajax URL
+                params: {},//url参数
+                height: '450px',
+                width: '100%',
+                img: { width: '200px', animate: 'zoomIn' },//图片宽度，及动画效果
+                onClick: function (obj, index, item) {//点击图片事件
+                    alert(index);
+                },
+                render: function (item, index) {//自定义显示图片
+                    var img = '<img src='+[[@{/images/sy_sg.jpg}]]+'style="width:200px;height:200px;">';//默认图片
+					if(item.imageUrl){
+                        img = '<img src="' + item.imageUrl + '" style="width: 200px;height: 200px;">';
+					}
+                    var str = img + '<p>' + item.title + '</p>';
+                    return str;
                 }
             });
 		});

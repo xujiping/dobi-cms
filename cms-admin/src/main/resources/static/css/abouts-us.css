@@ -43,9 +43,16 @@ h2 {
   height: 306px;
   padding: 0;
   width: auto;
+  border: none;
+  
 }
+#carousel-autoscroll{
+	border: none;
+}
+
 .carousel#carousel-responsive {
   width: auto;
+  border: none;
 }
 .carousel li, 
 .carousel > div > div {

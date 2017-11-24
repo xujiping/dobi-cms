@@ -11,198 +11,85 @@
 <body>
 <div id="main">
     <h3>关于我们元素定制</h3>
-     <div class="input-group">
-        <input id="addImage" type="text" class="form-control" name="name" placeholder="请输入图片名（包含后缀）" />
-        <span class="input-group-btn">
-                <button class="btn btn-default" type="button" onclick="addImage()">添加</button>
+   <!--  集团风采 -->
+    <div class="col-sm-12 well">
+        <div class="col-sm-6">
+            <h4>集团风采图片设置</h4>
+            <div class="input-group">
+                <input id="addMienImage" type="text" class="form-control" name="name" placeholder="请输入图片名（包含后缀）" />
+                <span class="input-group-btn">
+                <button class="btn btn-default" type="button" onclick="addMienImage()">添加</button>
             </span>
+            </div>
+        </div>
+        <div class="col-sm-12" style="padding:10px 20px;">
+            <div class="col-sm-3" th:each="mienImage,Iterable:${mienImages}" style="text-align: center">
+                <img th:src="'http://localhost:8000/upload/' + ${mienImage.name}" width="120px" height="120px" />
+                <p th:text="${mienImage.name}" style="margin-top: 10px; font-size: 14px"></p>
+                <input type="button" class="btn btn-danger" th:value="删除" th:onclick="'deleteMienImage(' + ${mienImage.id} + ')'" />
+            </div>
+        </div>
     </div>
-    <div id="toolbar">
-        <a class="waves-effect waves-button" href="javascript:;" onclick="deleteAction()"><i
-                class="zmdi zmdi-close"></i> 删除图片</a>
+    <!--  生殖中心 -->
+    <div class="col-sm-12 well">
+        <div class="col-sm-6">
+            <h4>生殖中心图片设置</h4>
+            <div class="input-group">
+                <input id="addReproduCenterImage" type="text" class="form-control" name="name" placeholder="请输入图片名（包含后缀）" />
+                <span class="input-group-btn">
+                <button class="btn btn-default" type="button" onclick="addReproduCenterImage()">添加</button>
+            </span>
+            </div>
+        </div>
+        <div class="col-sm-12" style="padding:10px 20px;">
+            <div class="col-sm-3" th:each="reproducCenterImage,Iterable:${reproduCenterImages}" style="text-align: center">
+                <img th:src="'http://localhost:8000/upload/' + ${reproducCenterImage.name}" width="120px" height="120px" />
+                <p th:text="${reproducCenterImage.name}" style="margin-top: 10px; font-size: 14px"></p>
+                <input type="button" class="btn btn-danger" th:value="删除" th:onclick="'deleteReproducCenterImage(' + ${reproducCenterImage.id} + ')'" />
+            </div>
+        </div>
     </div>
-    <table id="table"></table>
+     
 </div>
 </body>
 <div th:include="/inc/common :: footer"></div>
 <script>
-var $table = $('#table');
-$(function () {
-    // bootstrap table初始化
-    $table.bootstrapTable
-    ({
-         url: '/manage/custom/success/images',
-         height: getHeight(),
-         striped: true,
-         search: true,
-         showRefresh: true,
-         showColumns: true,
-         minimumCountColumns: 2,
-         clickToSelect: true,
-         detailView: true,
-         detailFormatter: 'detailFormatter',
-         pagination: true,
-         paginationLoop: false,
-         sidePagination: 'server',
-         silentSort: false,
-         smartDisplay: false,
-         escape: true,
-         searchOnEnterKey: true,
-         idField: 'id',
-         maintainSelected: true,
-         toolbar: '#toolbar',
-         columns: [
-             {field: 'ck', checkbox: true},
-             {
-                 field: 'id',
-                 title: '编号',
-                 sortable: true,
-                 align: 'center'
-             },
-             {
-                 field: 'name',
-                 title: '预览',
-                 align: 'center',
-                 formatter: function(value, row, index){
-                     return '<img src="http://localhost:8000/upload/' + value +'" width="80px" class="img-rounded" />';
-                 }
-             },
-             {field: 'name', title: '图片名称'},
-             {
-                 field: 'url',
-                 title: '访问路径',
-                 formatter: function(value, row, index){
-                     return 'http://localhost:8000/upload/' + row.name;
-                 }
-             },
-             {
-                 field: 'menuId',
-                 title: '所属菜单',
-                 align: 'center'
-             }
-         ]
-     });
-});
-
-// 删除
-var deleteDialog;
-function deleteAction() {
-    var rows = $table.bootstrapTable('getSelections');
-    if (rows.length == 0) {
-        $.confirm({
-                      title: false,
-                      content: '请至少选择一条记录！',
-                      autoClose: 'cancel|3000',
-                      backgroundDismiss: true,
-                      buttons: {
-                          cancel: {
-                              text: '取消',
-                              btnClass: 'waves-effect waves-button'
-                          }
-                      }
-                  });
-    } else {
-        deleteDialog = $.confirm
-        ({
-             type: 'red',
-             animationSpeed: 300,
-             title: false,
-             content: '确认删除该图片吗？',
-             buttons: {
-                 confirm: {
-                     text: '确认',
-                     btnClass: 'waves-effect waves-button',
-                     action: function () {
-                         var ids = new Array();
-                         for (var i in rows) {
-                             ids.push(rows[i].id);
-                         }
-                         $.ajax({
-                                    type: 'get',
-                                    url: '/manage/custom/success/delete/'
-                                         + ids.join("-"),
-                                    success: function (result) {
-                                        if (result.code != 1) {
-                                            if (result.data
-                                                instanceof Array) {
-                                                $.each(result.data,
-                                                       function (index,
-                                                                 value) {
-                                                           $.confirm({
-                                                                         theme: 'dark',
-                                                                         animation: 'rotateX',
-                                                                         closeAnimation: 'rotateX',
-                                                                         title: false,
-                                                                         content: value.errorMsg,
-                                                                         buttons: {
-                                                                             confirm: {
-                                                                                 text: '确认',
-                                                                                 btnClass: 'waves-effect waves-button waves-light'
-                                                                             }
-                                                                         }
-                                                                     });
-                                                       });
-                                            } else {
-                                                $.confirm({
-                                                              theme: 'dark',
-                                                              animation: 'rotateX',
-                                                              closeAnimation: 'rotateX',
-                                                              title: false,
-                                                              content: result.data.errorMsg,
-                                                              buttons: {
-                                                                  confirm: {
-                                                                      text: '确认',
-                                                                      btnClass: 'waves-effect waves-button waves-light'
-                                                                  }
-                                                              }
-                                                          });
-                                            }
-                                        } else {
-                                            deleteDialog.close();
-                                            $table.bootstrapTable(
-                                                'refresh');
-                                        }
-                                    },
-                                    error: function (XMLHttpRequest,
-                                                     textStatus,
-                                                     errorThrown) {
-                                        $.confirm({
-                                                      theme: 'dark',
-                                                      animation: 'rotateX',
-                                                      closeAnimation: 'rotateX',
-                                                      title: false,
-                                                      content: textStatus,
-                                                      buttons: {
-                                                          confirm: {
-                                                              text: '确认',
-                                                              btnClass: 'waves-effect waves-button waves-light'
-                                                          }
-                                                      }
-                                                  });
-                                    }
-                                });
-                     }
-                 },
-                 cancel: {
-                     text: '取消',
-                     btnClass: 'waves-effect waves-button'
-                 }
-             }
-         });
-    }
-}
-
-<!--添加轮播大图-->
-function addImage(){
-    var name = $("#addImage").val();
-    $.post("about/add", {name:name}, function (result) {
+<!--集采添加图-->
+function addMienImage(){
+    var name = $("#addMienImage").val();
+    $.post("about/mienImageAdd", {name:name}, function (result) {
         alert(result.message);
         window.location.href = "about";
     });
 }
 
-// init
-$(function () {
-});
+<!--删除集团风采图片-->
+function deleteMienImage(id){
+    var url = "about/mienImageDelete/" + id;
+    $.get(url, function(result){
+        alert(result.message);
+        window.location.href = "about";
+    });
+}
+
+<!--生殖中心添加图片-->
+function addReproduCenterImage(){
+    var name = $("#addReproduCenterImage").val();
+    $.post("about/reproducCenterImageAdd", {name:name}, function (result) {
+        alert(result.message);
+        window.location.href = "about";
+    });
+}
+
+<!--删除生殖中心图片-->
+function deleteReproducCenterImage(id){
+    var url = "about/reproducCenterImageDelete/" + id;
+    $.get(url, function(result){
+        alert(result.message);
+        window.location.href = "about";
+    });
+}
+
+
 </script>
 </html>

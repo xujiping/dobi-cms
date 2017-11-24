@@ -95,3 +95,7 @@ h1{
     -moz-box-shadow: none;
     box-shadow: none;
 }
+
+.edui-tab-text{
+    color: yellow;
+}

@@ -43,7 +43,7 @@
             <p th:text="|官方微博：*{weibo}|"></p>
         </div>
         <div class="col-md-6">
-            <img th:src="@{/images/weixin.png}"/>
+            <img th:src="*{ewm}"/>
         </div>
     </div>
 </div>
@@ -61,7 +61,7 @@
 <script th:src="@{/plugins/fullPage/jquery.fullPage.min.js}"></script>
 <script th:src="@{/plugins/fullPage/jquery.jdirk.min.js}"></script>
 <script th:src="@{/plugins/jquery.cookie.js}"></script>
-<script th:src="@{/js/common.js}"></script>
+<script th:src="@{/js/common-front.js}"></script>
 <script type="text/javascript">
     // 百度地图API功能
     var map = new BMap.Map("allmap");    // 创建Map实例
@@ -78,7 +78,7 @@
     var local = new BMap.LocalSearch(map, {
         renderOptions: {map: map}
     });
-    local.search($('#address').val());
+    local.search($('#address').text());
     setCurrentMenu();
 </script>
 

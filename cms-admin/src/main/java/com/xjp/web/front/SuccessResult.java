@@ -71,6 +71,7 @@ public class SuccessResult {
         List<Upload> bigImages = uploadMapper.selectUploadByElementId(1);
         model.addAttribute("bigImages", bigImages);
         model.addAttribute("parentMenu", "成功案例");
+        model.addAttribute("parentMenuUrl", "/success");
         return "front/article";
     }
 

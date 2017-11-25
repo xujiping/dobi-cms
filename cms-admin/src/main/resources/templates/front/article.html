@@ -90,7 +90,7 @@
             <a href="index">首页</a>
         </li>
         <li>
-            <a th:text="${parentMenu}" href="/success"></a>
+            <a th:text="${parentMenu}" th:href="${parentMenuUrl}"></a>
         </li>
         <li class="active" th:text="${article.title}"></li>
     </ol>

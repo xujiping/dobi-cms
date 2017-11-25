@@ -19,10 +19,10 @@ import com.xjp.model.Upload;
 
 @Controller
 public class AboutUsResult {
-	
+
 	@Autowired
 	private ArticleMapper articleMapper;
-	
+
 	@Autowired
 	private UploadMapper uploadMapper;
 	@Autowired
@@ -36,34 +36,48 @@ public class AboutUsResult {
 	 */
 	@RequestMapping("/about")
 	public String aboutUs(Model model) {
-		List<Menu> menus = menuMapper.selectAll();//首页菜单
+		List<Menu> menus = menuMapper.selectAll();// 首页菜单
 		model.addAttribute("menus", menus);
+		List<Upload> bigImages = uploadMapper.selectUploadByElementId(1);
+        model.addAttribute("bigImages", bigImages);
+        
 		List<Upload> mienImages = uploadMapper.selectUploadByElementId(21);// 集团风采图
 		model.addAttribute("mienImages", mienImages);
-		List<Upload> reproduCenterImages = uploadMapper.selectUploadByElementId(22);// 生殖中心
+		List<Upload> reproduCenterImages = uploadMapper
+				.selectUploadByElementId(22);// 生殖中心
 		model.addAttribute("reproduCenterImages", reproduCenterImages);
 		Article article = new Article();
 		article.setType(1);
 		List<Article> aboutArticles = articleMapper.select(article);
-		if(aboutArticles.size()>0){
-			for (Article article2 : aboutArticles) {
-				
-				System.out.println("title:"+article2.getTitle());
-				System.out.println("imageUrl:"+article2.getImageUrl());
-			}
-		}
-		model.addAttribute("aboutArticles",aboutArticles);
+		model.addAttribute("aboutArticles", aboutArticles);
+		
+		Article articleStaff = new Article();
+		article.setType(5);
+		List<Article> staffs = articleMapper.select(articleStaff);
+		model.addAttribute("staffs", staffs);
 		return "front/about-us";
 	}
-	
-	
+
 	@GetMapping("/filiale/{id}")
-    public Object article(@PathVariable(name = "id")Integer id, Model model){
-        Article article = articleMapper.selectByPrimaryKey(id);
-        model.addAttribute("article", article);
-        List<Menu> menus = menuMapper.selectAll();//首页菜单
+	public Object article(@PathVariable(name = "id") Integer id, Model model) {
+		Article article = articleMapper.selectByPrimaryKey(id);
+		model.addAttribute("article", article);
+		List<Menu> menus = menuMapper.selectAll();// 首页菜单
 		model.addAttribute("menus", menus);
-        return "front/filiale";
-    }
+		model.addAttribute("parentMenu", "关于我们");
+		model.addAttribute("parentMenuUrl", "/about");
+		return "front/article";
+	}
 	
+	@GetMapping("/staffPresence/{id}")
+	public Object staffPresence(@PathVariable(name = "id") Integer id, Model model) {
+		Article article = articleMapper.selectByPrimaryKey(id);
+		model.addAttribute("article", article);
+		List<Menu> menus = menuMapper.selectAll();// 首页菜单
+		model.addAttribute("menus", menus);
+		model.addAttribute("parentMenu", "关于我们");
+		model.addAttribute("parentMenuUrl", "/about");
+		return "front/article";
+	}
+
 }

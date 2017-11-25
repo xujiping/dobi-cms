@@ -104,7 +104,7 @@ public class IndexController {
      * @param limit
      * @return
      */
-    @GetMapping("/article/{type}")
+    @GetMapping("/articles/{type}")
     @ResponseBody
     public Object article(@PathVariable(name = "type") Integer type,
                           @RequestParam(required = false, defaultValue = "0", value = "page")

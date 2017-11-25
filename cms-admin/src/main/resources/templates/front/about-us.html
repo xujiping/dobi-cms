@@ -112,9 +112,23 @@
 	            </ul>
             </div>
         </div>
-        <div>
+       
         
 		<h1>各地公司</h1>
+		<div th:each="aboutArticle,Iterable:${aboutArticles}">
+		
+		<ul id="filiale">
+			<li>
+			<div align="center">
+					<a th:href="'filiale/'+${aboutArticle.id}"><img th:src="${aboutArticle.imageUrl}" width="200" height="150" /></a><br></br><br></br>
+					<input type="button" class="btn btn-default" th:value="${aboutArticle.title}" style="width: 120px;height: 30px" />
+			</div> 
+			</li>
+		</ul>
+		</div>
+		
+		
+<!-- 		<h1>员工风采</h1>
 		<div th:each="aboutArticle,Iterable:${aboutArticles}">
 		
 		<ul id="filiale">
@@ -125,21 +139,7 @@
 			</div> 
 			</li>
 		</ul>
-		</div>
-		
-		
-		<h1>员工风采</h1>
-		<div th:each="aboutArticle,Iterable:${aboutArticles}">
-		<ul id="filiale2">
-			<li>
-				<div align="center">
-					<img th:src="'http://localhost:8000/upload/' + ${aboutArticle.imageUrl}" width="200" height="150" /><br></br>
-					<button type="button" class="btn btn-default">${aboutArticle.title}</button>
-				</div>
-			</li>
-		</ul>
-		</div>
-		</div>
+		</div> -->
 	<div th:include="/inc/common :: foot"></div>
 
 	<script th:src="@{/plugins/jquery.1.12.4.min.js}"></script>

@@ -55,27 +55,13 @@
     <div style="background-color: #0B5A9F; color: white; width: 120px; height: 50px;padding-top: 15px; float: left;">
         <p style="text-align: center;">服务项目</p>
     </div>
-    <div style="float: left; height: 50px; padding-top: 15px; padding-left: 20px;">
-        <a href="#" style="margin-left: 15px;">
-            <span class="glyphicon glyphicon-play" style="color: #0B5A9F;"></span>
-            <span>失独家庭再生养</span>
-        </a>
-        <a href="#" style="margin-left: 10px;">
-            <span class="glyphicon glyphicon-play"></span>
-            <span>失独家庭再生养</span>
-        </a>
-        <a href="#" style="margin-left: 10px;">
-            <span class="glyphicon glyphicon-play"></span>
-            <span>失独家庭再生养</span>
-        </a>
-        <a href="#" style="margin-left: 10px;">
-            <span class="glyphicon glyphicon-play"></span>
-            <span>失独家庭再生养</span>
-        </a>
-        <a href="#" style="margin-left: 10px;">
-            <span class="glyphicon glyphicon-play"></span>
-            <span>失独家庭再生养</span>
-        </a>
+    <div id="serviceArticles"
+         style="float: left; width: calc(100% - 150px); height: 50px; padding-top: 15px; padding-left: 20px;">
+        <marquee id="affiche" align="left" behavior="scroll" direction="left" loop="-1"
+                 scrollamount="10" scrolldelay="100" onMouseOut="this.start()"
+                 onMouseOver="this.stop()">
+
+        </marquee>
     </div>
 </div>
 
@@ -109,9 +95,9 @@
 <!--试管婴儿篇-->
 <div class="container-fluid" style="padding: 0; z-index: -1">
     <div style="width: 100%; height: 440px; margin-top: 20px; float: left; z-index: auto;">
-        <div style="width: 50%; height: 440px; float: left; background: #0B5A9F; padding: 0 100px; z-index: -1;">
-            <h3 style="color: white; font-weight: 600">试管婴儿篇</h3>
-            <div style="width: 6px; height: 20px; z-index:2; background-color: limegreen; float: left; margin-left: 130px; margin-top: -30px;"></div>
+        <div style="width: 50%; height: 440px; float: left; background: #0B5A9F; padding: 10px 100px; z-index: -1;">
+            <a href="/service" style="color: white; font-weight: 600; font-size: 26px; float: left">试管婴儿篇</a>
+            <div style="width: 6px; height: 20px; z-index:2; background-color: limegreen; float: left; margin: 10px auto auto 10px;"></div>
             <p style="text-indent: 2em; color: white; margin-top: 40px;">
                 国际辅助生育技术监控委员会的研究显示，在1990年时，全球还只有大约9.5万名试管婴儿，但是到2000年已增加到近100万，到2007年则增加到250万。从2007年到现在，试管婴儿技术又为全世界增添了约250万人，其加速增长的趋势十分明显。这说明，以试管婴儿为代表的体外授精技术已成为治疗不育的主要手段。</p>
             <p style="color: white; margin-top: 20px;">我们公司目前可以操作各类试管手术项目包括：</p>
@@ -142,9 +128,9 @@
 <!--干细胞篇-->
 <div class="container-fluid" style="padding: 0;">
     <div style="width: 100%; height: 440px; margin-top: 20px; float: left;">
-        <div style="width: 50%; height: 440px; float: left; background: #0B5A9F; padding: 0 100px;">
-            <h3 style="color: white; font-weight: 600">干细胞篇</h3>
-            <div style="width: 6px; height: 20px; z-index:2; background-color: limegreen; float: left; margin-left: 105px; margin-top: -30px;"></div>
+        <div style="width: 50%; height: 440px; float: left; background: #0B5A9F; padding: 10px 100px;">
+            <a href="/service" style="color: white; font-weight: 600; font-size: 26px; float: left;">干细胞篇</a>
+            <div style="width: 6px; height: 20px; z-index:2; background-color: limegreen; float: left; margin: 10px auto auto 10px;"></div>
             <p style="text-indent: 2em; color: white; margin-top: 40px;">
                 新陈代谢是人体的主要活动，今天的你不是昨天的你，因为每时每刻我们人体会长出新的细胞代替凋亡的细胞。不管你的寿命多长，你身体的某些部分其实只有几周甚至几天的的寿命。其实我们身体的奥秘并不比大自然少，认识我们自己能够更好的保持健康和调理疾病。</p>
             <p style="text-indent: 2em; color: white;">
@@ -231,6 +217,7 @@
 <script th:src="@{/js/common-front.js}"></script>
 <script th:inline="javascript">
     var bigImages = [[${bigImages}]];
+    var serviceArticles = [[${serviceArticles}]];
 </script>
 <script type="text/javascript">
     //        <![CDATA[
@@ -247,13 +234,25 @@
                 max = result.records;
             }
             for (var i = 0; i < max; i++) {
-                var data = '<div class="col-md-3"><img src="' + result.rows[i].imageUrl
+                var data = '<a class="col-md-3 book" style="display: block;" href="/tube/article/' + result.rows[i].id + '"><img src="' + result.rows[i].imageUrl
                            + '" width="100%" /><p>' + result.rows[i].title
                            + '</p><p style="font-size: 12px;">'
-                           + getLocalTime(result.rows[i].date.time / 1000) + '</p></div>';
+                           + getLocalTime(result.rows[i].date.time / 1000) + '</p></a>';
                 $("#tube").append(data);
             }
         });
+
+        //加载服务项目
+        for (var i = 0; i < serviceArticles.length; i++) {
+            var url = "/service/article/" + serviceArticles[i].id;
+            if(serviceArticles[i].type == 6){
+                url = "/upload/" + serviceArticles[i].title + ".pdf";
+            }
+            var serviceHtml = '<a href="' + url
+                              + '" style="margin-left: 15px;"><span class="glyphicon glyphicon-play" style="color: #0B5A9F;"></span><span>'
+                              + serviceArticles[i].title + '</span></a>';
+            $("#serviceArticles marquee").append(serviceHtml);
+        }
     });
     //        ]]>
 </script>

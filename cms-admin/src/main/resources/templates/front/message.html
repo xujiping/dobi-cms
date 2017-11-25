@@ -13,6 +13,8 @@
 	<link th:href="@{/plugins/waves-0.7.5/waves.min.css}" rel="stylesheet"/>
 	<link th:href="@{/plugins/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css}"
 		  rel="stylesheet"/>
+	<link th:href="@{/plugins/bootstrapValidator-0.4.5/css/bootstrapValidator.css}"
+		  rel="stylesheet"/>
 	<link th:href="@{/css/common.css}" rel="stylesheet"/>
 	</head>
 	<style type="text/css">
@@ -67,7 +69,7 @@
 						</div>
 
 					</div>
-					<button type="submit" class="btn btn-success btn-lg col-sm-12">提交</button>
+					<button id="create" type="submit" class="btn btn-success btn-lg col-sm-12">提交</button>
 				</form>
 				<div class="col-md-6">
 
@@ -75,7 +77,7 @@
 			</div>
 		</div>
 
-	<div th:include="/inc/common :: foot" class="footer navbar-fixed-bottom"></div>
+	<div th:include="/inc/common :: foot"></div>
 	</body>
 <script th:src="@{/plugins/jquery.1.12.4.min.js}"></script>
 <script th:src="@{/plugins/bootstrap-3.3.0/js/bootstrap.min.js}"></script>
@@ -86,21 +88,133 @@
 <script th:src="@{/plugins/fullPage/jquery.fullPage.min.js}"></script>
 <script th:src="@{/plugins/fullPage/jquery.jdirk.min.js}"></script>
 <script th:src="@{/plugins/jquery.cookie.js}"></script>
+<script th:src="@{/plugins/bootstrapValidator-0.4.5/js/bootstrapValidator.js}"></script>
 <script th:src="@{/js/common.js}"></script>
 <script>
-    $("#messageBox").submit(function () {
-        $.ajax({
-            type: 'POST',
-            data: $(this).serialize(),
-            url: '/message/add',
-            success: function () {
-                alert('提交成功');
+    setCurrentMenu();
+    $().ready(function () {
+        $('#messageBox').bootstrapValidator({
+            //
+            excluded: [':disabled', ':hidden',
+                ':not(:visible)'],
+            //指定验证后验证字段的提示字体图标
+            feedbackIcons: {
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
             },
-            error: function (xhr) {
-                alert('提交失败');
+            //为每个字段指定通用错误提示语
+            message: '该值不正确',
+            //表单域配置
+            fields: {
+                name: {
+                    validators: {
+                        notEmpty: {
+                            message: '请填写您的姓名'
+                        }
+                    }
+                },
+                mail: {
+                    validators: {
+                        emailAddress: {
+                            message: '邮箱地址格式有误'
+                        }
+                    }
+                },
+                phone: {
+                    validators: {
+                        notEmpty: {
+                            message: '请填写您的手机号'
+                        },
+                        phone: {
+                            message: '请填入正确的手机号'
+                        }
+                    }
+                },
+                content: {
+                    validators: {
+                        stringLength: {
+                            min: 5,
+							max: 100
+                        }
+                    }
+                }
             }
+
         });
-        return false;
+        //提交
+        $('#create').click(function(){
+            var data = $("#messageBox").data("bootstrapValidator");
+            data.validate();
+            var flag = data.isValid();
+            if (!flag) {
+                return;
+            }
+            $.ajax({
+                type: 'post',
+                url: '/message/addMsg',
+                data: $('#messageBox').serialize(),
+                beforeSend: function () {
+                    if ($('#title').val() == '') {
+                        $('#title').focus();
+                        return false;
+                    }
+                },
+                success: function (result) {
+                    if (result.code != 1) {
+                        if (result.data instanceof Array) {
+                            $.each(result.data, function (index, value) {
+                                $.confirm({
+                                    theme: 'dark',
+                                    animation: 'rotateX',
+                                    closeAnimation: 'rotateX',
+                                    title: false,
+                                    content: value.errorMsg,
+                                    buttons: {
+                                        confirm: {
+                                            text: '确认',
+                                            btnClass: 'waves-effect waves-button waves-light'
+                                        }
+                                    }
+                                });
+                            });
+                        } else {
+                            $.confirm({
+                                theme: 'dark',
+                                animation: 'rotateX',
+                                closeAnimation: 'rotateX',
+                                title: false,
+                                content: result.data.errorMsg,
+                                buttons: {
+                                    confirm: {
+                                        text: '确认',
+                                        btnClass: 'waves-effect waves-button waves-light'
+                                    }
+                                }
+                            });
+                        }
+                    } else {
+                        createDialog.close();
+                        $table.bootstrapTable('refresh');
+                    }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    $.confirm({
+                        theme: 'dark',
+                        animation: 'rotateX',
+                        closeAnimation: 'rotateX',
+                        title: false,
+                        content: textStatus,
+                        buttons: {
+                            confirm: {
+                                text: '确认',
+                                btnClass: 'waves-effect waves-button waves-light'
+                            }
+                        }
+                    });
+                }
+            });
+        });
     });
 </script>
 </html>

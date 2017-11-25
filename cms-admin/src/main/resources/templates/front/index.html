@@ -16,6 +16,12 @@
           rel="stylesheet"/>
     <link th:href="@{/css/common.css}" rel="stylesheet"/>
     <style>
+        #allmap {
+            height: 80%;
+            width:100%;
+            overflow: hidden;
+            font-family: "微软雅黑";
+        }
     </style>
 </head>
 <body>
@@ -79,14 +85,15 @@
         <hr style="width:40px; height:1px;border:none;border-top:1px solid #555555; float: right;"/>
     </div>
     <div style="float: left; height: 300px; text-align: left;">
-        <img src="" width="460px" height="300px" style="float: left; background-color: darkgray;"/>
+        <img th:src="@{/images/bbjh.jpg}" width="460px" height="300px" style="float: left; background-color: darkgray;"/>
         <div style="width: 660px; height: 300px; float: left; padding: 10px 10px 10px 80px;">
             <h3 style="font-weight: 600">宝贝计划简介</h3>
             <p style="color: #aaa;">HOSPITAL INTROUDUCTION</p>
             <p style="text-indent: 2em;">
                 宝贝计划IVF国际试管婴儿成立于2008年，在全球拥有多家公司是中国首家试管婴儿国际化服务机构，在国内外拥都有资深的试管医学专家，机构工作人员均由高素质专业人士组成，是中国最权威、最专业的试管第三方辅助生殖服务机构；我们将以全球最专业的医学，最有效的方案，最严谨科学来服务不孕不育、失独、二胎高龄产妇等家庭提供全面、权威、可靠的一站式医疗服务​。</p>
             <button type="button" class="btn btn-default index-more"
-                    style="margin-top: 80px; border: 1px solid limegreen; color: limegreen;">了解更多
+                    style="margin-top: 80px; border: 1px solid limegreen; color: limegreen;">
+                <a href="/about">了解更多</a>
             </button>
         </div>
     </div>
@@ -100,15 +107,15 @@
             <div style="width: 6px; height: 20px; z-index:2; background-color: limegreen; float: left; margin: 10px auto auto 10px;"></div>
             <p style="text-indent: 2em; color: white; margin-top: 40px;">
                 国际辅助生育技术监控委员会的研究显示，在1990年时，全球还只有大约9.5万名试管婴儿，但是到2000年已增加到近100万，到2007年则增加到250万。从2007年到现在，试管婴儿技术又为全世界增添了约250万人，其加速增长的趋势十分明显。这说明，以试管婴儿为代表的体外授精技术已成为治疗不育的主要手段。</p>
-            <p style="color: white; margin-top: 20px;">我们公司目前可以操作各类试管手术项目包括：</p>
-            <p style="color: orange;">服务项目：第三方辅助生殖（捐卵、代孕）</p>
+            <p id="_tube" style="color: white; margin-top: 20px;">我们公司目前可以操作各类试管手术项目包括：</p>
+            <!--<p style="color: orange;">服务项目：第三方辅助生殖（捐卵、代孕）</p>
             <p style="color: orange;">服务项目：多胞胎（性别）选择</p>
             <p style="color: orange;">服务项目：冷冻卵子（精子）</p>
             <p style="color: orange;">服务项目：失独家庭再生养</p>
             <p style="color: orange;">服务项目：同性恋（单身）辅助生殖</p>
-            <p style="color: orange;">服务项目：移植前胚胎染色体筛查（诊断）</p>
+            <p style="color: orange;">服务项目：移植前胚胎染色体筛查（诊断）</p>-->
         </div>
-        <img src="" height="440px" width="50%"
+        <img th:src="@{/images/sgye_1.jpg}" height="440px" width="50%"
              style="float: right; background-color: darkgray; z-index: -1;"/>
         <div style="float:left; z-index: 2; margin-left: calc(50% - 25px); margin-right: 20px; margin-top: -367px; width: 50px; height: 50px; background-color: white; border-radius: 25px;">
             <img th:src="@{/images/药箱_线性.png}" height="30px" width="30px"
@@ -135,12 +142,12 @@
                 新陈代谢是人体的主要活动，今天的你不是昨天的你，因为每时每刻我们人体会长出新的细胞代替凋亡的细胞。不管你的寿命多长，你身体的某些部分其实只有几周甚至几天的的寿命。其实我们身体的奥秘并不比大自然少，认识我们自己能够更好的保持健康和调理疾病。</p>
             <p style="text-indent: 2em; color: white;">
                 新陈代谢是人体生命活动的物质基础。只有通过新陈代谢，机体才能不断吸收外界营养和能量进行物质分解、利用与更新，为生命活动提供物质和能量。细胞是生命活动的基本单位，各种新陈代谢和能量转化都是在细胞内进行的，因此细胞功能的好坏直接影响机体的新陈代谢功能。</p>
-            <p style="color: white; margin-top: 20px;">我们公司目前可以操作各类干细胞项目包括：</p>
-            <p style="color: orange;">服务项目：卵巢回春篇</p>
-            <p style="color: orange;">服务项目：肾阳泰篇</p>
-            <p style="color: orange;">服务项目：定格青春-面部年轻化</p>
+            <p id="cells" style="color: white; margin-top: 20px;">我们公司目前可以操作各类干细胞项目包括：</p>
+            <a href="http://localhost:8000/upload/卵巢回春.pdf" target="view_window"><p style="color: orange;">服务项目：卵巢回春篇</p></a>
+            <a href="http://localhost:8000/upload/定格青春-面部年轻化.pdf" target="view_window"><p style="color: orange;">服务项目：肾阳泰篇</p></a>
+            <a href="http://localhost:8000/upload/肾阳泰.pdf" target="view_window"><p style="color: orange;">服务项目：定格青春-面部年轻化</p></a>
         </div>
-        <img src="" height="440px" width="50%" style="float: right; background-color: darkgray;"/>
+        <img th:src="@{/images/sgye_2.jpg}" height="440px" width="50%" style="float: right; background-color: darkgray;"/>
         <!--字体图标-->
         <div style="float:left; z-index: 2; margin-left: calc(50% - 25px); margin-right: 20px; margin-top: -367px; width: 50px; height: 50px; background-color: white; border-radius: 25px;">
             <img th:src="@{/images/药箱_线性.png}" height="30px" width="30px"
@@ -180,7 +187,7 @@
 <!---->
 <div class="container" style="margin-top: 40px;">
     <div class="col-md-6" style="height: 400px;">
-        <img src="img/sy_sg.jpg" width="500px"/>
+        <div id="allmap" class="container"></div>
     </div>
     <div class="col-md-6" style="height: 400px;">
         <p style="color: green; size: 20sp;"><strong>宝贝计划IVF国际</strong></p>
@@ -204,7 +211,8 @@
 </div>
 
 <div th:include="/inc/common :: foot"></div>
-
+<script type="text/javascript"
+        src="http://api.map.baidu.com/api?v=2.0&amp;ak=DdoGPW2t2sKvPQHHPkgRiOU6"></script>
 <script th:src="@{/plugins/jquery.1.12.4.min.js}"></script>
 <script th:src="@{/plugins/bootstrap-3.3.0/js/bootstrap.min.js}"></script>
 <script th:src="@{/plugins/waves-0.7.5/waves.min.js}"></script>
@@ -218,9 +226,27 @@
 <script th:inline="javascript">
     var bigImages = [[${bigImages}]];
     var serviceArticles = [[${serviceArticles}]];
+    var tubeBaby = [[${tubeBaby}]];
+    var address = [[${address}]];
 </script>
 <script type="text/javascript">
     //        <![CDATA[
+    // 百度地图API功能
+    var map = new BMap.Map("allmap");    // 创建Map实例
+    map.centerAndZoom(new BMap.Point(116.404, 39.915), 11);  // 初始化地图,设置中心点坐标和地图级别
+    //添加地图类型控件
+    map.addControl(new BMap.MapTypeControl({
+        mapTypes: [
+            BMAP_NORMAL_MAP,
+            BMAP_HYBRID_MAP
+        ]
+    }));
+    map.setCurrentCity("长沙");          // 设置地图显示的城市 此项是必须设置的
+    map.enableScrollWheelZoom(true);     //
+    var local = new BMap.LocalSearch(map, {
+        renderOptions: {map: map}
+    });
+    local.search(address);
 
     // 初始化轮播
     $("#myCarousel").carousel('cycle');
@@ -234,8 +260,8 @@
                 max = result.records;
             }
             for (var i = 0; i < max; i++) {
-                var data = '<a class="col-md-3 book" style="display: block;" href="/tube/article/' + result.rows[i].id + '"><img src="' + result.rows[i].imageUrl
-                           + '" width="100%" /><p>' + result.rows[i].title
+                var data = '<a class="col-md-3 book" style="display: block;margin-right: 5px;" href="/tube/article/' + result.rows[i].id + '"><img src="' + result.rows[i].imageUrl
+                           + '" width="100%" style="height: 165px;" /><p>' + result.rows[i].title
                            + '</p><p style="font-size: 12px;">'
                            + getLocalTime(result.rows[i].date.time / 1000) + '</p></a>';
                 $("#tube").append(data);
@@ -252,6 +278,13 @@
                               + '" style="margin-left: 15px;"><span class="glyphicon glyphicon-play" style="color: #0B5A9F;"></span><span>'
                               + serviceArticles[i].title + '</span></a>';
             $("#serviceArticles marquee").append(serviceHtml);
+        }
+
+        //加载试管婴儿篇链接
+        for (var i = 0; i < tubeBaby.length; i++) {
+            var url = "/service/article/" + tubeBaby[i].id;
+            var serviceHtml = '<p style="color: orange;">服务项目：<a style="color: orange;" href="'+ url +'">' + tubeBaby[i].title + '</a></p>';
+            $("#_tube").append(serviceHtml);
         }
     });
     //        ]]>

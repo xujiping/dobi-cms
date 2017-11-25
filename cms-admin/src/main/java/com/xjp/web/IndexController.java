@@ -5,6 +5,7 @@ import com.xjp.dao.ContactMapper;
 import com.xjp.dao.MenuMapper;
 import com.xjp.dao.UploadMapper;
 import com.xjp.model.Article;
+import com.xjp.model.Contact;
 import com.xjp.model.Menu;
 import com.xjp.model.Upload;
 import com.xjp.service.MenuService;
@@ -79,6 +80,9 @@ public class IndexController {
         article.setType(6);  //干细胞
         List<Article> articles2 = articleMapper.select(article);
         serviceArticles.addAll(articles2);
+        Contact contact = contactMapper.selectByPrimaryKey(1);
+        model.addAttribute("address", contact.getAddress());
+        model.addAttribute("tubeBaby", articles1);
         model.addAttribute("serviceArticles", serviceArticles);
         return "front/index";
     }

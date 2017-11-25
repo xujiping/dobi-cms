@@ -1,22 +1,17 @@
 .us{
 	width: 600px;
+	 margin: 0;
+  padding: 0;
 }
 
 .narrate{
 	font-size: 16px;
+	 margin: 0;
+  padding: 0;
+  height: auto;
 }
-html {
-  font-family: 'Roboto',arial, helvetica, sans-serif;
-  margin: 0;
-  padding: 0; 
-}
-body { background-color: #F5F5F5; color: #333; margin: 0; padding: 30px; }
-/* .clearfix:after {
-  clear: both;
-  content: " "; 
-  display:table;
-} */
-h1, h2, h3, h4, h5, p, ul, li, ol {
+
+h1 {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -32,13 +27,13 @@ h2 {
   padding: 20px 0 0 0;
 }
 
-.carousel {
+/* .carousel {
   border: 1px solid #333;
   height: 156px;
   padding:0 0 0 2px;
- /*  width: 762px; */
+  width: 762px;
  width: auto;
-}
+} */
 .carousel#carousel-vertical {
   height: 306px;
   padding: 0;

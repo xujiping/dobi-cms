@@ -11,6 +11,7 @@ function setCurrentMenu(){
         $(".ivf-menus li a").eq(0).css({"color":"#fff"});
     }
     if(url.indexOf("about") >= 0){
+    	alert("sdf");
         $(".ivf-menus li a").eq(1).css({"background-color":"#2ecc71"});
         $(".ivf-menus li a").eq(1).css({"color":"#fff"});
     }

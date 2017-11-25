@@ -7,11 +7,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>关于我们</title>
 
-<link th:href="@{/plugins/fullPage/jquery.fullPage.css}" rel="stylesheet" />
-<link th:href="@{/plugins/bootstrap-3.3.0/css/bootstrap.min.css}" rel="stylesheet" />
-<link th:href="@{/plugins/material-design-iconic-font-2.2.0/css/material-design-iconic-font.min.css}" rel="stylesheet" />
+<link th:href="@{/plugins/fullPage/jquery.fullPage.css}"
+	rel="stylesheet" />
+<link th:href="@{/plugins/bootstrap-3.3.0/css/bootstrap.min.css}"
+	rel="stylesheet" />
+<link
+	th:href="@{/plugins/material-design-iconic-font-2.2.0/css/material-design-iconic-font.min.css}"
+	rel="stylesheet" />
 <link th:href="@{/plugins/waves-0.7.5/waves.min.css}" rel="stylesheet" />
-<link th:href="@{/plugins/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css}" rel="stylesheet" />
+<link
+	th:href="@{/plugins/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css}"
+	rel="stylesheet" />
 <link th:href="@{/css/common.css}" rel="stylesheet" />
 <link th:href="@{/css/abouts-us.css}" rel="stylesheet" />
 
@@ -27,32 +33,29 @@
 	<div id="myCarousel" class="carousel slide" style="height: 500px">
 		<!-- 轮播（Carousel）指标 -->
 		<ol class="carousel-indicators">
-			<li data-target="#myCarousel" th:if="${Iterable.index==0}"  class="active"
-				th:attr="data-slide-to=${Iterable.index}" th:each="bigImage,Iterable: ${bigImages}"></li>
-			<li data-target="#myCarousel" th:if="${Iterable.index!=0}"
-				th:attr="data-slide-to=${Iterable.index}" th:each="bigImage,Iterable: ${bigImages}"></li>
 		</ol>
 		<!-- 轮播（Carousel）项目 -->
 		<div class="carousel-inner">
-			<div th:if="${Iterable.index==0}"  class="item active" th:each="bigImage,Iterable: ${bigImages}">
-				<img th:src="'http://localhost:8000/upload/' + ${bigImage.name}" style="max-height: 500px; margin: 0 auto;" />
-			</div>
-			<div th:if="${Iterable.index!=0}"  class="item" th:each="bigImage,Iterable: ${bigImages}">
-				<img th:src="'http://localhost:8000/upload/' + ${bigImage.name}" style="max-height: 500px; margin: 0 auto;" />
+			<div th:id="'bigImage' + ${Iterable.count}" class="item"
+				th:each="bigImage,Iterable: ${bigImages}">
+				<img th:src="'http://localhost:8000/upload/' + ${bigImage.name}"
+					style="max-height: 500px; margin: 0 auto;" />
 			</div>
 		</div>
 		<!-- 轮播（Carousel）导航 -->
-		<a class="carousel-control left" href="#myCarousel"
-		   data-slide="prev" style="padding-top: 248px;">&lsaquo;</a>
-		<a class="carousel-control right" href="#myCarousel"
-		   data-slide="next" style="padding-top: 248px;">&rsaquo;</a>
+		<a class="carousel-control left" href="#myCarousel" data-slide="prev"
+			style="padding-top: 248px;">&lsaquo;</a> <a
+			class="carousel-control right" href="#myCarousel" data-slide="next"
+			style="padding-top: 248px;">&rsaquo;</a>
 	</div>
 
 	<div class="container">
-		<div style="background-color: #0B5A9F; color: white; width: 120px; height: 50px; padding-top: 15px; float: left;">
+		<div
+			style="background-color: #0B5A9F; color: white; width: 120px; height: 50px; padding-top: 15px; float: left;">
 			<p style="text-align: center;">服务项目</p>
 		</div>
-		<div style="float: left; height: 50px; padding-top: 15px; padding-left: 20px;">
+		<div
+			style="float: left; height: 50px; padding-top: 15px; padding-left: 20px;">
 			<a href="#" style="margin-left: 10px;"> <span
 				class="glyphicon glyphicon-play"></span> <span>失独家庭再生养</span>
 			</a> <a href="#" style="margin-left: 10px;"> <span
@@ -110,101 +113,125 @@
 		</div>
 	</div>
 
-	
-		<h3 style="color: green;">GROUP PROFILE</h3>
-		<h1>集团风采</h1>
-		<div class="carousel" id="carousel-responsive">
-			<div th:each="mienImage,Iterable:${mienImages}">
-	            <ul>
-	                <li>
-	                	<img th:src="'http://localhost:8000/upload/' + ${mienImage.name}" width="200" height="150" />
-	                </li>
-	            </ul>
-            </div>
-        </div>
-		
-		<h1>生殖中心</h1>
-		<!--轮播图片-->
-		<div class="carousel" id="carousel-autoscroll">
-            <div th:each="reproduCenterImage,Iterable:${reproduCenterImages}">
-	            <ul>
-	                <li>
-	                	<img th:src="'http://localhost:8000/upload/' + ${reproduCenterImage.name}" width="200" height="150" />
-	                </li>
-	            </ul>
-            </div>
-        </div>
-       
-        
-		<h1>各地公司</h1>
-		<div th:each="aboutArticle,Iterable:${aboutArticles}">
-		
-		<ul id="filiale">
-			<li>
-			<div align="center">
-					<a th:href="'filiale/'+${aboutArticle.id}"><img th:src="${aboutArticle.imageUrl}" width="200" height="150" /></a><br></br><br></br>
-					<input type="button" class="btn btn-default" th:value="${aboutArticle.title}" style="width: 120px;height: 30px" />
-			</div> 
-			</li>
-		</ul>
+
+	<h3 style="color: green;">GROUP PROFILE</h3>
+	<h1>集团风采</h1>
+	<div class="carousel" id="carousel-responsive">
+		<div th:each="mienImage,Iterable:${mienImages}">
+			<ul>
+				<li><img
+					th:src="'http://localhost:8000/upload/' + ${mienImage.name}"
+					width="200" height="150" /></li>
+			</ul>
 		</div>
-		
-		
-<!-- 		<h1>员工风采</h1>
-		<div th:each="aboutArticle,Iterable:${aboutArticles}">
-		
+	</div>
+
+	<h1>生殖中心</h1>
+	<div class="carousel" id="carousel-autoscroll">
+		<div th:each="reproduCenterImage,Iterable:${reproduCenterImages}">
+			<ul>
+				<li><img
+					th:src="'http://localhost:8000/upload/' + ${reproduCenterImage.name}"
+					width="200" height="150" /></li>
+			</ul>
+		</div>
+	</div>
+	<h1>各地公司</h1>
+	<div th:each="aboutArticle,Iterable:${aboutArticles}">
+
 		<ul id="filiale">
 			<li>
-			<div align="center">
-					<a th:href="filiale/{aboutArticle.id}"><img th:src="${aboutArticle.imageUrl}" width="200" height="150" /></a><br></br><br></br>
-					<input type="button" class="btn btn-default" th:value="${aboutArticle.title}" style="width: 120px;height: 30px" />
-			</div> 
+				<div align="center">
+					<a th:href="'filiale/'+${aboutArticle.id}"><img
+						th:src="${aboutArticle.imageUrl}" width="200" height="150" /></a><br></br>
+					<br></br> <input type="button" class="btn btn-default"
+						th:value="${aboutArticle.title}"
+						style="width: 120px; height: 30px" />
+				</div>
 			</li>
 		</ul>
-		</div> -->
+	</div>
+	<br></br>
+
+
+	<!-- <h1>员工风采</h1>
+	<div th:each="staff,Iterable:${staffs}">
+
+		<ul id="filiale">
+			<li>
+				<div align="center">
+					<a th:href="'staffPresence/'+${staff.id}"><img
+						th:src="${staff.imageUrl}" width="200" height="150" /></a><br></br> <br></br>
+					<a th:href="'staffPresence/'+${staff.id}"><input type="button"
+						class="btn btn-default" th:value="${staff.title}"
+						style="width: 120px; height: 30px" /></a>
+				</div>
+			</li>
+		</ul>
+	</div> -->
 	<div th:include="/inc/common :: foot"></div>
 
 	<script th:src="@{/plugins/jquery.1.12.4.min.js}"></script>
 	<script th:src="@{/plugins/bootstrap-3.3.0/js/bootstrap.min.js}"></script>
 	<script th:src="@{/plugins/waves-0.7.5/waves.min.js}"></script>
-	<script th:src="@{/plugins/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js}"></script>
+	<script
+		th:src="@{/plugins/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js}"></script>
 	<script th:src="@{/plugins/BootstrapMenu.min.js}"></script>
 	<script th:src="@{/plugins/device.min.js}"></script>
 	<script th:src="@{/plugins/fullPage/jquery.fullPage.min.js}"></script>
 	<script th:src="@{/plugins/fullPage/jquery.jdirk.min.js}"></script>
 	<script th:src="@{/plugins/jquery.cookie.js}"></script>
 	<script th:src="@{/plugins/floatingCarousel/js/floatingcarousel.js}"></script>
-	<script th:src="@{/plugins/floatingCarousel/js/floatingcarousel.min.js}"></script>
-	<script th:src="@{/js/admin.js}"></script>
+	<script
+		th:src="@{/plugins/floatingCarousel/js/floatingcarousel.min.js}"></script>
+	<script th:src="@{/js/common-front.js}"></script>
 	<!-- <script th:src="/js/about.js"></script> -->
 
 </body>
 <script type="text/javascript">
-		// 初始化轮播
-		$("#myCarousel").carousel('cycle');
-        // Default carousel
-        $('#carousel-default').floatingCarousel();
-        // Autoscroll
-        $('#carousel-autoscroll').floatingCarousel({
-            autoScroll : true,
-            autoScrollDirection : 'right',
-            autoScrollSpeed : 20000,
-            scrollSpeed : 'fast'
-        });
+//        <![CDATA[
 
-        // vertical
-        $('#carousel-vertical').floatingCarousel({
-            scrollerAlignment : 'vertical'
-        });
+	// Default carousel
+	$('#carousel-default').floatingCarousel();
+	// Autoscroll
+	$('#carousel-autoscroll').floatingCarousel({
+		autoScroll : true,
+		autoScrollDirection : 'right',
+		autoScrollSpeed : 20000,
+		scrollSpeed : 'fast'
+	});
 
-        //responsive
-        var opts = {
-                autoScroll : true,
-                autoScrollSpeed : 20000
-            },
-            responsiveCarousel = $('#carousel-responsive').floatingCarousel(opts);
-        $(window).resize($.debounce(100, function () {
-            responsiveCarousel.update(opts);
-        }));
-    </script>
+	// vertical
+	$('#carousel-vertical').floatingCarousel({
+		scrollerAlignment : 'vertical'
+	});
+
+	//responsive
+	/* var opts = {
+		autoScroll : true,
+		autoScrollSpeed : 20000
+	}, responsiveCarousel = $('#carousel-responsive').floatingCarousel(opts);
+	$(window).resize($.debounce(100, function() {
+		responsiveCarousel.update(opts);
+	})); */
+	
+	//初始化轮播
+	$("#myCarousel").carousel('cycle');
+	setCurrentMenu();
+	
+	//初始化
+	$(function(){
+		 //轮播大图添加active
+        if (typeof(bigImages) != "undefined") {
+            $("#bigImage1").addClass("active");
+            for (var i = 0; i < bigImages.length; i++) {
+                $("#myCarousel ol")
+                    .append('<li data-target="#myCarousel" data-slide-to="' + i + '"></li>');
+            }
+            $("#myCarousel ol li").eq(0).addClass("active");
+        }
+	});
+	
+ //        ]]>
+</script>
 </html>

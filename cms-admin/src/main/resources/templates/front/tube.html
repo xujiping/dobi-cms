@@ -66,7 +66,7 @@
 			<!--导航-->
 			<ol class="breadcrumb">
 				<li>
-					<a href="index">首页</a>
+					<a th:href="@{/index}">首页</a>
 				</li>
 				<li class="active">试管资讯</li>
 			</ol>
@@ -114,14 +114,15 @@
                 width: '100%',
                 img: { width: '200px', animate: 'zoomIn' },//图片宽度，及动画效果
                 onClick: function (obj, index, item) {//点击图片事件
-                    alert(index);
+                    window.location.href =
+                        "http://localhost:8000/tube/article/" + item.id;
                 },
                 render: function (item, index) {//自定义显示图片
                     var img = '<img src='+[[@{/images/sy_sg.jpg}]]+'style="width:200px;height:200px;">';//默认图片
 					if(item.imageUrl){
                         img = '<img src="' + item.imageUrl + '" style="width: 200px;height: 200px;">';
 					}
-                    var str = img + '<p>' + item.title + '</p>';
+                    var str = img + "<p style='text-align: center; font-size: 16px'>" + item.title + "</p>";
                     return str;
                 }
             });

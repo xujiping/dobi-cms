@@ -36,7 +36,7 @@
                     <label for="myEditor">内容</label>
                     <script id="myEditor" name="content"></script>
                 </div>
-                <button type="submit" class="btn btn-success btn-lg" style="margin-left: 450px;">
+                <button type="submit" class="btn btn-success btn-lg" style="margin-left: 390px;">
                     提交
                 </button>
             </form>
@@ -54,7 +54,8 @@
     <script>
         //实例化编辑器
         var um = UM.getEditor('myEditor');
-        um.setWidth(1000);
+        um.setWidth("85%");
+        $(".edui-body-container").css("width", "98%");
 
         $().ready(function () {
 

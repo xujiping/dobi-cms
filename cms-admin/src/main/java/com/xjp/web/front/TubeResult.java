@@ -3,6 +3,7 @@ package com.xjp.web.front;
 import com.xjp.dao.ArticleMapper;
 import com.xjp.dao.MenuMapper;
 import com.xjp.dao.UploadMapper;
+import com.xjp.model.Article;
 import com.xjp.model.Menu;
 import com.xjp.model.Upload;
 import org.slf4j.Logger;
@@ -11,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -52,4 +54,22 @@ public class TubeResult {
         return "front/tube";
     }
 
+    /**
+     * 返回文章页面
+     * @param id
+     * @param model
+     * @return
+     */
+    @GetMapping("/article/{id}")
+    public Object article(@PathVariable(name = "id")Integer id, Model model){
+        Article article = articleMapper.selectByPrimaryKey(id);
+        model.addAttribute("article", article);
+        List<Menu> menus = menuMapper.selectAll();
+        model.addAttribute("menus", menus);
+        List<Upload> bigImages = uploadMapper.selectUploadByElementId(5);
+        model.addAttribute("bigImages", bigImages);
+        model.addAttribute("parentMenu", "试管资讯");
+        model.addAttribute("parentMenuUrl", "/tube");
+        return "front/article";
+    }
 }

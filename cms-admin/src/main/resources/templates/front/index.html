@@ -107,9 +107,9 @@
 </div>
 
 <!--试管婴儿篇-->
-<div class="container-fluid" style="padding: 0;">
-    <div style="width: 100%; height: 440px; margin-top: 20px; float: left;">
-        <div style="width: 50%; height: 440px; float: left; background: #0B5A9F; padding: 0 100px;">
+<div class="container-fluid" style="padding: 0; z-index: -1">
+    <div style="width: 100%; height: 440px; margin-top: 20px; float: left; z-index: auto;">
+        <div style="width: 50%; height: 440px; float: left; background: #0B5A9F; padding: 0 100px; z-index: -1;">
             <h3 style="color: white; font-weight: 600">试管婴儿篇</h3>
             <p style="text-indent: 2em; color: white; margin-top: 40px;">
                 国际辅助生育技术监控委员会的研究显示，在1990年时，全球还只有大约9.5万名试管婴儿，但是到2000年已增加到近100万，到2007年则增加到250万。从2007年到现在，试管婴儿技术又为全世界增添了约250万人，其加速增长的趋势十分明显。这说明，以试管婴儿为代表的体外授精技术已成为治疗不育的主要手段。</p>
@@ -121,7 +121,20 @@
             <p style="color: orange;">服务项目：同性恋（单身）辅助生殖</p>
             <p style="color: orange;">服务项目：移植前胚胎染色体筛查（诊断）</p>
         </div>
-        <img src="" height="440px" width="50%" style="float: right; background-color: darkgray;"/>
+        <img src="" height="440px" width="50%"
+             style="float: right; background-color: darkgray; z-index: -1;"/>
+        <div style="float:left; z-index: 2; margin-left: calc(50% - 25px); margin-right: 20px; margin-top: -367px; width: 50px; height: 50px; background-color: white; border-radius: 25px;">
+            <img th:src="@{/images/药箱_线性.png}" height="30px" width="30px"
+                 style="margin: 10px;"/>
+        </div>
+        <div style="float:left; z-index: 2; margin-left: calc(50% - 25px); margin-right: 20px; margin-top: -245px; width: 50px; height: 50px; background-color: white; border-radius: 25px;">
+            <img th:src="@{/images/听诊器.png}" height="30px" width="30px"
+                 style="margin: 10px;"/>
+        </div>
+        <div style="float:left; z-index: 2; margin-left: calc(50% - 25px); margin-right: 20px; margin-top: -123px; width: 50px; height: 50px; background-color: white; border-radius: 25px;">
+            <img th:src="@{/images/指南针.png}" height="30px" width="30px"
+                 style="margin: 10px;"/>
+        </div>
     </div>
 </div>
 
@@ -140,6 +153,19 @@
             <p style="color: orange;">服务项目：定格青春-面部年轻化</p>
         </div>
         <img src="" height="440px" width="50%" style="float: right; background-color: darkgray;"/>
+        <!--字体图标-->
+        <div style="float:left; z-index: 2; margin-left: calc(50% - 25px); margin-right: 20px; margin-top: -367px; width: 50px; height: 50px; background-color: white; border-radius: 25px;">
+            <img th:src="@{/images/药箱_线性.png}" height="30px" width="30px"
+                 style="margin: 10px;"/>
+        </div>
+        <div style="float:left; z-index: 2; margin-left: calc(50% - 25px); margin-right: 20px; margin-top: -245px; width: 50px; height: 50px; background-color: white; border-radius: 25px;">
+            <img th:src="@{/images/听诊器.png}" height="30px" width="30px"
+                 style="margin: 10px;"/>
+        </div>
+        <div style="float:left; z-index: 2; margin-left: calc(50% - 25px); margin-right: 20px; margin-top: -123px; width: 50px; height: 50px; background-color: white; border-radius: 25px;">
+            <img th:src="@{/images/指南针.png}" height="30px" width="30px"
+                 style="margin: 10px;"/>
+        </div>
     </div>
 </div>
 
@@ -220,7 +246,8 @@
             }
             for (var i = 0; i < max; i++) {
                 var data = '<div class="col-md-3"><img src="' + result.rows[i].imageUrl
-                           + '" width="100%" /><p>' + result.rows[i].title + '</p><p style="font-size: 12px;">'
+                           + '" width="100%" /><p>' + result.rows[i].title
+                           + '</p><p style="font-size: 12px;">'
                            + getLocalTime(result.rows[i].date.time / 1000) + '</p></div>';
                 $("#tube").append(data);
             }

@@ -1,163 +1,169 @@
 <!DOCTYPE HTML>
 <html xmlns="http://www.w3.org/1999/xhtml"
-	  xmlns:th="http://www.thymeleaf.org" lang="zh-cn">
+      xmlns:th="http://www.thymeleaf.org" lang="zh-cn">
 <head>
-	<meta charset="utf-8"/>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1"/>
-	<title>成功案例</title>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>成功案例</title>
 
-	<link th:href="@{/plugins/fullPage/jquery.fullPage.css}" rel="stylesheet"/>
-	<link th:href="@{/plugins/bootstrap-3.3.0/css/bootstrap.min.css}" rel="stylesheet"/>
-	<link th:href="@{/plugins/material-design-iconic-font-2.2.0/css/material-design-iconic-font.min.css}"
-		  rel="stylesheet"/>
-	<link th:href="@{/plugins/waves-0.7.5/waves.min.css}" rel="stylesheet"/>
-	<link th:href="@{/plugins/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css}"
-		  rel="stylesheet"/>
-	<link th:href="@{/css/common.css}" rel="stylesheet"/>
-	<style>
-	</style>
+    <link th:href="@{/plugins/fullPage/jquery.fullPage.css}" rel="stylesheet"/>
+    <link th:href="@{/plugins/bootstrap-3.3.0/css/bootstrap.min.css}" rel="stylesheet"/>
+    <link th:href="@{/plugins/material-design-iconic-font-2.2.0/css/material-design-iconic-font.min.css}"
+          rel="stylesheet"/>
+    <link th:href="@{/plugins/waves-0.7.5/waves.min.css}" rel="stylesheet"/>
+    <link th:href="@{/plugins/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css}"
+          rel="stylesheet"/>
+    <link href="http://cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet"/>
+    <link th:href="@{/plugins/imggrid/imggrid.css}" rel="stylesheet"/>
+    <link th:href="@{/css/common.css}" rel="stylesheet"/>
+    <style>
+    </style>
 </head>
-	<style type="text/css">
-		.menu:hover {
-			background-color: green;
-			color: white;
-		}
-		
-		.menu a {
-			color: black;
-		}
-		
-		#menu {
-			-moz-box-shadow: 2px 2px 2px #aaa;
-			/* 老的 Firefox */
-			box-shadow: 1px 0px 5px #aaa;
-		}
-		.image{
-			border: solid 1px #aaa;
-			width: 280px;
-			margin: 5px;
-		}
-        #images a{
-            display: block;
-            padding: 10px;
-            font-size: 16px;
-            -moz-box-shadow: 1px 2px 1px #aaa; /* 老的 Firefox */
-            box-shadow: 1px 2px 1px #aaa;
-        }
-	</style>
-	<body>
-	<div th:include="/inc/common :: menu"></div>
+<style type="text/css">
+    .menu:hover {
+        background-color: green;
+        color: white;
+    }
 
-	<!--大图-->
-	<div id="myCarousel" class="carousel slide" style="height: 500px">
-		<!-- 轮播（Carousel）指标 -->
-		<ol class="carousel-indicators">
-		</ol>
-		<!-- 轮播（Carousel）项目 -->
-		<div class="carousel-inner">
-			<div th:id="'bigImage' + ${Iterable.count}" class="item" th:each="bigImage,Iterable: ${bigImages}">
-				<img th:src="'http://localhost:8000/upload/' + ${bigImage.name}" style="max-height: 500px; margin: 0 auto;" />
-			</div>
-		</div>
-		<!-- 轮播（Carousel）导航 -->
-		<a class="carousel-control left" href="#myCarousel"
-		   data-slide="prev" style="padding-top: 248px;">&lsaquo;</a>
-		<a class="carousel-control right" href="#myCarousel"
-		   data-slide="next" style="padding-top: 248px;">&rsaquo;</a>
-	</div>
+    .menu a {
+        color: black;
+    }
 
-		<div class="container">
-			<div>
-				<h3 style="color: green;">PRODUCT CENTER</h3>
-				<p>关于我们</p>
-				<p><strong>为了能实现“提供百分之百满意的客户服务”的诺言，我们配备了专业的管理人员，在全国更有队伍庞大的医疗技术人员和服务人员，为用户提供完善的服务</strong></p>
-			</div>
+    #menu {
+        -moz-box-shadow: 2px 2px 2px #aaa;
+        /* 老的 Firefox */
+        box-shadow: 1px 0px 5px #aaa;
+    }
 
-			<!--导航-->
-			<ol class="breadcrumb">
-				<li>
-					<a href="index">首页</a>
-				</li>
-				<li class="active">成功案例</li>
-			</ol>
-			
-			<div class="btn-group">
-					<button type="button" class="btn btn-default" style="background-color: green; color: white; width: 400px;">成功案例</button>
-				</div>
-			<div style="text-align: center;">
-				
-				<!--照片列表-->
-				<ul id="images" class="row" style="margin: 20px -40px;">
-				</ul>
-				<!--分页-->
-				<ul class="pagination" style="margin: 0 auto;">
-					<li>
-						<a href="#">&laquo;</a>
-					</li>
-					<li class="active">
-						<a href="#">1</a>
-					</li>
-					<li class="disabled">
-						<a href="#">2</a>
-					</li>
-					<li>
-						<a href="#">3</a>
-					</li>
-					<li>
-						<a href="#">4</a>
-					</li>
-					<li>
-						<a href="#">5</a>
-					</li>
-					<li>
-						<a href="#">&raquo;</a>
-					</li>
-				</ul>
-			</div>
-		</div>
+    .image {
+        border: solid 1px #aaa;
+        width: 280px;
+        margin: 5px;
+    }
 
-	<div th:include="/inc/common :: foot"></div>
+    #images a {
+        display: block;
+        padding: 10px;
+        font-size: 16px;
+        -moz-box-shadow: 1px 2px 1px #aaa; /* 老的 Firefox */
+        box-shadow: 1px 2px 1px #aaa;
+    }
+</style>
+<body>
+<div th:include="/inc/common :: menu"></div>
 
-	<script th:src="@{/plugins/jquery.1.12.4.min.js}"></script>
-	<script th:src="@{/plugins/bootstrap-3.3.0/js/bootstrap.min.js}"></script>
-	<script th:src="@{/plugins/waves-0.7.5/waves.min.js}"></script>
-	<script th:src="@{/plugins/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js}"></script>
-	<script th:src="@{/plugins/BootstrapMenu.min.js}"></script>
-	<script th:src="@{/plugins/device.min.js}"></script>
-	<script th:src="@{/plugins/fullPage/jquery.fullPage.min.js}"></script>
-	<script th:src="@{/plugins/fullPage/jquery.jdirk.min.js}"></script>
-	<script th:src="@{/plugins/jquery.cookie.js}"></script>
-	<script th:src="@{/js/common-front.js}"></script>
-	<script th:inline="javascript">
-        var bigImages = [[${bigImages}]];
-	</script>
-	<script type="text/javascript">
-//        <![CDATA[
-        setCurrentMenu();
-        $(function(){
+<!--大图-->
+<div id="myCarousel" class="carousel slide" style="height: 500px">
+    <!-- 轮播（Carousel）指标 -->
+    <ol class="carousel-indicators">
+    </ol>
+    <!-- 轮播（Carousel）项目 -->
+    <div class="carousel-inner">
+        <div th:id="'bigImage' + ${Iterable.count}" class="item"
+             th:each="bigImage,Iterable: ${bigImages}">
+            <img th:src="'http://localhost:8000/upload/' + ${bigImage.name}"
+                 style="max-height: 500px; margin: 0 auto;"/>
+        </div>
+    </div>
+    <!-- 轮播（Carousel）导航 -->
+    <a class="carousel-control left" href="#myCarousel"
+       data-slide="prev" style="padding-top: 248px;">&lsaquo;</a>
+    <a class="carousel-control right" href="#myCarousel"
+       data-slide="next" style="padding-top: 248px;">&rsaquo;</a>
+</div>
 
-            //轮播大图添加active
-            if(typeof(bigImages) != "undefined"){
-                $("#bigImage1").addClass("active");
-                for(var i = 0; i < bigImages.length; i++){
-                    $("#myCarousel ol").append('<li data-target="#myCarousel" data-slide-to="' + i + '"></li>');
-                }
-                $("#myCarousel ol li").eq(0).addClass("active");
+<div class="container">
+    <div>
+        <h3 style="color: green;">PRODUCT CENTER</h3>
+        <p>关于我们</p>
+        <p><strong>为了能实现“提供百分之百满意的客户服务”的诺言，我们配备了专业的管理人员，在全国更有队伍庞大的医疗技术人员和服务人员，为用户提供完善的服务</strong>
+        </p>
+    </div>
+
+    <!--导航-->
+    <ol class="breadcrumb">
+        <li>
+            <a href="index">首页</a>
+        </li>
+        <li class="active">成功案例</li>
+    </ol>
+
+    <div class="btn-group">
+        <button type="button" class="btn btn-default"
+                style="background-color: green; color: white; width: 400px;">成功案例
+        </button>
+    </div>
+
+    <div id="imggrid"></div>
+</div>
+
+<div th:include="/inc/common :: foot"></div>
+
+<script th:src="@{/plugins/jquery.1.12.4.min.js}"></script>
+<script th:src="@{/plugins/bootstrap-3.3.0/js/bootstrap.min.js}"></script>
+<script th:src="@{/plugins/waves-0.7.5/waves.min.js}"></script>
+<script th:src="@{/plugins/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js}"></script>
+<script th:src="@{/plugins/BootstrapMenu.min.js}"></script>
+<script th:src="@{/plugins/device.min.js}"></script>
+<script th:src="@{/plugins/fullPage/jquery.fullPage.min.js}"></script>
+<script th:src="@{/plugins/fullPage/jquery.jdirk.min.js}"></script>
+<script th:src="@{/plugins/jquery.cookie.js}"></script>
+<script th:src="@{/plugins/imggrid/imggrid.js}"></script>
+<script th:src="@{/js/common-front.js}"></script>
+<script th:inline="javascript">
+    var bigImages = [[${bigImages}]];
+</script>
+<script type="text/javascript">
+    //        <![CDATA[
+    setCurrentMenu();
+
+    $('#imggrid').imgGrid({
+                              type: 'GET',//GET|POST
+                              url: '/articles/3',//url
+                              params: {type: 0},//url参数
+                              height: '400px',
+                              width: '100%',
+                              img: {width: '200px', animate: 'zoomIn'},//图片宽度，及动画效果
+                              onClick: function (obj, index, item) {//点击图片事件
+                                  window.location.href =
+                                      "http://localhost:8000/success/article/" + item.id;
+                              },
+                              render: function (item, index) {//自定义显示图片
+                                  str = "<img src='" + item.imageUrl + "' /><p style='text-align: center; font-size: 16px'>" + item.title + "</p>";
+                                  return str;
+                              }
+                          });
+
+    //获取文章列表
+    function getArticles(type, offset, limit) {
+        $.get("/articles/" + type, {offset: offset, limit: limit}, function (result) {
+            for (var i = 0; i < result.rows.length; i++) {
+                $("#images").append(
+                    '<a href="http://localhost:8000/success/article/' + result.rows[i].id
+                    + '" class="image col-md-3"><img  src="' + result.rows[i].imageUrl
+                    + '" width="100%" /><p>' + result.rows[i].title + '</p></a>');
+
             }
+        });
+    }
 
-           //获取文章列表
-            var type = 3; //文章类型
-            var offset = 0;  //第几条数据开始
-            var limit = 10;  //查询几条数据
-            $.get("/articles/" + type, {offset:offset, limit:limit},function(result){
-                for(var i = 0; i < result.rows.length; i++){
-                    $("#images").append('<a href="http://localhost:8000/success/article/' + result.rows[i].id + '" class="image col-md-3"><img  src="' + result.rows[i].imageUrl + '" width="100%" /><p>' + result.rows[i].title + '</p></a>');
+    $(function () {
 
-                }
-            });
-		});
-//        ]]>
-	</script>
-	</body>
+        //轮播大图添加active
+        if (typeof(bigImages) != "undefined") {
+            $("#bigImage1").addClass("active");
+            for (var i = 0; i < bigImages.length; i++) {
+                $("#myCarousel ol")
+                    .append('<li data-target="#myCarousel" data-slide-to="' + i + '"></li>');
+            }
+            $("#myCarousel ol li").eq(0).addClass("active");
+        }
+
+        //        getArticles(3, 0, 10);
+
+    });
+    //        ]]>
+</script>
+</body>
 </html>

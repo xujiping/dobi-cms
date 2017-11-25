@@ -14,6 +14,7 @@
     <link th:href="@{/plugins/waves-0.7.5/waves.min.css}" rel="stylesheet"/>
     <link th:href="@{/plugins/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css}"
           rel="stylesheet"/>
+    <link th:href="@{/plugins/imggrid/imggrid.css}" rel="stylesheet"/>
     <link th:href="@{/css/common.css}" rel="stylesheet"/>
     <style>
     </style>
@@ -34,11 +35,11 @@
         box-shadow: 1px 0px 5px #aaa;
     }
 
-    .image {
-        list-style-type: none;
-        border: solid 1px #aaa;
-        width: 280px;
-        margin: 5px;
+    .book{
+        text-align: center;
+        -moz-box-shadow: 2px 2px 2px #aaa;
+        /* 老的 Firefox */
+        box-shadow: 1px 0px 5px #aaa;
     }
 </style>
 
@@ -82,67 +83,31 @@
     </ol>
 
     <div class="btn-group">
-        <button type="button" class="btn btn-default"
+        <button id="gxb" type="button" class="btn btn-default"
                 style="background-color: #0B5A9F; color: white; width: 200px;">干细胞
         </button>
-        <button type="button" class="btn btn-default"
-                style="background-color: #0B5A9F; color: white; width: 200px;">试管婴儿
+        <button id="sgye" type="button" class="btn btn-default"
+                style="width: 200px;">试管婴儿
         </button>
     </div>
-    <div style="text-align: center; margin: 40px 0 20px 0;">
-
-        <!--照片列表-->
-        <ul class="row" style="margin: 20px -40px;">
-            <li class="image col-md-3">
-                <img src="img/sy_sg.jpg" width="100%"/>
-            </li>
-            <li class="image col-md-3">
-                <img src="img/sy_sg.jpg" width="100%"/>
-            </li>
-            <li class="image col-md-3">
-                <img src="img/sy_sg.jpg" width="100%"/>
-            </li>
-            <li class="image col-md-3">
-                <img src="img/sy_sg.jpg" width="100%"/>
-            </li>
-            <li class="image col-md-3">
-                <img src="img/sy_sg.jpg" width="100%"/>
-            </li>
-            <li class="image col-md-3">
-                <img src="img/sy_sg.jpg" width="100%"/>
-            </li>
-            <li class="image col-md-3">
-                <img src="img/sy_sg.jpg" width="100%"/>
-            </li>
-            <li class="image col-md-3">
-                <img src="img/sy_sg.jpg" width="100%"/>
-            </li>
-        </ul>
-        <!--分页-->
-        <ul class="pagination" style="margin: 0 auto;">
-            <li>
-                <a href="#">&laquo;</a>
-            </li>
-            <li class="active">
-                <a href="#">1</a>
-            </li>
-            <li class="disabled">
-                <a href="#">2</a>
-            </li>
-            <li>
-                <a href="#">3</a>
-            </li>
-            <li>
-                <a href="#">4</a>
-            </li>
-            <li>
-                <a href="#">5</a>
-            </li>
-            <li>
-                <a href="#">&raquo;</a>
-            </li>
-        </ul>
+    <!--干细胞-->
+    <div id="gxbgrid" class="row" style="margin: 20px 0; font-size: 16px;">
+        <a class="col-md-3 book" href="http://localhost:8000/upload/卵巢回春.pdf">
+            <img th:src="@{images/avatar.jpg}" width="100%" />
+            <p>卵巢回春</p>
+        </a>
+        <a class="col-md-3 book" style="margin: 0 20px;" href="http://localhost:8000/upload/定格青春-面部年轻化.pdf">
+            <img th:src="@{images/avatar.jpg}" width="100%" />
+            <p>定格青春-面部年轻化</p>
+        </a>
+        <a class="col-md-3 book" href="http://localhost:8000/upload/肾阳泰.pdf">
+            <img th:src="@{images/avatar.jpg}" width="100%" />
+            <p>肾阳泰</p>
+        </a>
     </div>
+    <!--试管婴儿-->
+    <div id="imggrid" hidden="hidden"></div>
+
 </div>
 <div th:include="/inc/common :: foot"></div>
 
@@ -155,12 +120,69 @@
 <script th:src="@{/plugins/fullPage/jquery.fullPage.min.js}"></script>
 <script th:src="@{/plugins/fullPage/jquery.jdirk.min.js}"></script>
 <script th:src="@{/plugins/jquery.cookie.js}"></script>
-<script th:src="@{/js/common.js}"></script>
+<script th:src="@{/plugins/imggrid/imggrid.js}"></script>
+<script th:src="@{/js/common-front.js}"></script>
 <script th:inline="javascript">
     var bigImages = [[${bigImages}]];
 </script>
 <script type="text/javascript">
+    //        <![CDATA[
+    // 初始化轮播
+    $("#myCarousel").carousel('cycle');
     setCurrentMenu();
+
+    $('#imggrid').imgGrid({
+                              type: 'GET',//GET|POST
+                              url: '/articles/2',//url
+                              params: {type: 0},//url参数
+                              height: '400px',
+                              width: '100%',
+                              img: {width: '200px', animate: 'zoomIn'},//图片宽度，及动画效果
+                              onClick: function (obj, index, item) {//点击图片事件
+                                  window.location.href =
+                                      "http://localhost:8000/service/article/" + item.id;
+                              },
+                              render: function (item, index) {//自定义显示图片
+                                  str = "<img src='" + item.imageUrl + "' /><p style='text-align: center; font-size: 16px'>" + item.title + "</p>";
+                                  return str;
+                              }
+                          });
+
+
+    $(function () {
+
+        //轮播大图添加active
+        if (typeof(bigImages) != "undefined") {
+            $("#bigImage1").addClass("active");
+            for (var i = 0; i < bigImages.length; i++) {
+                $("#myCarousel ol")
+                    .append('<li data-target="#myCarousel" data-slide-to="' + i + '"></li>');
+            }
+            $("#myCarousel ol li").eq(0).addClass("active");
+        }
+
+//        点击试管婴儿
+        $("#sgye").click(function(){
+            $("#sgye").css("background-color", "#0B5A9F");
+            $("#sgye").css("color", "#fff");
+            $("#gxb").css("background-color", "#fff");
+            $("#gxb").css("color", "#000");
+            $("#gxbgrid").hide();
+            $("#imggrid").show();
+        });
+        //点击干细胞
+        $("#gxb").click(function(){
+            $("#gxb").css("background-color", "#0B5A9F");
+            $("#gxb").css("color", "#fff");
+            $("#sgye").css("background-color", "#fff");
+            $("#sgye").css("color", "#000");
+            $("#imggrid").hide();
+            $("#gxbgrid").show();
+        });
+
+    });
+
+    //        ]]>
 </script>
 </body>
 </html>

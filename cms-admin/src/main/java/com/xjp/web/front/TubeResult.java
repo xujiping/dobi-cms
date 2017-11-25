@@ -47,7 +47,7 @@ public class TubeResult {
     public String index(Model model) {
         List<Menu> menus = menuMapper.selectAll();
         model.addAttribute("menus", menus);
-        List<Upload> bigImages = uploadMapper.selectUploadByElementId(1);
+        List<Upload> bigImages = uploadMapper.selectUploadByElementId(5);
         model.addAttribute("bigImages", bigImages);
         return "front/tube";
     }

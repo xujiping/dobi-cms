@@ -99,3 +99,7 @@ h1{
 .edui-tab-text{
     color: yellow;
 }
+
+#type{
+    z-index:10000;
+}

@@ -97,7 +97,7 @@
 
     <div>
         <h3 th:text="${article.title}" style="text-align: center;"></h3>
-        <p th:text="${article.date}" style="text-align: right;"></p>
+        <p id="articleDate" style="text-align: right;"></p>
         <div th:id="articleContent" style="text-align: left; min-height: 500px;"></div>
     </div>
 </div>
@@ -117,11 +117,14 @@
 <script th:inline="javascript">
     var bigImages = [[${bigImages}]];
     var articleContent = [[${article.content}]];
+    var articleDate = [[${article.date}]];
 </script>
 <script type="text/javascript">
     //        <![CDATA[
     setCurrentMenu();
     $(function () {
+
+        $("#articleDate").text(articleDate);
 
         // 初始化轮播
         $("#myCarousel").carousel('cycle');

@@ -120,8 +120,8 @@
 		<ul id="filiale">
 			<li>
 			<div align="center">
-					<img th:src="'http://localhost:8000/upload/' + ${aboutArticle.imageUrl}" width="200" height="150" /><br></br>
-					<button type="button" class="btn btn-default">${aboutArticle.title}</button>
+					<a th:href="filiale/{aboutArticle.id}"><img th:src="${aboutArticle.imageUrl}" width="200" height="150" /></a><br></br><br></br>
+					<input type="button" class="btn btn-default" th:value="${aboutArticle.title}" style="width: 120px;height: 30px" />
 			</div> 
 			</li>
 		</ul>

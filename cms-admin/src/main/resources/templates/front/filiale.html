@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org" lang="zh-cn">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>关于我们</title>
+
+<link th:href="@{/plugins/fullPage/jquery.fullPage.css}" rel="stylesheet" />
+<link th:href="@{/plugins/bootstrap-3.3.0/css/bootstrap.min.css}" rel="stylesheet" />
+<link th:href="@{/plugins/material-design-iconic-font-2.2.0/css/material-design-iconic-font.min.css}" rel="stylesheet" />
+<link th:href="@{/plugins/waves-0.7.5/waves.min.css}" rel="stylesheet" />
+<link th:href="@{/plugins/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css}" rel="stylesheet" />
+<link th:href="@{/css/common.css}" rel="stylesheet" />
+<link th:href="@{/css/abouts-us.css}" rel="stylesheet" />
+
+
+
+<style>
+</style>
+</head>
+<body>
+	<div th:include="/inc/common :: menu"></div>
+
+	<!--大图-->
+	<img th:src="@{images/index_1.jpg}" width="100%" height="200px"/>
+
+	<div class="container">
+		<div style="background-color: #0B5A9F; color: white; width: 120px; height: 50px; padding-top: 15px; float: left;">
+			<p style="text-align: center;">服务项目</p>
+		</div>
+		<div style="float: left; height: 50px; padding-top: 15px; padding-left: 20px;">
+			<a href="#" style="margin-left: 10px;"> <span
+				class="glyphicon glyphicon-play"></span> <span>失独家庭再生养</span>
+			</a> <a href="#" style="margin-left: 10px;"> <span
+				class="glyphicon glyphicon-play"></span> <span>失独家庭再生养</span>
+			</a> <a href="#" style="margin-left: 10px;"> <span
+				class="glyphicon glyphicon-play"></span> <span>失独家庭再生养</span>
+			</a> <a href="#" style="margin-left: 10px;"> <span
+				class="glyphicon glyphicon-play"></span> <span>失独家庭再生养</span>
+			</a> <a href="#" style="margin-left: 10px;"> <span
+				class="glyphicon glyphicon-play"></span> <span>失独家庭再生养</span>
+			</a>
+		</div>
+	</div>
+
+	<div>
+		<h3 style="color: green;">ABOUT US</h3>
+		<p>关于我们</p>
+		<p>
+			<strong>为了能实现“提供百分之百满意的客户服务”的诺言，我们配备了专业的管理人员，在全国更有队伍庞大的医疗技术人员和服务人员，为用户提供完善的服务</strong>
+		</p>
+	</div>
+
+	<!--导航-->
+	<ol class="breadcrumb">
+		<li><a href="#">首页</a></li>
+		<li class="active">关于我们</li>
+	</ol>
+	
+	
+	
+	
+	<div th:include="/inc/common :: foot"></div>
+
+	<script th:src="@{/plugins/jquery.1.12.4.min.js}"></script>
+	<script th:src="@{/plugins/bootstrap-3.3.0/js/bootstrap.min.js}"></script>
+	<script th:src="@{/plugins/waves-0.7.5/waves.min.js}"></script>
+	<script th:src="@{/plugins/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js}"></script>
+	<script th:src="@{/plugins/BootstrapMenu.min.js}"></script>
+	<script th:src="@{/plugins/device.min.js}"></script>
+	<script th:src="@{/plugins/fullPage/jquery.fullPage.min.js}"></script>
+	<script th:src="@{/plugins/fullPage/jquery.jdirk.min.js}"></script>
+	<script th:src="@{/plugins/jquery.cookie.js}"></script>
+	<script th:src="@{/plugins/floatingCarousel/js/floatingcarousel.js}"></script>
+	<script th:src="@{/plugins/floatingCarousel/js/floatingcarousel.min.js}"></script>
+	<script th:src="@{/js/admin.js}"></script>
+	<!-- <script th:src="/js/about.js"></script> -->
+
+</body>
+<script type="text/javascript">
+    
+    </script>
+</html>

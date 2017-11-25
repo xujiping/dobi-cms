@@ -183,7 +183,7 @@ public class UploadController {
                 upload.setName(fileName);
                 List<Upload> uploads = uploadMapper.select(upload);
                 if (uploads != null & uploads.size() >= 1){
-                    return new Result(ResultConstants.FILE_EXSIT, null);
+                    return "manage/image/add";
                 }
                 suffix = fileName.substring(fileName.lastIndexOf(".") + 1);
                 if (suffix.toLowerCase().equals("pdf")){
@@ -204,14 +204,14 @@ public class UploadController {
                 int count = uploadMapper.insertSelective(upload);
                 if (count != 1){
                     _LOGGER.error("上传图片-信息写入数据库失败。");
-                    return new Result(ResultConstants.FAILED, count);
+                    return "manage/image/add";
                 }
             } catch (FileNotFoundException e) {
                 _LOGGER.error("上传图片-文件未找到：" + uploadPath + fileName, e);
-                return new Result(ResultConstants.FAILED, e.getMessage());
+                return "manage/image/add";
             } catch (IOException e) {
                 _LOGGER.error("上传图片-上传失败。", e);
-                return new Result(ResultConstants.FAILED, e.getMessage());
+                return "manage/image/add";
             }
             return "manage/image/index";
         }

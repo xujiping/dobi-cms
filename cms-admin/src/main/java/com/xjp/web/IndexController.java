@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletResponse;
 import java.io.FileInputStream;
 import java.io.OutputStream;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -69,6 +70,16 @@ public class IndexController {
         model.addAttribute("menus", menus);
         List<Upload> bigImages = uploadMapper.selectUploadByElementId(1);
         model.addAttribute("bigImages", bigImages);
+        //获取服务项目文章列表
+        List<Article> serviceArticles = new ArrayList<>();
+        Article article = new Article();
+        article.setType(2);  //试管婴儿
+        List<Article> articles1 = articleMapper.select(article);
+        serviceArticles.addAll(articles1);
+        article.setType(6);  //干细胞
+        List<Article> articles2 = articleMapper.select(article);
+        serviceArticles.addAll(articles2);
+        model.addAttribute("serviceArticles", serviceArticles);
         return "front/index";
     }
 

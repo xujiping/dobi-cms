@@ -55,27 +55,13 @@
     <div style="background-color: #0B5A9F; color: white; width: 120px; height: 50px;padding-top: 15px; float: left;">
         <p style="text-align: center;">服务项目</p>
     </div>
-    <div style="float: left; height: 50px; padding-top: 15px; padding-left: 20px;">
-        <a href="#" style="margin-left: 15px;">
-            <span class="glyphicon glyphicon-play" style="color: #0B5A9F;"></span>
-            <span>失独家庭再生养</span>
-        </a>
-        <a href="#" style="margin-left: 10px;">
-            <span class="glyphicon glyphicon-play"></span>
-            <span>失独家庭再生养</span>
-        </a>
-        <a href="#" style="margin-left: 10px;">
-            <span class="glyphicon glyphicon-play"></span>
-            <span>失独家庭再生养</span>
-        </a>
-        <a href="#" style="margin-left: 10px;">
-            <span class="glyphicon glyphicon-play"></span>
-            <span>失独家庭再生养</span>
-        </a>
-        <a href="#" style="margin-left: 10px;">
-            <span class="glyphicon glyphicon-play"></span>
-            <span>失独家庭再生养</span>
-        </a>
+    <div id="serviceArticles"
+         style="float: left; width: calc(100% - 150px); height: 50px; padding-top: 15px; padding-left: 20px;">
+        <marquee id="affiche" align="left" behavior="scroll" direction="left" loop="-1"
+                 scrollamount="10" scrolldelay="100" onMouseOut="this.start()"
+                 onMouseOver="this.stop()">
+
+        </marquee>
     </div>
 </div>
 
@@ -231,6 +217,7 @@
 <script th:src="@{/js/common-front.js}"></script>
 <script th:inline="javascript">
     var bigImages = [[${bigImages}]];
+    var serviceArticles = [[${serviceArticles}]];
 </script>
 <script type="text/javascript">
     //        <![CDATA[
@@ -254,6 +241,18 @@
                 $("#tube").append(data);
             }
         });
+
+        //加载服务项目
+        for (var i = 0; i < serviceArticles.length; i++) {
+            var url = "/service/article/" + serviceArticles[i].id;
+            if(serviceArticles[i].type == 6){
+                url = "/upload/" + serviceArticles[i].title + ".pdf";
+            }
+            var serviceHtml = '<a href="' + url
+                              + '" style="margin-left: 15px;"><span class="glyphicon glyphicon-play" style="color: #0B5A9F;"></span><span>'
+                              + serviceArticles[i].title + '</span></a>';
+            $("#serviceArticles marquee").append(serviceHtml);
+        }
     });
     //        ]]>
 </script>

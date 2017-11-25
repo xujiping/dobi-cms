@@ -52,19 +52,21 @@
                  {field: 'ck', checkbox: true},
                  {
                      title: '编号',
-                     formatter: function(value, row, index){
+                     formatter: function (value, row, index) {
                          var pageNumber = $('#table').bootstrapTable('getOptions').pageNumber;
                          var pageSize = $('#table').bootstrapTable('getOptions').pageSize;
-                         return (pageNumber-1) * pageSize+index+1;
+                         return (pageNumber - 1) * pageSize + index + 1;
                      }
                  },
                  {field: 'title', title: '标题'},
                  {
                      field: 'content',
                      title: '内容',
-                     formatter: function(value, row, index){
-                         if(value.length > 100){
-                             return value.substring(0, 100) + "...";
+                     formatter: function (value, row, index) {
+                         if (value != null) {
+                             if (value.length > 100) {
+                                 return value.substring(0, 100) + "...";
+                             }
                          }
                      }
                  },
@@ -76,7 +78,8 @@
                      field: 'date',
                      title: '创建日期',
                      formatter: function (value, row, index) {
-                         return new Date(parseInt(value)).toLocaleString().replace(/:\d{1,2}$/,' ');
+                         return new Date(parseInt(value)).toLocaleString()
+                             .replace(/:\d{1,2}$/, ' ');
                      }
                  }
              ]

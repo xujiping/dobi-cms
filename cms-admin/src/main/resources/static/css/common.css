@@ -152,4 +152,6 @@ body .jconfirm {
     -moz-box-shadow: 2px 2px 2px #aaa;
     /* 老的 Firefox */
     box-shadow: 1px 0px 5px #aaa;
+    padding-left: 0;
+    padding-right: 0;
 }

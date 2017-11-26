@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50712
 File Encoding         : 65001
 
-Date: 2017-11-23 10:39:54
+Date: 2017-11-26 09:16:12
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -25,10 +25,12 @@ CREATE TABLE `element` (
   `menu_id` int(11) DEFAULT NULL COMMENT '所属菜单ID',
   `status` int(2) NOT NULL DEFAULT '1' COMMENT '状态：1可用 0不可用',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of element
 -- ----------------------------
 INSERT INTO `element` VALUES ('1', '轮播大图', '1', '1');
 INSERT INTO `element` VALUES ('2', '成功案例', '4', '1');
+INSERT INTO `element` VALUES ('21', '集团风采', '2', '1');
+INSERT INTO `element` VALUES ('22', '生殖中心', '2', '1');

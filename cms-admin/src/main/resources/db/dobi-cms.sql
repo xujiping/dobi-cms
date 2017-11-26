@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50712
 File Encoding         : 65001
 
-Date: 2017-11-22 13:46:38
+Date: 2017-11-26 23:10:49
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -26,14 +26,29 @@ CREATE TABLE `article` (
   `date` datetime DEFAULT NULL COMMENT '日期',
   `type` int(2) DEFAULT NULL COMMENT '类型',
   `type_name` varchar(255) DEFAULT NULL COMMENT '类型名称',
+  `image_url` varchar(255) DEFAULT NULL COMMENT '图片路径',
   `status` int(2) NOT NULL DEFAULT '1' COMMENT '状态：1可用 0不可用',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='文章表';
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8 COMMENT='文章表';
 
 -- ----------------------------
 -- Records of article
 -- ----------------------------
-INSERT INTO `article` VALUES ('2', 'test', '<p>测试文章管理<br/></p>', '2017-11-20 16:36:34', '1', '试管资讯', '1');
+INSERT INTO `article` VALUES ('6', '第三方辅助生殖（捐卵、代孕）', '<p><strong><span style=\"font-family: 宋体;font-size: 14pxfont-family:宋体\">第三方辅助生殖（捐卵、代孕）</span></strong><strong></strong></p><p><strong><span style=\"font-family: Calibri;font-size: 14px\">&nbsp;</span></strong></p><p style=\"line-height: 26px;background: rgb(247, 247, 247)\"><span style=\";font-family:宋体;color:rgb(0,0,0);font-size:14px\">&nbsp; &nbsp;第三方辅助生殖是指将早期胚胎植入志愿者子宫，由志愿者替他人完成“十月怀胎，一朝分娩”的过程。当今社会无论是工作上还是生活中，各种压力与日俱增，患不孕不育的患者越来越多，很多的人通过试管婴儿技术解决了不孕的难题，但是对于没有子宫或患有子宫疾病的女性来说，要完成孕育的过程是一个不可能完成的任务，因此“代孕”的出现，是生物医学的进步与人类情感的结合，代孕也是一个伟大而光荣的职业。</span></p><p style=\"line-height: 26px;background: rgb(247, 247, 247)\"><strong><span style=\"font-family: 宋体;color: rgb(0, 0, 0);font-size: 14px\">&nbsp;</span></strong></p><p style=\"line-height: 26px;background: rgb(247, 247, 247)\"><strong><span style=\"font-family: 宋体;color: rgb(0, 0, 0);font-size: 14pxfont-family:宋体\">技术介绍</span></strong></p><p style=\"line-height: 26px;background: rgb(247, 247, 247)\"><span style=\";font-family:宋体;color:rgb(0,0,0);font-size:14px\"><span style=\"font-family:宋体\">　　第三方辅助生殖并不涉及到身体接触，属于辅助生殖技术，是解决不孕不育的一种临床选择。是通过试管婴儿技术把受精卵培养至第五天，对囊胚进行</span>PGS/PGD遗传学疾病的筛查诊断，然后将健康的胚胎移植到孕母子宫腔，一般分为四种情况：</span></p><p style=\"line-height: 26px;background: rgb(247, 247, 247)\"><span style=\";font-family:宋体;color:rgb(0,0,0);font-size:14px\">　　1.精子、卵子来自夫妻双方借用孕母的子宫;</span></p><p style=\"line-height: 26px;background: rgb(247, 247, 247)\"><span style=\";font-family:宋体;color:rgb(0,0,0);font-size:14px\">　　2.精子来自丈夫，卵子由第三方提供(捐卵);</span></p><p style=\"line-height: 26px;background: rgb(247, 247, 247)\"><span style=\";font-family:宋体;color:rgb(0,0,0);font-size:14px\">　　3.精子、卵子均由第三方提供(捐卵、捐精);</span></p><p style=\"line-height: 26px;background: rgb(247, 247, 247)\"><span style=\";font-family:宋体;color:rgb(0,0,0);font-size:14px\">　　4.精子由第三方提供，卵子由妻子提供。</span></p><p style=\"line-height: 26px;background: rgb(247, 247, 247)\"><strong><span style=\"font-family: 宋体;color: rgb(0, 0, 0);font-size: 14px\">　</span></strong></p><p style=\"line-height: 26px;background: rgb(247, 247, 247)\"><strong><span style=\"font-family: 宋体;color: rgb(0, 0, 0);font-size: 14px\">&nbsp;</span></strong></p><p style=\"line-height: 26px;background: rgb(247, 247, 247)\"><strong><span style=\"font-family: 宋体;color: rgb(0, 0, 0);font-size: 14pxfont-family:宋体\">适合人群</span></strong></p><p style=\"line-height: 26px;background: rgb(247, 247, 247)\"><span style=\";font-family:宋体;color:rgb(0,0,0);font-size:14px\">　　1.患有其他疾病，需要及时治疗，且有可能不能生育的人群;</span></p><p style=\"line-height: 26px;background: rgb(247, 247, 247)\"><span style=\";font-family:宋体;color:rgb(0,0,0);font-size:14px\">　　2.有生育能力，但是想要双胞胎，自身状况不适合的人群;</span></p><p style=\"line-height: 26px;background: rgb(247, 247, 247)\"><span style=\";font-family:宋体;color:rgb(0,0,0);font-size:14px\">　　3.不想自己生育或者因为某些原因而不能正常生育的特殊人群(如：影视明星、政府官员等);</span></p><p style=\"line-height: 26px;background: rgb(247, 247, 247)\"><span style=\";font-family:宋体;color:rgb(0,0,0);font-size:14px\">　　4.同性爱人士。</span></p><p style=\"line-height: 26px;background: rgb(247, 247, 247)\"><strong><span style=\"font-family: 宋体;color: rgb(0, 0, 0);font-size: 14px\">　　</span></strong><strong></strong></p><p style=\"line-height: 26px;background: rgb(247, 247, 247)\"><strong><span style=\"font-family: 宋体;color: rgb(0, 0, 0);font-size: 14px\">&nbsp;</span></strong></p><p style=\"line-height: 26px;background: rgb(247, 247, 247)\"><strong><span style=\"font-family: 宋体;color: rgb(0, 0, 0);font-size: 14pxfont-family:宋体\">代孕志愿者的条件</span></strong></p><p><span style=\";font-family:宋体;color:rgb(0,0,0);font-size:14px\">1. 年龄在23-35岁</span></p><p><span style=\";font-family:宋体;color:rgb(0,0,0);font-size:14px\">2. 身体健康，无传染病及遗传病</span></p><p><span style=\";font-family:宋体;color:rgb(0,0,0);font-size:14px\">3. 身高158CM以上的经产妇</span></p><p><span style=\";font-family:宋体;color:rgb(0,0,0);font-size:14px\">4. 愿意帮助不孕不育患者完成孕产整个流程</span></p><p><span style=\";font-family:宋体;color:rgb(0,0,0);font-size:14px\">5. 不超过两次的剖腹产</span></p><p><span style=\";font-family:宋体;color:rgb(0,0,0);font-size:14px\">6. 经济上和精神上稳定</span></p><p><span style=\";font-family:宋体;color:rgb(0,0,0);font-size:14px\">7. 有良好的健康背景</span></p><p><span style=\";font-family:宋体;color:rgb(0,0,0);font-size:14px\">8.不吸烟、不喝酒、不吸毒</span></p><p><span style=\";font-family:宋体;color:rgb(0,0,0);font-size:14px\">9. 没有滥用药物的历史</span></p><p><span style=\";font-family:宋体;color:rgb(0,0,0);font-size:14px\">10. 无流产史及妊娠综合征</span><strong></strong></p><p><strong><span style=\"font-family: Calibri;font-size: 14px\">&nbsp;</span></strong></p><p><strong><span style=\"font-family: Calibri;font-size: 14px\">&nbsp;</span></strong></p><p><strong><span style=\"font-family: Calibri;font-size: 14px\">&nbsp;</span></strong></p><p><strong><span style=\"font-family: Calibri;font-size: 14px\">&nbsp;</span></strong></p><p><strong><span style=\"font-family: Calibri;font-size: 14px\">&nbsp;</span></strong></p><p><br/></p>', '2017-11-25 14:15:14', '2', '服务项目', 'http://localhost:8000/upload/003fprYBzy6K9NHJuDl67.jpg', '1');
+INSERT INTO `article` VALUES ('8', '卵巢回春', null, '2017-11-25 17:07:00', '6', '干细胞', '', '1');
+INSERT INTO `article` VALUES ('9', '定格青春-面部年轻化', null, '2017-11-25 17:09:41', '6', '干细胞', '', '1');
+INSERT INTO `article` VALUES ('10', '肾阳泰', null, '2017-11-25 17:09:54', '6', '干细胞', '', '1');
+INSERT INTO `article` VALUES ('28', '广州公司', null, '2017-11-26 22:35:32', '1', '分公司', '8FCB9F926F82C5E751AAA48ED339EB83.jpg', '1');
+INSERT INTO `article` VALUES ('29', '昆明公司', null, '2017-11-26 22:43:10', '1', '分公司', '20131114_130311.jpg', '1');
+INSERT INTO `article` VALUES ('30', '泰国公司', null, '2017-11-26 22:43:51', '1', '分公司', '20131114_191708.jpg', '1');
+INSERT INTO `article` VALUES ('31', '武汉公司', '', '2017-11-26 22:44:35', '1', '分公司', '照片 002.jpg', '1');
+INSERT INTO `article` VALUES ('32', '长沙公司', null, '2017-11-26 22:45:26', '1', '分公司', '002RFRr5zy7eS7mWBp6d8&690.jpg', '1');
+INSERT INTO `article` VALUES ('33', '大姚县爱心活动', '', '2017-11-26 22:48:49', '5', '员工风采', '大姚县爱心活动1.jpg', '1');
+INSERT INTO `article` VALUES ('34', '广州公司黄腾峡漂流', null, '2017-11-26 22:53:27', '5', '员工风采', '广州公司黄腾峡漂流2.jpg', '1');
+INSERT INTO `article` VALUES ('35', '昆明公司春游活动', null, '2017-11-26 22:54:43', '5', '员工风采', '昆明公司春游活动1.jpg', '1');
+INSERT INTO `article` VALUES ('36', '塞班旅游', '', '2017-11-26 22:56:15', '5', '员工风采', '塞班旅游.JPG', '1');
+INSERT INTO `article` VALUES ('37', '泰国旅游考察1', null, '2017-11-26 22:58:05', '5', '员工风采', '泰国旅游考察1.JPG', '1');
+INSERT INTO `article` VALUES ('38', '芽庄旅游', null, '2017-11-26 22:58:51', '5', '员工风采', '芽庄旅游1.JPG', '1');
 
 -- ----------------------------
 -- Table structure for article_type
@@ -44,15 +59,36 @@ CREATE TABLE `article_type` (
   `name` varchar(255) DEFAULT NULL COMMENT '文章类型名称',
   `status` int(2) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of article_type
 -- ----------------------------
-INSERT INTO `article_type` VALUES ('1', '关于我们', '1');
-INSERT INTO `article_type` VALUES ('2', '服务项目', '1');
+INSERT INTO `article_type` VALUES ('1', '分公司', '1');
+INSERT INTO `article_type` VALUES ('2', '试管婴儿', '1');
 INSERT INTO `article_type` VALUES ('3', '成功案例', '1');
 INSERT INTO `article_type` VALUES ('4', '试管资讯', '1');
+INSERT INTO `article_type` VALUES ('5', '员工风采', '1');
+INSERT INTO `article_type` VALUES ('6', '干细胞', '1');
+
+-- ----------------------------
+-- Table structure for contact
+-- ----------------------------
+DROP TABLE IF EXISTS `contact`;
+CREATE TABLE `contact` (
+  `id` int(20) NOT NULL,
+  `address` varchar(200) DEFAULT NULL COMMENT '地址',
+  `number` varchar(200) DEFAULT NULL COMMENT '热线',
+  `wechat` varchar(200) DEFAULT NULL COMMENT '微信',
+  `weibo` varchar(200) DEFAULT NULL COMMENT '微博',
+  `ewm` varchar(200) DEFAULT NULL COMMENT '二维码',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of contact
+-- ----------------------------
+INSERT INTO `contact` VALUES ('1', '都是废物', '2312', '231231', '12312', '似懂非懂');
 
 -- ----------------------------
 -- Table structure for customer_message
@@ -82,13 +118,15 @@ CREATE TABLE `element` (
   `menu_id` int(11) DEFAULT NULL COMMENT '所属菜单ID',
   `status` int(2) NOT NULL DEFAULT '1' COMMENT '状态：1可用 0不可用',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of element
 -- ----------------------------
 INSERT INTO `element` VALUES ('1', '轮播大图', '1', '1');
-INSERT INTO `element` VALUES ('2', '', null, '1');
+INSERT INTO `element` VALUES ('2', '成功案例', '4', '1');
+INSERT INTO `element` VALUES ('21', '集团风采', '2', '1');
+INSERT INTO `element` VALUES ('22', '生殖中心', '2', '1');
 
 -- ----------------------------
 -- Table structure for log
@@ -124,7 +162,7 @@ DROP TABLE IF EXISTS `menu`;
 CREATE TABLE `menu` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL COMMENT '菜单名称',
-  `level` int(2) NOT NULL DEFAULT '1' COMMENT '菜单级别',
+  `level` int(2) DEFAULT '1' COMMENT '菜单级别',
   `parent` int(11) DEFAULT NULL COMMENT '父菜单ID',
   `url` varchar(255) DEFAULT NULL,
   `status` int(2) NOT NULL DEFAULT '1' COMMENT '状态：1可用 0不可用',
@@ -337,25 +375,43 @@ CREATE TABLE `upload` (
   `menu_id` int(11) DEFAULT NULL COMMENT '所属菜单ID',
   `status` int(2) NOT NULL DEFAULT '1' COMMENT '状态：1可用，0不可用',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COMMENT='上传文件信息表';
+) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8 COMMENT='上传文件信息表';
 
 -- ----------------------------
 -- Records of upload
 -- ----------------------------
-INSERT INTO `upload` VALUES ('2', '351825-106.jpg', 'jpg', '1', '1', '1');
-INSERT INTO `upload` VALUES ('3', '350902-106.jpg', 'jpg', '1', null, '1');
-INSERT INTO `upload` VALUES ('4', '351825-106.jpg', 'jpg', '1', null, '1');
-INSERT INTO `upload` VALUES ('5', '287612-0.jpg', 'jpg', '1', null, '1');
-INSERT INTO `upload` VALUES ('6', '89441-106.jpg', 'jpg', '1', null, '1');
-INSERT INTO `upload` VALUES ('7', '89441-106 (2).jpg', 'jpg', '1', null, '1');
-INSERT INTO `upload` VALUES ('8', '89441-106.jpg', 'jpg', '1', null, '1');
-INSERT INTO `upload` VALUES ('9', '89441-106.jpg', 'jpg', '1', null, '1');
-INSERT INTO `upload` VALUES ('10', '89441-106 (2).jpg', 'jpg', '1', null, '1');
-INSERT INTO `upload` VALUES ('11', '287612-0.jpg', 'jpg', '1', null, '1');
-INSERT INTO `upload` VALUES ('12', '287612-0.jpg', 'jpg', '1', null, '1');
-INSERT INTO `upload` VALUES ('13', '287612-0.jpg', 'jpg', '1', null, '1');
-INSERT INTO `upload` VALUES ('14', '287612-0.jpg', 'jpg', '1', null, '1');
-INSERT INTO `upload` VALUES ('15', '287612-0.jpg', 'jpg', '1', null, '1');
+INSERT INTO `upload` VALUES ('19', '轮播1.jpg', 'jpg', '1', null, '1');
+INSERT INTO `upload` VALUES ('20', '1056607580.jpg', 'jpg', '1', null, '1');
+INSERT INTO `upload` VALUES ('21', '1056607581.jpg', 'jpg', '1', null, '1');
+INSERT INTO `upload` VALUES ('22', '1056607582.jpg', 'jpg', '1', null, '1');
+INSERT INTO `upload` VALUES ('23', '1056607583.jpg', 'jpg', '1', null, '1');
+INSERT INTO `upload` VALUES ('24', '1056607584.jpg', 'jpg', '1', null, '1');
+INSERT INTO `upload` VALUES ('25', '1056607585.jpg', 'jpg', '1', null, '1');
+INSERT INTO `upload` VALUES ('26', '1056607586.jpg', 'jpg', '1', null, '1');
+INSERT INTO `upload` VALUES ('27', '1056607587.jpg', 'jpg', '1', null, '1');
+INSERT INTO `upload` VALUES ('28', '1056607588.jpg', 'jpg', '1', null, '1');
+INSERT INTO `upload` VALUES ('29', '1056607589.jpg', 'jpg', '1', null, '1');
+INSERT INTO `upload` VALUES ('30', '1056607590.jpg', 'jpg', '1', null, '1');
+INSERT INTO `upload` VALUES ('31', '1056607591.jpg', 'jpg', '1', null, '1');
+INSERT INTO `upload` VALUES ('32', '1056607592.jpg', 'jpg', '1', null, '1');
+INSERT INTO `upload` VALUES ('33', '1056607593.jpg', 'jpg', '1', null, '1');
+INSERT INTO `upload` VALUES ('34', 'Array-CGH-1L_conew1.jpg', 'jpg', '1', null, '1');
+INSERT INTO `upload` VALUES ('35', 'Array-CGH-2L_conew1.jpg', 'jpg', '1', null, '1');
+INSERT INTO `upload` VALUES ('36', 'Array-CGH-3L_conew1.jpg', 'jpg', '1', null, '1');
+INSERT INTO `upload` VALUES ('37', 'imsi-1.jpg', 'jpg', '1', null, '1');
+INSERT INTO `upload` VALUES ('38', 'imsi-2.jpg', 'jpg', '1', null, '1');
+INSERT INTO `upload` VALUES ('39', 'ivf-6_conew1.jpg', 'jpg', '1', null, '1');
+INSERT INTO `upload` VALUES ('40', '8FCB9F926F82C5E751AAA48ED339EB83.jpg', 'jpg', '1', null, '1');
+INSERT INTO `upload` VALUES ('41', '20131114_130311.jpg', 'jpg', '1', null, '1');
+INSERT INTO `upload` VALUES ('42', '20131114_191708.jpg', 'jpg', '1', null, '1');
+INSERT INTO `upload` VALUES ('43', '照片 002.jpg', 'jpg', '1', null, '1');
+INSERT INTO `upload` VALUES ('44', '002RFRr5zy7eS7mWBp6d8&690.jpg', 'jpg', '1', null, '1');
+INSERT INTO `upload` VALUES ('45', '大姚县爱心活动1.jpg', 'jpg', '1', null, '1');
+INSERT INTO `upload` VALUES ('46', '广州公司黄腾峡漂流2.jpg', 'jpg', '1', null, '1');
+INSERT INTO `upload` VALUES ('47', '昆明公司春游活动1.jpg', 'jpg', '1', null, '1');
+INSERT INTO `upload` VALUES ('48', '塞班旅游.JPG', 'JPG', '1', null, '1');
+INSERT INTO `upload` VALUES ('49', '泰国旅游考察1.JPG', 'JPG', '1', null, '1');
+INSERT INTO `upload` VALUES ('50', '芽庄旅游1.JPG', 'JPG', '1', null, '1');
 
 -- ----------------------------
 -- Table structure for upload_element
@@ -366,12 +422,45 @@ CREATE TABLE `upload_element` (
   `upload_id` int(11) NOT NULL,
   `element_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of upload_element
 -- ----------------------------
-INSERT INTO `upload_element` VALUES ('1', '2', '1');
+INSERT INTO `upload_element` VALUES ('15', '2', '21');
+INSERT INTO `upload_element` VALUES ('16', '3', '21');
+INSERT INTO `upload_element` VALUES ('17', '5', '21');
+INSERT INTO `upload_element` VALUES ('18', '6', '21');
+INSERT INTO `upload_element` VALUES ('19', '2', '22');
+INSERT INTO `upload_element` VALUES ('20', '3', '22');
+INSERT INTO `upload_element` VALUES ('21', '6', '22');
+INSERT INTO `upload_element` VALUES ('22', '5', '22');
+INSERT INTO `upload_element` VALUES ('23', '5', '22');
+INSERT INTO `upload_element` VALUES ('24', '3', '22');
+INSERT INTO `upload_element` VALUES ('25', '6', '22');
+INSERT INTO `upload_element` VALUES ('26', '6', '22');
+INSERT INTO `upload_element` VALUES ('27', '5', '22');
+INSERT INTO `upload_element` VALUES ('28', '19', '1');
+INSERT INTO `upload_element` VALUES ('29', '20', '21');
+INSERT INTO `upload_element` VALUES ('30', '21', '21');
+INSERT INTO `upload_element` VALUES ('31', '22', '21');
+INSERT INTO `upload_element` VALUES ('32', '23', '21');
+INSERT INTO `upload_element` VALUES ('33', '24', '21');
+INSERT INTO `upload_element` VALUES ('34', '25', '21');
+INSERT INTO `upload_element` VALUES ('35', '26', '21');
+INSERT INTO `upload_element` VALUES ('36', '27', '21');
+INSERT INTO `upload_element` VALUES ('37', '28', '21');
+INSERT INTO `upload_element` VALUES ('38', '29', '21');
+INSERT INTO `upload_element` VALUES ('39', '30', '21');
+INSERT INTO `upload_element` VALUES ('40', '31', '21');
+INSERT INTO `upload_element` VALUES ('41', '32', '21');
+INSERT INTO `upload_element` VALUES ('42', '33', '21');
+INSERT INTO `upload_element` VALUES ('43', '34', '22');
+INSERT INTO `upload_element` VALUES ('44', '35', '22');
+INSERT INTO `upload_element` VALUES ('45', '36', '22');
+INSERT INTO `upload_element` VALUES ('46', '37', '22');
+INSERT INTO `upload_element` VALUES ('47', '37', '22');
+INSERT INTO `upload_element` VALUES ('48', '39', '22');
 
 -- ----------------------------
 -- Table structure for upload_file

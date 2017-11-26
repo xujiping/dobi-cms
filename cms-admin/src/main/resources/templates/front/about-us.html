@@ -316,7 +316,8 @@
 
     <h1 style="text-align: center">各地公司</h1>
     <div class="row">
-        <a class="col-md-3 book" style="display: block; text-align: center;"  th:each="aboutArticle,Iterable:${aboutArticles}">
+        <a class="col-md-3 book" th:href="'/filiale/' + ${aboutArticle.id}" style="display: block; text-align: center;"
+           th:each="aboutArticle,Iterable:${aboutArticles}">
             <img th:src="${aboutArticle.imageUrl}"
                  width="200" height="150"/>
             <p th:text="${aboutArticle.title}" style="font-size: 18px;"></p>
@@ -329,8 +330,10 @@
         <div class="imglist_w">
             <ul class="imglist">
                 <li th:each="staff,Iterable:${staffs}">
-                    <img th:src="${staff.imageUrl}"
-                         width="200" height="150"/>
+                    <a th:href="'/staffPresence/' + ${staff.id}">
+                        <img th:src="${staff.imageUrl}"
+                             width="200" height="150"/>
+                    </a>
                 </li>
             </ul>
             <!--imglist end-->

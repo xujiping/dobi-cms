@@ -47,13 +47,11 @@ public class AboutUsResult {
 				.selectUploadByElementId(22);// 生殖中心
 		model.addAttribute("reproduCenterImages", reproduCenterImages);
 		Article article = new Article();
-		article.setType(1);
+		article.setType(1);  //分公司
 		List<Article> aboutArticles = articleMapper.select(article);
 		model.addAttribute("aboutArticles", aboutArticles);
-		
-		Article articleStaff = new Article();
-		article.setType(5);
-		List<Article> staffs = articleMapper.select(articleStaff);
+		article.setType(5);  //员工风采
+		List<Article> staffs = articleMapper.select(article);
 		model.addAttribute("staffs", staffs);
 		return "front/about-us";
 	}

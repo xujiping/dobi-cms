@@ -30,4 +30,4 @@ mybatis:
 
 dobi:
   #文件上传路径
-  upload: D:\项目\upload\
+  upload: C:\xjp\Workspaces\project\GitHub\dobi-cms\upload\

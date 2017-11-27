@@ -56,7 +56,7 @@
         <div th:id="'bigImage' + ${Iterable.count}" class="item"
              th:each="bigImage,Iterable: ${bigImages}">
             <img th:src="'http://localhost:8000/upload/' + ${bigImage.name}"
-                 style="max-height: 500px; margin: 0 auto;"/>
+                 style="max-height: 600px; width: 100%; margin: 0 auto;"/>
         </div>
     </div>
     <!-- 轮播（Carousel）导航 -->

@@ -35,18 +35,32 @@
 <!--地图-->
 <div id="allmap" class="container"></div>
 <div id="content" class="container">
-    <div class="row" th:object="${contact}">
-        <div class="col-md-6">
-            <p id="address" th:text="'地址：'+ *{address}"></p>
-            <p th:text="|考察热线：*{number}|"></p>
-            <p th:text="|手机微信：*{wechat}|"></p>
-            <p th:text="|官方微博：*{weibo}|"></p>
+    <div class="row">
+        <div class="col-md-6" style="font-size: 16px; margin-top: 40px;">
+            <p style="margin-left: 100px;">地址：长沙市开福区华创国际广场  </p>
+            <p style="margin-left: 100px;">考察热线：13422217727    18588892200</p>
+            <p style="margin-left: 100px;">手机微信：15116232111   18073126111</p>
+            <p style="margin-left: 180px;">13288815558   13142064777</p>
+            <p><img src="/images/xinlang.jpg" width="100px" />官方微博：宝贝计划试管婴儿集团<a href="http://weibo.com/bbjhbaby" style="color: deepskyblue">http://weibo.com/bbjhbaby</a></p>
         </div>
-        <div class="col-md-6">
-            <img th:src="*{ewm}"/>
+        <div class="col-md-6" style="text-align: center;">
+            <img src="/images/weixin.png" width="200px;" />
         </div>
     </div>
 </div>
+<!--<div id="content" class="container">-->
+    <!--<div class="row" th:object="${contact}">-->
+        <!--<div class="col-md-6">-->
+            <!--<p id="address" th:text="'地址：'+ *{address}"></p>-->
+            <!--<p th:text="|考察热线：*{number}|"></p>-->
+            <!--<p th:text="|手机微信：*{wechat}|"></p>-->
+            <!--<p th:text="|官方微博：*{weibo}|"></p>-->
+        <!--</div>-->
+        <!--<div class="col-md-6">-->
+            <!--<img th:src="*{ewm}"/>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
 
 <div th:include="/inc/common :: foot"></div>
 </body>
@@ -78,7 +92,8 @@
     var local = new BMap.LocalSearch(map, {
         renderOptions: {map: map}
     });
-    local.search($('#address').text());
+//    local.search($('#address').text());
+    local.search('长沙市开福区华创国际广场');
     setCurrentMenu();
 </script>
 

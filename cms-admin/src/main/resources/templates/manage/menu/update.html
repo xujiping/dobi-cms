@@ -8,7 +8,7 @@
     <title>修改菜单</title>
     <link th:href="@{/plugins/umeditor/themes/default/css/umeditor.css}" type="text/css"
           rel="stylesheet"/>
-    <head th:include="/inc/common :: head"></head>
+    <head th:include="inc/common :: head"></head>
     <link th:href="@{/css/menu.css}" type="text/css" rel="stylesheet"/>
 </head>
 <body>
@@ -40,7 +40,7 @@
     </div>
 
     <div class="clear"></div>
-    <div th:include="/inc/common :: footer"></div>
+    <div th:include="inc/common :: footer"></div>
     <script type="text/javascript" th:src="@{/plugins/umeditor/third-party/jquery.min.js}"></script>
     <script type="text/javascript" charset="utf-8"
             th:src="@{/plugins/umeditor/umeditor.config.js}"></script>

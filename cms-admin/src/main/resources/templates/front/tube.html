@@ -43,10 +43,10 @@
 		<!-- 轮播（Carousel）项目 -->
 		<div class="carousel-inner">
 			<div th:if="${Iterable.index==0}"  class="item active" th:each="bigImage,Iterable: ${bigImages}">
-				<img th:src="'http://localhost:8000/upload/' + ${bigImage.name}" style="max-height: 500px; margin: 0 auto;" />
+				<img th:src="'/upload/' + ${bigImage.name}" style="max-height: 500px; margin: 0 auto;" />
 			</div>
 			<div th:if="${Iterable.index!=0}"  class="item" th:each="bigImage,Iterable: ${bigImages}">
-				<img th:src="'http://localhost:8000/upload/' + ${bigImage.name}" style="max-height: 500px; margin: 0 auto;" />
+				<img th:src="'/upload/' + ${bigImage.name}" style="max-height: 500px; margin: 0 auto;" />
 			</div>
 		</div>
 		<!-- 轮播（Carousel）导航 -->
@@ -115,7 +115,7 @@
                 img: { width: '200px', animate: 'zoomIn' },//图片宽度，及动画效果
                 onClick: function (obj, index, item) {//点击图片事件
                     window.location.href =
-                        "http://localhost:8000/tube/article/" + item.id;
+                        "/tube/article/" + item.id;
                 },
                 render: function (item, index) {//自定义显示图片
                     var img = '<img src='+[[@{/images/sy_sg.jpg}]]+'style="width:200px;height:200px;">';//默认图片

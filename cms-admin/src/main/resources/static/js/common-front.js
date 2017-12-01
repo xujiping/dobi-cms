@@ -1,5 +1,5 @@
-var base_url = 'http://localhost:8000/';
-// var base_url = 'http://bbjhbaby.com:8000/';
+var base_url = 'http://localhost:8000';
+// var base_url = 'http://bbjhbaby.com:8000';
 
 //时间戳转日期
 function getLocalTime(nS) {

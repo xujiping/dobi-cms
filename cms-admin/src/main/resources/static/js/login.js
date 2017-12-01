@@ -24,7 +24,7 @@ $(function () {
 // 登录
 function login() {
     $.ajax({
-               url: 'login/ajaxLogin',
+               url: 'http://localhost:8000/login/ajaxLogin',
                type: 'POST',
                data: {
                    username: $('#username').val(),

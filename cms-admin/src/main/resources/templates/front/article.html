@@ -63,10 +63,10 @@
     <!-- 轮播（Carousel）项目 -->
     <div class="carousel-inner">
         <div th:if="${Iterable.index==0}"  class="item active" th:each="bigImage,Iterable: ${bigImages}">
-            <img th:src="'http://localhost:8000/upload/' + ${bigImage.name}" style="max-height: 500px; margin: 0 auto;" />
+            <img th:src="'/upload/' + ${bigImage.name}" style="max-height: 500px; margin: 0 auto;" />
         </div>
         <div th:if="${Iterable.index!=0}"  class="item" th:each="bigImage,Iterable: ${bigImages}">
-            <img th:src="'http://localhost:8000/upload/' + ${bigImage.name}" style="max-height: 500px; margin: 0 auto;" />
+            <img th:src="'/upload/' + ${bigImage.name}" style="max-height: 500px; margin: 0 auto;" />
         </div>
     </div>
     <!-- 轮播（Carousel）导航 -->

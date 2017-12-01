@@ -55,7 +55,7 @@
     <div class="carousel-inner">
         <div th:id="'bigImage' + ${Iterable.count}" class="item"
              th:each="bigImage,Iterable: ${bigImages}">
-            <img th:src="'http://localhost:8000/upload/' + ${bigImage.name}"
+            <img th:src="'/upload/' + ${bigImage.name}"
                  style="max-height: 600px; width: 100%; margin: 0 auto;"/>
         </div>
     </div>
@@ -92,15 +92,15 @@
     </div>
     <!--干细胞-->
     <div id="gxbgrid" class="row" style="margin: 20px 0; font-size: 16px;">
-        <a class="col-md-3 book" href="http://localhost:8000/upload/卵巢回春.pdf">
+        <a class="col-md-3 book" href="/upload/卵巢回春.pdf">
             <img th:src="@{images/avatar.jpg}" width="100%" />
             <p>卵巢回春</p>
         </a>
-        <a class="col-md-3 book" style="margin: 0 20px;" href="http://localhost:8000/upload/定格青春-面部年轻化.pdf">
+        <a class="col-md-3 book" style="margin: 0 20px;" href="/upload/定格青春-面部年轻化.pdf">
             <img th:src="@{images/avatar.jpg}" width="100%" />
             <p>定格青春-面部年轻化</p>
         </a>
-        <a class="col-md-3 book" href="http://localhost:8000/upload/肾阳泰.pdf">
+        <a class="col-md-3 book" href="/upload/肾阳泰.pdf">
             <img th:src="@{images/avatar.jpg}" width="100%" />
             <p>肾阳泰</p>
         </a>
@@ -140,7 +140,7 @@
                               img: {width: '200px', animate: 'zoomIn'},//图片宽度，及动画效果
                               onClick: function (obj, index, item) {//点击图片事件
                                   window.location.href =
-                                      "http://localhost:8000/service/article/" + item.id;
+                                      "/service/article/" + item.id;
                               },
                               render: function (item, index) {//自定义显示图片
                                   str = "<img src='" + item.imageUrl + "' /><p style='text-align: center; font-size: 16px'>" + item.title + "</p>";

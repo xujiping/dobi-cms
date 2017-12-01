@@ -225,7 +225,7 @@
     <div class="carousel-inner">
         <div th:id="'bigImage' + ${Iterable.count}" class="item"
              th:each="bigImage,Iterable: ${bigImages}">
-            <img th:src="'http://localhost:8000/upload/' + ${bigImage.name}"
+            <img th:src="'/upload/' + ${bigImage.name}"
                  style="width: 100%; margin: 0 auto;"/>
         </div>
     </div>
@@ -281,7 +281,7 @@
         <span class="next">&nbsp;</span>
         <ul>
             <li th:each="mienImage,Iterable:${mienImages}">
-                <img th:src="'http://localhost:8000/upload/' + ${mienImage.name}"
+                <img th:src="'/upload/' + ${mienImage.name}"
                      width="200" height="150"/>
             </li>
         </ul>
@@ -292,7 +292,7 @@
         <div class="imglist_w">
             <ul class="imglist">
                 <li th:each="reproduCenterImage,Iterable:${reproduCenterImages}">
-                    <img th:src="'http://localhost:8000/upload/' + ${reproduCenterImage.name}"
+                    <img th:src="'/upload/' + ${reproduCenterImage.name}"
                          width="200" height="150"/>
                 </li>
             </ul>

@@ -62,7 +62,7 @@
     <div class="carousel-inner">
         <div th:id="'bigImage' + ${Iterable.count}" class="item"
              th:each="bigImage,Iterable: ${bigImages}">
-            <img th:src="'http://localhost:8000/upload/' + ${bigImage.name}"
+            <img th:src="'/upload/' + ${bigImage.name}"
                  style="max-height: 500px; margin: 0 auto;"/>
         </div>
     </div>
@@ -127,7 +127,7 @@
                               img: {width: '200px', animate: 'zoomIn'},//图片宽度，及动画效果
                               onClick: function (obj, index, item) {//点击图片事件
                                   window.location.href =
-                                      "http://localhost:8000/success/article/" + item.id;
+                                      "/success/article/" + item.id;
                               },
                               render: function (item, index) {//自定义显示图片
                                   str = "<img src='" + item.imageUrl + "' /><p style='text-align: center; font-size: 16px'>" + item.title + "</p>";
@@ -140,7 +140,7 @@
         $.get("/articles/" + type, {offset: offset, limit: limit}, function (result) {
             for (var i = 0; i < result.rows.length; i++) {
                 $("#images").append(
-                    '<a href="http://localhost:8000/success/article/' + result.rows[i].id
+                    '<a href="/success/article/' + result.rows[i].id
                     + '" class="image col-md-3"><img  src="' + result.rows[i].imageUrl
                     + '" width="100%" /><p>' + result.rows[i].title + '</p></a>');
 

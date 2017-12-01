@@ -23,7 +23,7 @@
         </div>
         <div class="col-sm-12" style="padding:10px 20px;">
             <div class="col-sm-3" th:each="bigImage,Iterable:${bigImages}" style="text-align: center">
-                <img th:src="'http://localhost:8000/upload/' + ${bigImage.name}" width="120px" height="120px" />
+                <img th:src="'/upload/' + ${bigImage.name}" width="120px" height="120px" />
                 <p th:text="${bigImage.name}" style="margin-top: 10px; font-size: 14px"></p>
                 <input type="button" class="btn btn-danger" th:value="删除" th:onclick="'deleteBigImage(' + ${bigImage.id} + ')'" />
             </div>

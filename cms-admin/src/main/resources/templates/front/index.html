@@ -28,7 +28,7 @@
 <div th:include="inc/common :: menu"></div>
 
 <!--大图-->
-<div id="myCarousel" class="carousel slide">
+<div id="myCarousel" class="carousel slide" style="min-height: 500px;">
     <!-- 轮播（Carousel）指标 -->
     <ol class="carousel-indicators">
         <li data-target="#myCarousel" th:if="${Iterable.index==0}" class="active"
@@ -43,11 +43,11 @@
         <div th:if="${Iterable.index==0}" class="item active"
              th:each="bigImage,Iterable: ${bigImages}">
             <img th:src="'/upload/' + ${bigImage.name}"
-                 style="margin: 0 auto; width: 100%;"/>
+                 style="margin: 0 auto; max-height: 600px; width: 100%;"/>
         </div>
         <div th:if="${Iterable.index!=0}" class="item" th:each="bigImage,Iterable: ${bigImages}">
             <img th:src="'/upload/' + ${bigImage.name}"
-                 style="margin: 0 auto; width: 100%;"/>
+                 style="margin: 0 auto; max-height: 600px; width: 100%;"/>
         </div>
     </div>
     <!-- 轮播（Carousel）导航 -->
@@ -143,22 +143,22 @@
             <p style="text-indent: 2em; color: white;">
                 新陈代谢是人体生命活动的物质基础。只有通过新陈代谢，机体才能不断吸收外界营养和能量进行物质分解、利用与更新，为生命活动提供物质和能量。细胞是生命活动的基本单位，各种新陈代谢和能量转化都是在细胞内进行的，因此细胞功能的好坏直接影响机体的新陈代谢功能。</p>
             <p id="cells" style="color: white; margin-top: 20px;">我们公司目前可以操作各类干细胞项目包括：</p>
-            <a href="/upload/卵巢回春.pdf" target="view_window"><p style="color: orange;">服务项目：卵巢回春篇</p></a>
-            <a href="/upload/定格青春-面部年轻化.pdf" target="view_window"><p style="color: orange;">服务项目：肾阳泰篇</p></a>
-            <a href="/upload/肾阳泰.pdf" target="view_window"><p style="color: orange;">服务项目：定格青春-面部年轻化</p></a>
+            <a href="/upload/nchc.pdf" target="view_window"><p style="color: orange;">服务项目：卵巢回春篇</p></a>
+            <a href="/upload/dgqc.pdf" target="view_window"><p style="color: orange;">服务项目：肾阳泰篇</p></a>
+            <a href="/upload/syt.pdf" target="view_window"><p style="color: orange;">服务项目：定格青春-面部年轻化</p></a>
         </div>
         <img th:src="@{/images/sgye_2.jpg}" height="440px" width="50%" style="float: right; background-color: darkgray;"/>
         <!--字体图标-->
         <div style="float:left; z-index: 2; margin-left: calc(50% - 25px); margin-right: 20px; margin-top: -367px; width: 50px; height: 50px; background-color: white; border-radius: 25px;">
-            <img th:src="@{/images/药箱_线性.png}" height="30px" width="30px"
+            <img th:src="@{/images/sy-yx.png}" height="30px" width="30px"
                  style="margin: 10px;"/>
         </div>
         <div style="float:left; z-index: 2; margin-left: calc(50% - 25px); margin-right: 20px; margin-top: -245px; width: 50px; height: 50px; background-color: white; border-radius: 25px;">
-            <img th:src="@{/images/听诊器.png}" height="30px" width="30px"
+            <img th:src="@{/images/sy-tzq.png}" height="30px" width="30px"
                  style="margin: 10px;"/>
         </div>
         <div style="float:left; z-index: 2; margin-left: calc(50% - 25px); margin-right: 20px; margin-top: -123px; width: 50px; height: 50px; background-color: white; border-radius: 25px;">
-            <img th:src="@{/images/指南针.png}" height="30px" width="30px"
+            <img th:src="@{/images/sy-znz.png}" height="30px" width="30px"
                  style="margin: 10px;"/>
         </div>
     </div>
@@ -167,7 +167,7 @@
 <!--最新动态-->
 <div class="container" style="margin: 40px auto; text-align: center;">
     <h4>最新动态</h4>
-    <p style="margin:0 auto; width:580px; color: #;">为了能实现“提供百分之百满意的客户服务”的诺言，我们配备了专业的管理人员，在全国更有
+    <p style="margin:0 auto; width:580px; color: #aaa;">为了能实现“提供百分之百满意的客户服务”的诺言，我们配备了专业的管理人员，在全国更有
         队伍庞大的医疗技术人员和服务人员，为用户提供完善的服务
     </p>
     <div style="margin:0 auto; width: 200px;">
@@ -200,9 +200,9 @@
         <p>（二十四小时在线，你的建议或意见是我们前进的动力）</p>
         <div class="col-md-12">
             <div class="col-md-4">
-                <img src="" width="120px" style="background-color: darkgray;"/>
+                <img th:src="@{images/xinlang.jpg}" width="120px" style="background-color: darkgray;"/>
             </div>
-            <div class="col-md-8">
+            <div class="col-md-8" style="margin-top: 20px;">
                 <p>宝贝计划试管代孕集团</p>
                 <p>http://weibo.com/bbjhbaby</p>
             </div>

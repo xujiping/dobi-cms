@@ -217,7 +217,7 @@
 <div th:include="inc/common :: menu"></div>
 
 <!--大图-->
-<div id="myCarousel" class="carousel slide">
+<div id="myCarousel" class="carousel slide" style="min-height: 500px;">
     <!-- 轮播（Carousel）指标 -->
     <ol class="carousel-indicators">
     </ol>
@@ -226,7 +226,7 @@
         <div th:id="'bigImage' + ${Iterable.count}" class="item"
              th:each="bigImage,Iterable: ${bigImages}">
             <img th:src="'/upload/' + ${bigImage.name}"
-                 style="width: 100%; margin: 0 auto; max-height: 500px;"/>
+                 style="width: 100%; margin: 0 auto; max-height: 600px;"/>
         </div>
     </div>
     <!-- 轮播（Carousel）导航 -->
@@ -241,7 +241,7 @@
 
     <div>
         <h3 style="color: green;">ABOUT US</h3>
-        <p>关于我们</p>
+        <p style="font-size: 18px;">关于我们</p>
         <p>
             <strong>为了能实现“提供百分之百满意的客户服务”的诺言，我们配备了专业的管理人员，在全国更有队伍庞大的医疗技术人员和服务人员，为用户提供完善的服务</strong>
         </p>
@@ -303,7 +303,7 @@
 
     <h1 style="text-align: center">各地公司</h1>
     <div class="row">
-        <a class="col-md-3 book" th:href="'/filiale/' + ${aboutArticle.id}"
+        <a class="col-md-3 book" th:href="'/about/filiale/' + ${aboutArticle.id}"
            style="display: block; text-align: center;"
            th:each="aboutArticle,Iterable:${aboutArticles}">
             <img th:src="'/upload/' + ${aboutArticle.imageUrl}"
@@ -318,7 +318,7 @@
         <div class="imglist_w">
             <ul class="imglist">
                 <li th:each="staff,Iterable:${staffs}">
-                    <a th:href="'/staffPresence/' + ${staff.id}" style="width: 200px;">
+                    <a th:href="'/about/staffPresence/' + ${staff.id}" style="width: 200px;">
                         <img th:src="'/upload/' + ${staff.imageUrl}"
                              width="200" height="150"/>
                         <p th:text="${staff.title}" style="width:100%; text-align: center;"></p>

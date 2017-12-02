@@ -49,7 +49,7 @@ public class TubeResult {
     public String index(Model model) {
         List<Menu> menus = menuMapper.selectAll();
         model.addAttribute("menus", menus);
-        List<Upload> bigImages = uploadMapper.selectUploadByElementId(5);
+        List<Upload> bigImages = uploadMapper.selectUploadByElementId(1);
         model.addAttribute("bigImages", bigImages);
         return "front/tube";
     }
@@ -66,7 +66,7 @@ public class TubeResult {
         model.addAttribute("article", article);
         List<Menu> menus = menuMapper.selectAll();
         model.addAttribute("menus", menus);
-        List<Upload> bigImages = uploadMapper.selectUploadByElementId(5);
+        List<Upload> bigImages = uploadMapper.selectUploadByElementId(1);
         model.addAttribute("bigImages", bigImages);
         model.addAttribute("parentMenu", "试管资讯");
         model.addAttribute("parentMenuUrl", "/tube");

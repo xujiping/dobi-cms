@@ -18,6 +18,7 @@ import com.xjp.model.Menu;
 import com.xjp.model.Upload;
 
 @Controller
+@RequestMapping("about")
 public class AboutUsResult {
 
 	@Autowired
@@ -34,7 +35,7 @@ public class AboutUsResult {
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping("/about")
+	@RequestMapping("")
 	public String aboutUs(Model model) {
 		List<Menu> menus = menuMapper.selectAll();// 首页菜单
 		model.addAttribute("menus", menus);
@@ -59,6 +60,7 @@ public class AboutUsResult {
 	@GetMapping("/filiale/{id}")
 	public Object article(@PathVariable(name = "id") Integer id, Model model) {
 		Article article = articleMapper.selectByPrimaryKey(id);
+		article.setDate(null);
 		model.addAttribute("article", article);
 		List<Menu> menus = menuMapper.selectAll();// 首页菜单
 		model.addAttribute("menus", menus);
@@ -70,11 +72,14 @@ public class AboutUsResult {
 	@GetMapping("/staffPresence/{id}")
 	public Object staffPresence(@PathVariable(name = "id") Integer id, Model model) {
 		Article article = articleMapper.selectByPrimaryKey(id);
+		article.setDate(null);
 		model.addAttribute("article", article);
 		List<Menu> menus = menuMapper.selectAll();// 首页菜单
 		model.addAttribute("menus", menus);
 		model.addAttribute("parentMenu", "关于我们");
 		model.addAttribute("parentMenuUrl", "/about");
+		List<Upload> bigImages = uploadMapper.selectUploadByElementId(1);
+		model.addAttribute("bigImages", bigImages);
 		return "front/article";
 	}
 

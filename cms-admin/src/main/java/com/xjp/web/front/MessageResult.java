@@ -40,8 +40,7 @@ public class MessageResult {
 	@RequiresGuest
 	@RequestMapping(value = "/addMsg", method = RequestMethod.POST)
 	public String add(CustomerMessage customerMessage){
-		customerMessageMapper.insertSelective(customerMessage);
-
+		int result = customerMessageMapper.insertSelective(customerMessage);
 		return "front/message";
 	}
 }

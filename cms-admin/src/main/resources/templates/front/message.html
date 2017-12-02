@@ -35,7 +35,7 @@
 				<li class="active">在线留言</li>
 			</ol>
 			<div class="row" style="min-height: 480px;">
-				<form id="messageBox" role="form" class="form-horizontal col-md-6" style="text-align: center;">
+				<form id="messageBox" role="form" class="form-horizontal col-md-6" style="text-align: center;" action="/message/addMsg" method="post">
 					<h3 style="margin: 0 auto; color: green;">咨询留言</h3>
 					<br />
 					<div class="form-group">
@@ -143,78 +143,78 @@
 
         });
         //提交
-        $('#create').click(function(){
-            var data = $("#messageBox").data("bootstrapValidator");
-            data.validate();
-            var flag = data.isValid();
-            if (!flag) {
-                return;
-            }
-            $.ajax({
-                type: 'post',
-                url: '/message/addMsg',
-                data: $('#messageBox').serialize(),
-                beforeSend: function () {
-                    if ($('#title').val() == '') {
-                        $('#title').focus();
-                        return false;
-                    }
-                },
-                success: function (result) {
-                    if (result.code != 1) {
-                        if (result.data instanceof Array) {
-                            $.each(result.data, function (index, value) {
-                                $.confirm({
-                                    theme: 'dark',
-                                    animation: 'rotateX',
-                                    closeAnimation: 'rotateX',
-                                    title: false,
-                                    content: value.errorMsg,
-                                    buttons: {
-                                        confirm: {
-                                            text: '确认',
-                                            btnClass: 'waves-effect waves-button waves-light'
-                                        }
-                                    }
-                                });
-                            });
-                        } else {
-                            $.confirm({
-                                theme: 'dark',
-                                animation: 'rotateX',
-                                closeAnimation: 'rotateX',
-                                title: false,
-                                content: result.data.errorMsg,
-                                buttons: {
-                                    confirm: {
-                                        text: '确认',
-                                        btnClass: 'waves-effect waves-button waves-light'
-                                    }
-                                }
-                            });
-                        }
-                    } else {
-                        createDialog.close();
-                        $table.bootstrapTable('refresh');
-                    }
-                },
-                error: function (XMLHttpRequest, textStatus, errorThrown) {
-                    $.confirm({
-                        theme: 'dark',
-                        animation: 'rotateX',
-                        closeAnimation: 'rotateX',
-                        title: false,
-                        content: textStatus,
-                        buttons: {
-                            confirm: {
-                                text: '确认',
-                                btnClass: 'waves-effect waves-button waves-light'
-                            }
-                        }
-                    });
-                }
-            });
-        });
+//        $('#create').click(function(){
+//            var data = $("#messageBox").data("bootstrapValidator");
+//            data.validate();
+//            var flag = data.isValid();
+//            if (!flag) {
+//                return;
+//            }
+//            $.ajax({
+//                type: 'post',
+//                url: '/message/addMsg',
+//                data: $('#messageBox').serialize(),
+//                beforeSend: function () {
+//                    if ($('#title').val() == '') {
+//                        $('#title').focus();
+//                        return false;
+//                    }
+//                },
+//                success: function (result) {
+//                    if (result.code != 1) {
+//                        if (result.data instanceof Array) {
+//                            $.each(result.data, function (index, value) {
+//                                $.confirm({
+//                                    theme: 'dark',
+//                                    animation: 'rotateX',
+//                                    closeAnimation: 'rotateX',
+//                                    title: false,
+//                                    content: value.errorMsg,
+//                                    buttons: {
+//                                        confirm: {
+//                                            text: '确认',
+//                                            btnClass: 'waves-effect waves-button waves-light'
+//                                        }
+//                                    }
+//                                });
+//                            });
+//                        } else {
+//                            $.confirm({
+//                                theme: 'dark',
+//                                animation: 'rotateX',
+//                                closeAnimation: 'rotateX',
+//                                title: false,
+//                                content: result.data.errorMsg,
+//                                buttons: {
+//                                    confirm: {
+//                                        text: '确认',
+//                                        btnClass: 'waves-effect waves-button waves-light'
+//                                    }
+//                                }
+//                            });
+//                        }
+//                    } else {
+//                        createDialog.close();
+//                        $table.bootstrapTable('refresh');
+//                    }
+//                },
+//                error: function (XMLHttpRequest, textStatus, errorThrown) {
+//                    $.confirm({
+//                        theme: 'dark',
+//                        animation: 'rotateX',
+//                        closeAnimation: 'rotateX',
+//                        title: false,
+//                        content: textStatus,
+//                        buttons: {
+//                            confirm: {
+//                                text: '确认',
+//                                btnClass: 'waves-effect waves-button waves-light'
+//                            }
+//                        }
+//                    });
+//                }
+//            });
+//        });
     });
 </script>
 </html>

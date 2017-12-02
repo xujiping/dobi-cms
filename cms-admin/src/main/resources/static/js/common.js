@@ -1,3 +1,5 @@
+var base_url = 'http://localhost:8000';
+// var base_url = 'http://bbjhbaby.com:8000';
 $(function() {
 	// Waves初始化
 	Waves.displayEffect();

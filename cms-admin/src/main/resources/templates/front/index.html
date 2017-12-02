@@ -25,7 +25,7 @@
     </style>
 </head>
 <body>
-<div th:include="inc/common :: menu"></div>
+<div th:include="/inc/common :: menu"></div>
 
 <!--大图-->
 <div id="myCarousel" class="carousel slide" style="">
@@ -42,12 +42,12 @@
     <div class="carousel-inner">
         <div th:if="${Iterable.index==0}" class="item active"
              th:each="bigImage,Iterable: ${bigImages}">
-            <img th:src="'http://localhost:8000/upload/' + ${bigImage.name}"
-                 style="margin: 0 auto; width: 100%;  max-height: 600px;"/>
+            <img th:src="'/upload/' + ${bigImage.name}"
+                 style="margin: 0 auto; width: 100%;"/>
         </div>
         <div th:if="${Iterable.index!=0}" class="item" th:each="bigImage,Iterable: ${bigImages}">
-            <img th:src="'http://localhost:8000/upload/' + ${bigImage.name}"
-                 style="margin: 0 auto; width: 100%;  max-height: 600px;"/>
+            <img th:src="'/upload/' + ${bigImage.name}"
+                 style="margin: 0 auto; width: 100%;"/>
         </div>
     </div>
     <!-- 轮播（Carousel）导航 -->
@@ -143,9 +143,9 @@
             <p style="text-indent: 2em; color: white;">
                 新陈代谢是人体生命活动的物质基础。只有通过新陈代谢，机体才能不断吸收外界营养和能量进行物质分解、利用与更新，为生命活动提供物质和能量。细胞是生命活动的基本单位，各种新陈代谢和能量转化都是在细胞内进行的，因此细胞功能的好坏直接影响机体的新陈代谢功能。</p>
             <p id="cells" style="color: white; margin-top: 20px;">我们公司目前可以操作各类干细胞项目包括：</p>
-            <a href="http://localhost:8000/upload/卵巢回春.pdf" target="view_window"><p style="color: orange;">服务项目：卵巢回春篇</p></a>
-            <a href="http://localhost:8000/upload/定格青春-面部年轻化.pdf" target="view_window"><p style="color: orange;">服务项目：肾阳泰篇</p></a>
-            <a href="http://localhost:8000/upload/肾阳泰.pdf" target="view_window"><p style="color: orange;">服务项目：定格青春-面部年轻化</p></a>
+            <a href="/upload/卵巢回春.pdf" target="view_window"><p style="color: orange;">服务项目：卵巢回春篇</p></a>
+            <a href="/upload/定格青春-面部年轻化.pdf" target="view_window"><p style="color: orange;">服务项目：肾阳泰篇</p></a>
+            <a href="/upload/肾阳泰.pdf" target="view_window"><p style="color: orange;">服务项目：定格青春-面部年轻化</p></a>
         </div>
         <img th:src="@{/images/sgye_2.jpg}" height="440px" width="50%" style="float: right; background-color: darkgray;"/>
         <!--字体图标-->
@@ -210,7 +210,7 @@
     </div>
 </div>
 
-<div th:include="inc/common :: foot"></div>
+<div th:include="/inc/common :: foot"></div>
 <script type="text/javascript"
         src="http://api.map.baidu.com/api?v=2.0&amp;ak=DdoGPW2t2sKvPQHHPkgRiOU6"></script>
 <script th:src="@{/plugins/jquery.1.12.4.min.js}"></script>

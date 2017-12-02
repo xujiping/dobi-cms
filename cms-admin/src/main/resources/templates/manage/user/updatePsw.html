@@ -1,0 +1,148 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" lang="zh-cn">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>修改密码</title>
+    <head th:include="inc/common :: head"></head>
+</head>
+<body>
+<div id="main">
+    <div id="updatePswDialog" class="crudDialog">
+        <form id="createForm" method="post">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <div class="fg-line">
+                            <label for="oldPsw">原密码</label>
+                            <input id="userId" type="text" class="form-control" name="userId" th:value="${userId}"
+                                style="display: none;"/>
+                            <input id="oldPsw" type="text" class="form-control" name="oldPsw"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <div class="fg-line">
+                            <label for="newPsw">新密码</label>
+                            <input id="newPsw" type="text" class="form-control" name="newPsw"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group text-right dialog-buttons">
+                    <a id="create" class="waves-effect waves-button" href="javascript:;">保存</a>
+                    <a class="waves-effect waves-button" href="javascript:;"
+                       onclick="updatePswDialog.close();">取消</a>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div th:include="inc/common :: footer"></div>
+    <script>
+        $().ready(function () {
+            $('#createForm').bootstrapValidator({
+                                                    //
+                                                    excluded: [':disabled', ':hidden',
+                                                               ':not(:visible)'],
+                                                    //指定验证后验证字段的提示字体图标
+                                                    feedbackIcons: {
+                                                        valid: 'glyphicon glyphicon-ok',
+                                                        invalid: 'glyphicon glyphicon-remove',
+                                                        validating: 'glyphicon glyphicon-refresh'
+                                                    },
+                                                    //为每个字段指定通用错误提示语
+                                                    message: '该值不正确',
+                                                    //表单域配置
+                                                    fields: {
+                                                        name: {
+                                                            validators: {
+                                                                notEmpty: {
+                                                                    message: '字段不能为空'
+                                                                }
+                                                            }
+                                                        },
+                                                        description: {
+                                                            validators: {
+                                                                stringLength: {
+                                                                    max: 200,
+                                                                    message: '不能超过200个字符'
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+
+                                                });
+            //提交
+            $('#create').click(function () {
+                var data = $("#createForm").data("bootstrapValidator");
+                data.validate();
+                var flag = data.isValid();
+                if (!flag) {
+                    return;
+                }
+                $.ajax({
+                           type: 'post',
+                           url: '/manage/user/updatePsw',
+                           data: $('#createForm').serialize(),
+                           success: function (result) {
+                               if (result.code != 1) {
+                                   if (result.data instanceof Array) {
+                                       $.each(result.data, function (index, value) {
+                                           $.confirm({
+                                                         theme: 'dark',
+                                                         animation: 'rotateX',
+                                                         closeAnimation: 'rotateX',
+                                                         title: false,
+                                                         content: value.errorMsg,
+                                                         buttons: {
+                                                             confirm: {
+                                                                 text: '确认',
+                                                                 btnClass: 'waves-effect waves-button waves-light'
+                                                             }
+                                                         }
+                                                     });
+                                       });
+                                   } else {
+                                       $.confirm({
+                                                     theme: 'dark',
+                                                     animation: 'rotateX',
+                                                     closeAnimation: 'rotateX',
+                                                     title: false,
+                                                     content: result.data.errorMsg,
+                                                     buttons: {
+                                                         confirm: {
+                                                             text: '确认',
+                                                             btnClass: 'waves-effect waves-button waves-light'
+                                                         }
+                                                     }
+                                                 });
+                                   }
+                               } else {
+                                   updatePswDialog.close();
+                                   $table.bootstrapTable('refresh');
+                               }
+                           },
+                           error: function (XMLHttpRequest, textStatus, errorThrown) {
+                               $.confirm({
+                                             theme: 'dark',
+                                             animation: 'rotateX',
+                                             closeAnimation: 'rotateX',
+                                             title: false,
+                                             content: textStatus,
+                                             buttons: {
+                                                 confirm: {
+                                                     text: '确认',
+                                                     btnClass: 'waves-effect waves-button waves-light'
+                                                 }
+                                             }
+                                         });
+                           }
+                       });
+            });
+        });
+    </script>
+</div>
+</body>
+</html>

@@ -14,5 +14,7 @@ public class Constants {
     public static final int FILE_TYPE_IMAGE = 1;  //图片文件类型
     public static final int FILE_TYPE_PDF = 2;  //pdf文件类型
 
+    public static final String SALT = "root123";//用户加密盐值
+
 
 }

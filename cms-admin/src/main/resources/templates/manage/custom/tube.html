@@ -64,7 +64,7 @@
                     title: '预览',
                     align: 'center',
                     formatter: function(value, row, index){
-                        return '<img src="http://localhost:8000/upload/' + value +'" width="80px" class="img-rounded" />';
+                        return '<img src="/upload/' + value +'" width="80px" class="img-rounded" />';
                     }
                 },
                 {field: 'name', title: '图片名称'},
@@ -72,7 +72,7 @@
                     field: 'url',
                     title: '访问路径',
                     formatter: function(value, row, index){
-                        return 'http://localhost:8000/upload/' + row.name;
+                        return '/upload/' + row.name;
                     }
                 },
                 {

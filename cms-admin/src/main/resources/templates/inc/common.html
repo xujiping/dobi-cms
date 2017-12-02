@@ -38,7 +38,7 @@
 <div th:fragment="menu">
     <div id="ivf-menu" class="container-fluid" style="padding: 0px;">
         <ul class="container ivf-menus" style="height: 100px;">
-            <img style="float: left;" th:src="@{/images/ivf.jpg}" height="100px"/>
+            <img style="float: left;" th:src="@{/images/logo.png}" height="100px"/>
             <li>
                 <a th:each="menu, iterStat : ${menus}" th:href="'/' + ${menu.url}" class="ivf-menu"
                    style="display: block; height: 100px; width: 100px; float: left; padding: 40px 10px; text-align: center;">

@@ -17,3 +17,13 @@ spring boot + mybatis + shiro + bootstrap
 修改上传路径
 服务项目干细胞三个文件需要上传上去。
 
+
+1. 更新代码：
+cd /root/ivf/dobi-cms
+git pull 
+2. 打包：
+cd cms-admin/
+mvn clean package -DskipTests
+3. cd target/
+java -jar XX.jar
+

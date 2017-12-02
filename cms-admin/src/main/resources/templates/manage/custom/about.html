@@ -24,7 +24,7 @@
         </div>
         <div class="col-sm-12" style="padding:10px 20px;">
             <div class="col-sm-3" th:each="mienImage,Iterable:${mienImages}" style="text-align: center">
-                <img th:src="'http://localhost:8000/upload/' + ${mienImage.name}" width="120px" height="120px" />
+                <img th:src="'/upload/' + ${mienImage.name}" width="120px" height="120px" />
                 <p th:text="${mienImage.name}" style="margin-top: 10px; font-size: 14px"></p>
                 <input type="button" class="btn btn-danger" th:value="删除" th:onclick="'deleteMienImage(' + ${mienImage.id} + ')'" />
             </div>
@@ -43,7 +43,7 @@
         </div>
         <div class="col-sm-12" style="padding:10px 20px;">
             <div class="col-sm-3" th:each="reproducCenterImage,Iterable:${reproduCenterImages}" style="text-align: center">
-                <img th:src="'http://localhost:8000/upload/' + ${reproducCenterImage.name}" width="120px" height="120px" />
+                <img th:src="'/upload/' + ${reproducCenterImage.name}" width="120px" height="120px" />
                 <p th:text="${reproducCenterImage.name}" style="margin-top: 10px; font-size: 14px"></p>
                 <input type="button" class="btn btn-danger" th:value="删除" th:onclick="'deleteReproducCenterImage(' + ${reproducCenterImage.id} + ')'" />
             </div>

@@ -2,6 +2,7 @@ package com.xjp.web.manage;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.xjp.common.constants.Constants;
 import com.xjp.common.constants.ResultConstants;
 import com.xjp.common.result.Result;
 import com.xjp.dao.UserMapper;
@@ -10,7 +11,10 @@ import com.xjp.model.User;
 import com.xjp.model.UserPermission;
 import com.xjp.service.Userservice;
 
+import com.xjp.util.MD5Util;
+import io.swagger.models.auth.In;
 import org.apache.ibatis.session.RowBounds;
+import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -95,12 +99,15 @@ public class UserController {
      * @param user user
      * @return json
      */
-    @RequiresPermissions(value = "cms:user:create")
+//    @RequiresPermissions(value = "cms:user:create")
     @RequestMapping(value = "add", method = RequestMethod.POST)
     @ResponseBody
     public Object doAdd(User user) {
         long time = System.currentTimeMillis();
         user.setCtime(time);
+        String psw = MD5Util.MD5(user.getPassword() + Constants.SALT);
+        user.setPassword(psw);
+        user.setSalt(Constants.SALT);
         int count = userMapper.insertSelective(user);
         return new Result(ResultConstants.SUCCESS, count);
     }
@@ -207,6 +214,44 @@ public class UserController {
             return new Result(ResultConstants.SUCCESS, "修改权限成功");
         }
         return new Result(ResultConstants.SUCCESS, "修改权限成功");
+    }
+
+    /**
+     * 修改页面.
+     *
+     * @param id    user_id
+     * @param model model
+     * @return html
+     */
+    @RequestMapping(value = "updatePsw/{id}")
+    public String updatePsw(@PathVariable("id") String id, Model model) {
+        User user = userMapper.selectByPrimaryKey(Integer.parseInt(id));
+        model.addAttribute("userId", user.getUserId());
+        return "manage/user/updatePsw";
+    }
+
+    /**
+     * 修改用户密码.
+     *
+     * @param  params
+     * @return json
+     */
+    @RequestMapping(value = "updatePsw", method = RequestMethod.POST)
+    @ResponseBody
+    public Object UpdatePsw(@RequestParam Map<String, Object> params) {
+        Integer userId = Integer.parseInt(params.get("userId") + "");
+        User user = userMapper.selectByPrimaryKey(userId);
+        String oldPsw = (String) params.get("oldPsw");
+        if (!user.getPassword().equals(MD5Util.MD5(oldPsw + user.getSalt()))) {
+            throw new IncorrectCredentialsException("原密码不正确");
+        }
+        String newPsw = (String) params.get("newPsw");
+        user.setPassword(MD5Util.MD5(newPsw + user.getSalt()));
+        int count = userMapper.updateByPrimaryKeySelective(user);
+        if (count != 1) {
+            return new Result(ResultConstants.FAILED, count);
+        }
+        return new Result(ResultConstants.SUCCESS, count);
     }
 
 }

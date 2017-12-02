@@ -217,7 +217,7 @@
 <div th:include="inc/common :: menu"></div>
 
 <!--大图-->
-<div id="myCarousel" class="carousel slide" style="height: 500px">
+<div id="myCarousel" class="carousel slide">
     <!-- 轮播（Carousel）指标 -->
     <ol class="carousel-indicators">
     </ol>
@@ -226,7 +226,7 @@
         <div th:id="'bigImage' + ${Iterable.count}" class="item"
              th:each="bigImage,Iterable: ${bigImages}">
             <img th:src="'/upload/' + ${bigImage.name}"
-                 style="width: 100%; margin: 0 auto;"/>
+                 style="width: 100%; margin: 0 auto; max-height: 500px;"/>
         </div>
     </div>
     <!-- 轮播（Carousel）导航 -->

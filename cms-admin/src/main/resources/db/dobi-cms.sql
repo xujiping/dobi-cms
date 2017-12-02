@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : localhost
-Source Server Version : 50712
-Source Host           : localhost:3306
+Source Server         : ivf
+Source Server Version : 50558
+Source Host           : 43.245.223.138:3306
 Source Database       : dobi-cms
 
 Target Server Type    : MYSQL
-Target Server Version : 50712
+Target Server Version : 50558
 File Encoding         : 65001
 
-Date: 2017-11-26 23:10:49
+Date: 2017-12-02 14:53:35
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -125,6 +125,7 @@ CREATE TABLE `element` (
 -- ----------------------------
 INSERT INTO `element` VALUES ('1', '轮播大图', '1', '1');
 INSERT INTO `element` VALUES ('2', '成功案例', '4', '1');
+INSERT INTO `element` VALUES ('5', '试管咨询', '5', '1');
 INSERT INTO `element` VALUES ('21', '集团风采', '2', '1');
 INSERT INTO `element` VALUES ('22', '生殖中心', '2', '1');
 
@@ -375,7 +376,7 @@ CREATE TABLE `upload` (
   `menu_id` int(11) DEFAULT NULL COMMENT '所属菜单ID',
   `status` int(2) NOT NULL DEFAULT '1' COMMENT '状态：1可用，0不可用',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8 COMMENT='上传文件信息表';
+) ENGINE=InnoDB AUTO_INCREMENT=329 DEFAULT CHARSET=utf8 COMMENT='上传文件信息表';
 
 -- ----------------------------
 -- Records of upload
@@ -412,6 +413,283 @@ INSERT INTO `upload` VALUES ('47', '昆明公司春游活动1.jpg', 'jpg', '1', 
 INSERT INTO `upload` VALUES ('48', '塞班旅游.JPG', 'JPG', '1', null, '1');
 INSERT INTO `upload` VALUES ('49', '泰国旅游考察1.JPG', 'JPG', '1', null, '1');
 INSERT INTO `upload` VALUES ('50', '芽庄旅游1.JPG', 'JPG', '1', null, '1');
+INSERT INTO `upload` VALUES ('51', '企业风采2.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('52', '企业风采1.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('54', '企业风采3.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('55', '企业风采4.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('56', '企业风采5.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('57', '企业风采6.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('58', '企业风采7.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('59', '企业风采8.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('60', '企业风采9.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('61', '企业风采10.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('62', '企业风采11.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('63', '企业风采12.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('64', '企业风采13.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('65', '企业风采14.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('66', '员工风采1.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('67', '员工风采2.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('68', '员工风采3.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('69', '员工风采4.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('70', '员工风采5.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('71', '员工风采6.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('72', '员工风采7.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('73', '员工风采8.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('74', '员工风采9.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('75', '员工风采10.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('76', '员工风采11.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('77', '员工风采12.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('78', '员工风采13.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('79', '员工风采14.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('80', '塞班旅游1.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('81', '塞班旅游2.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('82', '塞班旅游3.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('83', '塞班旅游4.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('84', '塞班旅游5.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('85', '塞班旅游6.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('86', '塞班旅游7.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('87', '塞班旅游8.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('88', '塞班旅游9.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('89', '塞班旅游10.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('90', '塞班旅游11.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('91', '塞班旅游12.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('92', '塞班旅游13.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('93', '塞班旅游14.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('94', '塞班旅游15.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('95', '塞班旅游16.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('96', '塞班旅游17.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('97', '塞班旅游18.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('98', '塞班旅游19.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('99', '塞班旅游20.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('100', '塞班旅游21.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('101', '塞班旅游22.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('102', '塞班旅游23.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('103', '塞班旅游24.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('104', '塞班旅游25.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('105', '塞班旅游26.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('106', '塞班旅游27.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('107', '塞班旅游28.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('108', '塞班旅游29.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('109', '塞班旅游30.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('110', '塞班旅游31.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('111', '塞班旅游32.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('112', '塞班旅游33.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('113', '塞班旅游34.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('114', '塞班旅游35.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('115', '塞班旅游36.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('116', '塞班旅游37.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('117', '塞班旅游38.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('118', '塞班旅游39.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('119', '塞班旅游40.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('120', '塞班旅游41.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('121', '塞班旅游42.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('122', '塞班旅游43.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('123', '塞班旅游44.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('124', '塞班旅游45.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('125', '塞班旅游46.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('126', '塞班旅游47.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('127', '塞班旅游48.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('128', '塞班旅游49.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('129', '塞班旅游50.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('130', '塞班旅游51.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('131', '塞班旅游52.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('132', '塞班旅游53.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('133', '大姚县爱心活动2.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('134', '大姚县爱心活动3.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('135', '大姚县爱心活动4.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('136', '大姚县爱心活动5.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('137', '大姚县爱心活动6.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('138', '大姚县爱心活动7.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('139', '大姚县爱心活动8.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('140', '大姚县爱心活动9.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('141', '大姚县爱心活动10.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('142', '大姚县爱心活动11.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('143', '大姚县爱心活动12.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('144', '大姚县爱心活动13.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('145', '大姚县爱心活动14.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('146', '大姚县爱心活动15.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('147', '大姚县爱心活动16.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('148', '大姚县爱心活动17.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('149', '大姚县爱心活动118.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('150', '大姚县爱心活动19.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('151', '大姚县爱心活动20.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('152', '大姚县爱心活动21.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('153', '大姚县爱心活动22.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('154', '大姚县爱心活动23.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('155', '大姚县爱心活动24.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('156', '大姚县爱心活动25.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('157', '大姚县爱心活动26.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('158', '大姚县爱心活动27.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('159', '大姚县爱心活动28.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('160', '大姚县爱心活动29.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('161', '广州公司1.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('162', '广州公司2.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('163', '广州公司3.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('164', '广州公司4.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('165', '广州公司5.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('166', '广州公司6.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('167', '广州公司7.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('168', '广州公司8.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('169', '广州公司9.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('170', '广州公司10.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('171', '广州公司11.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('172', '广州公司12.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('173', '广州公司黄腾峡漂流1.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('174', '广州公司黄腾峡漂流3.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('175', '广州公司黄腾峡漂流4.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('176', '广州公司黄腾峡漂流5.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('177', '广州公司黄腾峡漂流6.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('178', '广州公司黄腾峡漂流7.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('179', '广州公司黄腾峡漂流8.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('180', '昆明公司1.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('181', '昆明公司2.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('182', '昆明公司3.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('183', '昆明公司4.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('184', '昆明公司5.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('185', '昆明公司6.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('186', '昆明公司7.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('187', '昆明公司8.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('188', '昆明公司春游活动2.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('189', '昆明公司春游活动3.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('190', '昆明公司春游活动4.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('191', '昆明公司春游活动5.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('192', '昆明公司春游活动6.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('193', '昆明公司春游活动7.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('194', '昆明公司春游活动8.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('195', '昆明公司春游活动9.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('196', '昆明公司春游活动10.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('197', '昆明公司春游活动11.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('198', '昆明公司春游活动12.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('199', '武汉公司1.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('200', '武汉公司2.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('201', '武汉公司3.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('202', '武汉公司4.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('203', '武汉公司5.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('204', '武汉公司6.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('205', '武汉公司7.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('206', '武汉公司8.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('207', '武汉公司9.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('208', '武汉公司10.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('209', '武汉公司11.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('210', '武汉公司12.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('211', '武汉公司13.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('212', '武汉公司14.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('213', '武汉公司15.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('214', '泰国公司1.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('215', '泰国公司2.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('216', '泰国公司3.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('217', '泰国公司4.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('218', '泰国公司5.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('219', '泰国公司6.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('220', '泰国旅游考察02.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('221', '泰国旅游考察03.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('222', '泰国旅游考察04.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('223', '泰国旅游考察05.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('224', '泰国旅游考察06.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('225', '泰国旅游考察07.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('226', '泰国旅游考察08.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('227', '泰国旅游考察09.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('228', '泰国旅游考察10.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('229', '泰国旅游考察11.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('230', '泰国旅游考察12.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('231', '泰国旅游考察13.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('232', '泰国旅游考察14.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('233', '泰国旅游考察15.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('234', '泰国旅游考察16.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('235', '泰国旅游考察17.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('236', '泰国旅游考察18.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('237', '泰国旅游考察19.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('238', '泰国旅游考察20.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('239', '泰国旅游考察21.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('240', '泰国旅游考察22.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('241', '泰国旅游考察23.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('242', '泰国旅游考察24.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('243', '泰国旅游考察25.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('244', '泰国旅游考察26.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('245', '泰国旅游考察27.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('246', '泰国旅游考察28.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('247', '泰国旅游考察29.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('248', '泰国旅游考察30.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('249', '泰国旅游考察31.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('250', '泰国旅游考察32.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('251', '泰国旅游考察33.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('252', '泰国旅游考察34.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('253', '泰国旅游考察35.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('254', '泰国旅游考察36.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('255', '泰国旅游考察37.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('256', '泰国旅游考察38.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('257', '泰国旅游考察39.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('258', '泰国旅游考察40.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('259', '泰国旅游考察41.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('260', '泰国旅游考察42.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('261', '泰国旅游考察43.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('262', '泰国旅游考察44.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('263', '泰国旅游考察45.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('264', '泰国旅游考察46.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('265', '泰国旅游考察47.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('266', '泰国旅游考察48.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('267', '泰国旅游考察49.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('268', '泰国旅游考察50.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('269', '泰国旅游考察51.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('270', '泰国旅游考察52.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('271', '泰国旅游考察53.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('272', '泰国旅游考察54.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('273', '生殖中心1.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('274', '生殖中心2.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('275', '生殖中心3.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('276', '生殖中心4.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('277', '生殖中心5.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('278', '生殖中心6.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('279', '生殖中心7.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('280', '生殖中心8.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('281', '生殖中心9.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('282', '生殖中心10.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('283', '生殖中心11.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('284', '生殖中心12.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('285', '生殖中心13.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('286', '生殖中心14.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('287', '生殖中心15.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('288', '生殖中心16.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('289', '生殖中心17.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('290', '生殖中心18.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('291', '生殖中心19.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('292', '生殖中心20.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('293', '生殖中心21.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('294', '生殖中心22.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('295', '生殖中心23.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('296', '生殖中心24.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('297', '生殖中心25.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('298', '生殖中心26.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('299', '生殖中心27.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('300', '生殖中心28.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('301', '生殖中心29.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('302', '芽庄旅游02.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('303', '芽庄旅游03.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('304', '芽庄旅游04.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('305', '芽庄旅游05.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('306', '芽庄旅游06.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('307', '芽庄旅游07.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('308', '芽庄旅游08.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('309', '芽庄旅游09.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('310', '芽庄旅游10.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('311', '芽庄旅游11.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('312', '芽庄旅游12.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('313', '芽庄旅游13.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('314', '芽庄旅游14.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('315', '芽庄旅游15.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('316', '芽庄旅游16.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('317', '芽庄旅游17.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('318', '芽庄旅游18.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('319', '芽庄旅游19.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('320', '芽庄旅游20.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('321', '芽庄旅游21.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('322', '长沙公司1.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('323', '长沙公司2.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('324', '长沙公司3.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('325', '长沙公司4.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('326', '长沙公司5.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('327', '长沙公司6.jpg', 'jpg', '1', '2', '1');
+INSERT INTO `upload` VALUES ('328', '??.jpg', 'jpg', '1', null, '1');
 
 -- ----------------------------
 -- Table structure for upload_element

@@ -42,6 +42,6 @@ public class MessageResult {
 	public String add(CustomerMessage customerMessage){
 		customerMessageMapper.insertSelective(customerMessage);
 
-		return "/front/message";
+		return "front/message";
 	}
 }

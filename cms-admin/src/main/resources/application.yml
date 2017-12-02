@@ -30,4 +30,4 @@ mybatis:
 
 dobi:
   #文件上传路径
-  upload: C:\work\git\dobi-cms\upload\
+  upload: /root/ivf/upload/

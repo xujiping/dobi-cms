@@ -32,7 +32,7 @@
 	<div th:include="inc/common :: menu"></div>
 
 	<!--大图-->
-	<div id="myCarousel" class="carousel slide" style="height: 500px">
+	<div id="myCarousel" class="carousel slide" style="min-height: 500px">
 		<!-- 轮播（Carousel）指标 -->
 		<ol class="carousel-indicators">
 			<li data-target="#myCarousel" th:if="${Iterable.index==0}"  class="active"
@@ -43,10 +43,10 @@
 		<!-- 轮播（Carousel）项目 -->
 		<div class="carousel-inner">
 			<div th:if="${Iterable.index==0}"  class="item active" th:each="bigImage,Iterable: ${bigImages}">
-				<img th:src="'/upload/' + ${bigImage.name}" style="max-height: 500px; margin: 0 auto;" />
+				<img th:src="'/upload/' + ${bigImage.name}" style="max-height: 600px; margin: 0 auto; width: 100%;" />
 			</div>
 			<div th:if="${Iterable.index!=0}"  class="item" th:each="bigImage,Iterable: ${bigImages}">
-				<img th:src="'/upload/' + ${bigImage.name}" style="max-height: 500px; margin: 0 auto;" />
+				<img th:src="'/upload/' + ${bigImage.name}" style="max-height: 600px; margin: 0 auto; width: 100%;" />
 			</div>
 		</div>
 		<!-- 轮播（Carousel）导航 -->
@@ -70,12 +70,12 @@
 				</li>
 				<li class="active">试管资讯</li>
 			</ol>
-			
+
 			<div class="btn-group">
 					<button type="button" class="btn btn-default" style="background-color: green; color: white; width: 400px;">试管资讯</button>
 				</div>
 			<div style="text-align: center;">
-				
+
 				<!--照片列表-->
 				<div id="imggrid"></div>
 			</div>

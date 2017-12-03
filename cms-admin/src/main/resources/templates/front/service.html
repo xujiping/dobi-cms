@@ -47,7 +47,7 @@
 <div th:include="inc/common :: menu"></div>
 
 <!--大图-->
-<div id="myCarousel" class="carousel slide" style="height: 500px">
+<div id="myCarousel" class="carousel slide" style="min-height: 500px">
     <!-- 轮播（Carousel）指标 -->
     <ol class="carousel-indicators">
     </ol>
@@ -68,8 +68,8 @@
 
 <div class="container">
     <div>
-        <h3 style="color: green;">ABOUT US</h3>
-        <p>关于我们</p>
+        <h3 style="color: green;">PRODUCT CENTER</h3>
+        <p style="font-size: 18px;">项目中心</p>
         <p><strong>为了能实现“提供百分之百满意的客户服务”的诺言，我们配备了专业的管理人员，在全国更有队伍庞大的医疗技术人员和服务人员，为用户提供完善的服务</strong>
         </p>
     </div>
@@ -93,15 +93,15 @@
     <!--干细胞-->
     <div id="gxbgrid" class="row" style="margin: 20px 0; font-size: 16px;">
         <a class="col-md-3 book" href="/upload/lchc.pdf">
-            <img th:src="@{images/avatar.jpg}" width="100%" />
+            <img th:src="@{images/fw-lchc.png}" width="100%" height="200px;" />
             <p>卵巢回春</p>
         </a>
         <a class="col-md-3 book" style="margin: 0 20px;" href="/upload/dgqc.pdf">
-            <img th:src="@{images/avatar.jpg}" width="100%" />
+            <img th:src="@{images/fw-dgqc.png}" width="100%" height="200px;" />
             <p>定格青春-面部年轻化</p>
         </a>
         <a class="col-md-3 book" href="/upload/syt.pdf">
-            <img th:src="@{images/avatar.jpg}" width="100%" />
+            <img th:src="@{images/fw-syt.png}" width="100%" height="200px;" />
             <p>肾阳泰</p>
         </a>
     </div>

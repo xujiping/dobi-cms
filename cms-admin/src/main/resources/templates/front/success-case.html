@@ -130,7 +130,7 @@
                                       "/success/article/" + item.id;
                               },
                               render: function (item, index) {//自定义显示图片
-                                  str = "<img src='" + item.imageUrl + "' /><p style='text-align: center; font-size: 16px'>" + item.title + "</p>";
+                                  str = "<img src='" + item.imageUrl + "' style='width: 200px;height: 200px;' /><p style='text-align: center; font-size: 16px'>" + item.title + "</p>";
                                   return str;
                               }
                           });

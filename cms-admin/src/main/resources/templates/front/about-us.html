@@ -306,7 +306,7 @@
         <a class="col-md-3 book" th:href="'/about/filiale/' + ${aboutArticle.id}"
            style="display: block; text-align: center;"
            th:each="aboutArticle,Iterable:${aboutArticles}">
-            <img th:src="'/upload/' + ${aboutArticle.imageUrl}"
+            <img th:src="${aboutArticle.imageUrl}"
                  width="200" height="150"/>
             <p th:text="${aboutArticle.title}" style="font-size: 18px;"></p>
             <p style="font-size: 12px; color: #00B83F;">分子公司</p>
@@ -319,7 +319,7 @@
             <ul class="imglist">
                 <li th:each="staff,Iterable:${staffs}">
                     <a th:href="'/about/staffPresence/' + ${staff.id}" style="width: 200px;">
-                        <img th:src="'/upload/' + ${staff.imageUrl}"
+                        <img th:src="${staff.imageUrl}"
                              width="200" height="150"/>
                         <p th:text="${staff.title}" style="width:100%; text-align: center;"></p>
                     </a>

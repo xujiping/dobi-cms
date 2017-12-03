@@ -120,7 +120,7 @@
                 render: function (item, index) {//自定义显示图片
                     var img = '<img src='+[[@{/images/sy_sg.jpg}]]+'style="width:200px;height:200px;">';//默认图片
 					if(item.imageUrl){
-                        img = '<img src="/upload/' + item.imageUrl + '" style="width: 200px;height: 200px;">';
+                        img = '<img src="' + item.imageUrl + '" style="width: 200px;height: 200px;">';
 					}
                     var str = img + "<p style='text-align: center; font-size: 16px'>" + item.title + "</p>";
                     return str;

@@ -262,7 +262,7 @@
             }
             for (var i = 0; i < max; i++) {
                 var data = '<a class="col-md-3 book" style="display: block;margin-right: 5px; height:200px;" href="/tube/article/' + result.rows[i].id + '"><img src="/upload/' + result.rows[i].imageUrl
-                           + '" width="100%" style="max-height: 200px;" /><p>' + result.rows[i].title
+                           + '" width="100%" style="max-height: 180px;" /><p>' + result.rows[i].title
                            + '</p><p style="font-size: 12px;">'
                            + getLocalTime(result.rows[i].date.time / 1000) + '</p></a>';
                 $("#tube").append(data);

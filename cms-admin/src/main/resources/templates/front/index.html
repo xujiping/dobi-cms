@@ -5,10 +5,10 @@
 <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="Keywords" content=""/>
-<meta name="Description" content=""/>
+<meta name="Keywords" th:content="${seo.keyword}"/>
+<meta name="Description" th:content="${seo.description}"/>
 
-<title>首页</title>
+<title th:text="${seo.title}"></title>
 
 <link th:href="@{/plugins/fullPage/jquery.fullPage.css}"
 	rel="stylesheet" />
@@ -261,7 +261,7 @@
 		</div>
 	</div>
 
-	<div style="position: fixed; top: 10px; right: 0px;">
+	<div style="position: fixed; top: 10px; right: 0px;margin-right: 10px">
 		<div class="row">
 			<div class="col-xs-6 col-md-4">
 				<div style="vertical-align: middle; float: right;">
@@ -337,7 +337,7 @@
             }
             for (var i = 0; i < max; i++) {
                 var data = '<a class="col-xs-6 col-sm-3 book" style="display: block;margin-right: 3px;width:250px; height:200px;" href="/tube/article/' + result.rows[i].id + '"><img src="/upload/' + result.rows[i].imageUrl
-                           + '" width="100%" style="max-height: 180px;" /><p>' + result.rows[i].title
+                           + '" width:249px; height:199px;" /><p>' + result.rows[i].title
                            + '</p><p style="font-size: 12px;">'
                            + getLocalTime(result.rows[i].date.time / 1000) + '</p></a>';
                 $("#tube").append(data);

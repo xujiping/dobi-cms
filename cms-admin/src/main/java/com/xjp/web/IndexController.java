@@ -1,15 +1,14 @@
 package com.xjp.web;
 
-import com.xjp.dao.ArticleMapper;
-import com.xjp.dao.ContactMapper;
-import com.xjp.dao.MenuMapper;
-import com.xjp.dao.UploadMapper;
-import com.xjp.model.Article;
-import com.xjp.model.Contact;
-import com.xjp.model.Menu;
-import com.xjp.model.Upload;
-import com.xjp.service.MenuService;
+import java.io.FileInputStream;
+import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.servlet.http.HttpServletResponse;
+
 import net.sf.json.JSONObject;
+
 import org.apache.ibatis.session.RowBounds;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,17 +16,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.servlet.http.HttpServletResponse;
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.OutputStream;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import com.xjp.dao.ArticleMapper;
+import com.xjp.dao.ContactMapper;
+import com.xjp.dao.MenuMapper;
+import com.xjp.dao.SeoMapper;
+import com.xjp.dao.UploadMapper;
+import com.xjp.model.Article;
+import com.xjp.model.Contact;
+import com.xjp.model.Menu;
+import com.xjp.model.Seo;
+import com.xjp.model.Upload;
+import com.xjp.service.MenuService;
 
 /**
  * index.
@@ -61,7 +66,9 @@ public class IndexController {
     @SuppressWarnings("SpringJavaAutowiringInspection")
     @Autowired
     private ArticleMapper articleMapper;
-
+    
+    @Autowired
+    private SeoMapper seoMapper;
     /**
      * index.
      *
@@ -69,6 +76,13 @@ public class IndexController {
      */
     @RequestMapping(value = {"", "/index"})
     public String index(Model model) {
+    	Seo seo = new Seo();
+		List<Seo> list = seoMapper.selectAll();
+		
+		if(list.size()>0 && list!=null){
+			seo = list.get(0);
+		}
+		model.addAttribute("seo",seo);
         List<Menu> menus = menuMapper.selectAll();
         model.addAttribute("menus", menus);
         List<Upload> bigImages = uploadMapper.selectUploadByElementId(1);

@@ -24,13 +24,13 @@
 
     <!--生成实体类 -->
     <javaModelGenerator targetPackage="com.xjp.model"
-                        targetProject="C:\work\git\dobi-cms\cms-admin\src\main\java"/>
+                        targetProject="F:\git\dobi-cms\cms-admin\src\main\java"/>
 
     <sqlMapGenerator targetPackage="mapper"
-                     targetProject="C:\work\git\dobi-cms\cms-admin\src\main\resources"/>
+                     targetProject="F:\git\dobi-cms\cms-admin\src\main\resources"/>
 
     <javaClientGenerator targetPackage="com.xjp.dao"
-                         targetProject="C:\work\git\dobi-cms\cms-admin\src\main\java"
+                         targetProject="F:\git\dobi-cms\cms-admin\src\main\java"
                          type="XMLMAPPER"/>
 
     <table tableName="customer_message">

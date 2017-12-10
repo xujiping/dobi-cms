@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml" lang="zh-cn">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>文章列表</title>
+    <head th:include="inc/common :: head"></head>
+</head>
+<body>
+<div id="main">
+    <div style="padding: 100px 100px 10px;">
+        <form id="contact" class="bs-example bs-example-form" role="form" th:object="${seo}" >
+            <input name="id" th:value="*{id}" hidden="true"/>
+            <div class="form-group">
+                <label for="title">1、首页title设置：</label>
+                <input type="text" class="form-control" id="title" name="title" placeholder="请输入地址"
+                       th:value="*{title}"  />
+            </div>
+            <br/>
+            <div class="form-group">
+                <label for="keyword">2、Keyword 关键词设置：</label>
+                <input type="text" class="form-control" id="keyword" name="keyword" placeholder="请输入联系热线"
+                       th:value="*{keyword}" />
+            </div>
+            <div class="form-group">
+                <label for="description">3、Description描述设置：</label>
+                <input type="text" class="form-control" id="description" name="description" placeholder="请输入微信账号"
+                       th:value="*{description}"/>
+            </div>
+            
+            <div class="form-group">
+                <button type = "submit" class="btn-info btn-lg">提交更新</button>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+<div th:include="inc/common :: footer"></div>
+<script>
+    $("#contact").submit(function () {
+        $.ajax({
+            type: 'POST',
+            data: $(this).serialize(),
+            url: '/manage/seo/edit',
+            success: function () {
+                alert('提交成功');
+            },
+            error: function (xhr) {
+                alert('提交失败');
+            }
+        });
+        return false;
+    });
+</script>
+</html>

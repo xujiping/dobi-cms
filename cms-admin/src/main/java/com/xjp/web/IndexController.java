@@ -144,7 +144,7 @@ public class IndexController {
                                   int limit) {
         Article article = new Article();
         article.setType(type);
-        RowBounds rowBounds = new RowBounds(offset-1, limit);
+        RowBounds rowBounds = new RowBounds((offset-1) * limit, limit);
         List<Article> rows = articleMapper.selectByRowBounds(article, rowBounds);
         long total = articleMapper.selectCount(article);
         JSONObject json = new JSONObject();
